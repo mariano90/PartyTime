@@ -1,0 +1,3 @@
+class FiestaProgramada {
+    def tragos
+}

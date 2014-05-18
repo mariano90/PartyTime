@@ -1,0 +1,3 @@
+class QuickParty {
+    def lugarDeEncuentro
+}
