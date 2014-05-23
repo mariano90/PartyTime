@@ -1,3 +1,0 @@
-class QuickParty {
-    def meetingPoint
-}
