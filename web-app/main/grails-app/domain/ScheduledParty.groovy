@@ -1,0 +1,3 @@
+class ScheduledParty {
+    def drinks
+}

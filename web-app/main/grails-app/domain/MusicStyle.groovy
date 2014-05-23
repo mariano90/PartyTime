@@ -1,0 +1,3 @@
+class MusicStyle {
+    def name    
+}

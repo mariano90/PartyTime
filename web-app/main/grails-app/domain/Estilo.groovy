@@ -1,4 +1,0 @@
-class Estilo {
-    def nombre
-    
-}
