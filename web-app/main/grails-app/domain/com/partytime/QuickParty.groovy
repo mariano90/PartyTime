@@ -1,9 +1,8 @@
 package com.partytime
 
-class QuickParty {
+class QuickParty extends Party{
+    String meetingPoint
 
     static constraints = {
     }
-
-    def meetingPoint
 }

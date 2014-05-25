@@ -1,11 +1,15 @@
 package com.partytime
 
 class Review {
+    String title
+    String body
+    int score
+    User author
 
     static constraints = {
+        title blank: false, nullable: false
+        body blank: false, nullable: false
+        score range: 1..5
+        author nullable: false
     }
-
-    def body
-    def score // TODO: define contraints, maybe an int between 1 and 5
-    def author
 }
