@@ -1,6 +1,5 @@
 package com.partytime
 
 class AddressController {
-
-    def index() { }
+    static scaffold = true
 }

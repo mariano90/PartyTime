@@ -1,6 +1,5 @@
 package com.partytime
 
 class UserController {
-
-    def index() { }
+    static scaffold = true
 }

@@ -1,6 +1,5 @@
 package com.partytime
 
 class PartyController {
-
-    def index() { }
+    static scaffold = true
 }

@@ -1,6 +1,5 @@
 package com.partytime
 
 class IngredientController {
-
-    def index() { }
+    static scaffold = true
 }

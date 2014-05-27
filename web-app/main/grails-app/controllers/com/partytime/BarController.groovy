@@ -1,6 +1,5 @@
 package com.partytime
 
 class BarController {
-
-    def index() { }
+    static scaffold = true
 }

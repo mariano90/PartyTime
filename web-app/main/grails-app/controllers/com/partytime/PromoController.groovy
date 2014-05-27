@@ -1,6 +1,5 @@
 package com.partytime
 
 class PromoController {
-
-    def index() { }
+    static scaffold = true
 }

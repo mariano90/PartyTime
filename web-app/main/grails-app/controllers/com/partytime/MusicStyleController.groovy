@@ -1,6 +1,5 @@
 package com.partytime
 
 class MusicStyleController {
-
-    def index() { }
+    static scaffold = true
 }

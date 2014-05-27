@@ -1,6 +1,5 @@
 package com.partytime
 
 class ReviewController {
-
-    def index() { }
+    static scaffold = true
 }

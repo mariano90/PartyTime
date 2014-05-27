@@ -1,6 +1,5 @@
 package com.partytime
 
 class DrinkController {
-
-    def index() { }
+    static scaffold = com.partytime.Drink
 }
