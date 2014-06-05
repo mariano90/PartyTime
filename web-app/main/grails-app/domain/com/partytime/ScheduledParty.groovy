@@ -1,7 +1,7 @@
 package com.partytime
 
 class ScheduledParty {
-    Drink drinks
+    List<Drink> drinks
 
     static constraints = {
     }

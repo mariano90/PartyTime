@@ -3,9 +3,7 @@ package com.partytime
 class Party {
     User host
     Date date
-
-    User guests
-    // TODO: define as a list
+    List<User> guests
     // TODO: maybe split into confirmend, pending and not-going
 
     static constraints = {
