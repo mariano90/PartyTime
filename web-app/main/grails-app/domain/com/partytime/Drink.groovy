@@ -1,10 +1,12 @@
 package com.partytime
 
 class Drink {
-    String name
-    List<Component> components
-    String preparation // A description of how you prepare this drink.
+	String name
+	Set components = []
+	String preparation // A description of how you prepare this drink.
 
-    static constraints = {
-    }
+	static hasMany = [components: Component]
+
+	static constraints = {
+	}
 }

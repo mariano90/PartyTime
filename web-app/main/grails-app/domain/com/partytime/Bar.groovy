@@ -2,12 +2,14 @@ package com.partytime
 
 class Bar extends Place{
 	String name
-    String openHours
-    String promos
-    List<Review> reviews
-    static hasMany = [musicStyles: MusicStyle]
-    int minimumAge
+	String openHours
+	String promos
+	Set reviews = []
+	Set musicStyles = []
+	int minimumAge
 
-    static constraints = {
-    }
+	static hasMany = [ musicStyles: MusicStyle, reviews: Review]
+
+	static constraints = {
+	}
 }
