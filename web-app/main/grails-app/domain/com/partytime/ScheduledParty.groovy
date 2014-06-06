@@ -1,10 +1,12 @@
 package com.partytime
 
 class ScheduledParty {
-    List<Drink> drinks
+	Set drinks = []
 	User dj
 	User barman
 
-    static constraints = {
-    }
+	static hasMany = [ drinks: Drink ]
+
+	static constraints = {
+	}
 }

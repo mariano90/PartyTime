@@ -6,10 +6,11 @@ class NightClub extends Place {
 	String name
 	String openHours
 	String promos
-	List<Review> reviews
-	static hasMany = [musicStyles: MusicStyle]
+	Set reviews = []
 	int minimumAge
-	List<DanceFloor> danceFloors
+	Set musicStyles = []
+	
+	static hasMany = [musicStyles: MusicStyle, reviews: Review]
 	
     static constraints = {
     }
