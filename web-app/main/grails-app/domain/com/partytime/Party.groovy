@@ -1,6 +1,6 @@
 package com.partytime
 
-class Party {
+abstract class Party {
 	User host
 	Place place
 	String description
@@ -11,6 +11,10 @@ class Party {
 
 	static hasMany = [guests: User]
 
+	static mapping = {
+		tablePerHierarchy false
+	}
+	
 	static constraints = {
 		host nullable: false
 		place nullable: false
