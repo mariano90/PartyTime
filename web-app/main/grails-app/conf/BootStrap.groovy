@@ -3,43 +3,48 @@ import com.partytime.Drink
 import com.partytime.Ingredient
 import com.partytime.MusicStyle
 import com.partytime.Place
+import com.partytime.Promo
+import com.partytime.QuickParty
 import com.partytime.Review
 import com.partytime.User
 
 class BootStrap {
 
 	def init = { servletContext ->
-		Ingredient ingredient1 = new Ingredient(name: "Ingredient1", price: 1.0).save()
-		Ingredient ingredient2 = new Ingredient(name: "Ingredient2", price: 2.0).save()
-		Ingredient ingredient3 = new Ingredient(name: "Ingredient3", price: 3.0).save()
-		Ingredient ingredient4 = new Ingredient(name: "Ingredient4", price: 4.0).save()
-		Ingredient ingredient5 = new Ingredient(name: "Ingredient5", price: 5.0).save()
-		Ingredient ingredient6 = new Ingredient(name: "Ingredient6", price: 6.0).save()
-		Ingredient ingredient7 = new Ingredient(name: "Ingredient7", price: 7.0).save()
-		Ingredient ingredient8 = new Ingredient(name: "Ingredient8", price: 8.0).save()
-		Ingredient ingredient9 = new Ingredient(name: "Ingredient9", price: 9.0).save()
+		Ingredient botellaGancia = new Ingredient(name: "Botella de Gancia", price: 40.0).save()
+		Ingredient botellaSprite = new Ingredient(name: "Botella de Sprite", price: 10.0).save()
+		Ingredient botellaCoca = new Ingredient(name: "Botella de Coca Cola", price: 10.0).save()
+		Ingredient botellaFernet = new Ingredient(name: "Botella de Fernet", price: 60.0).save()
+		Ingredient botellaCerveza = new Ingredient(name: "Botella de Cerveza", price: 25.0).save()
+		Ingredient botellaVodka = new Ingredient(name: "Botella de Vodka", price: 80.0).save()
+		Ingredient lataEnergizante = new Ingredient(name: "Lata de energizante", price: 5.0).save()
+		Ingredient botellaJugo = new Ingredient(name: "Botella de Jugo", price: 8.0).save()
+		Ingredient botellaChampagne = new Ingredient(name: "Botella de Champagne", price: 120.0).save()
 
-		Component component11 = new Component(ingredient: ingredient1, amount: "1/2 Litro").save()
-		Component component12 = new Component(ingredient: ingredient1, amount: "1 Litro").save()
+		Component fernetAl20 = new Component(ingredient: botellaFernet, amount: "20% del vaso").save()
+		Component ganciaAl50 = new Component(ingredient: botellaGancia, amount: "50% del vaso").save()
+		Component cocaAl80 = new Component(ingredient: botellaCoca, amount: "80% del vaso").save()
+		Component spriteAl50 = new Component(ingredient: botellaSprite, amount: "50% del vaso").save()
+		Component cervezaAl100 = new Component(ingredient: botellaCerveza, amount: "todo el vaso").save()
+		Component vodkaAl50 = new Component(ingredient: botellaVodka, amount: "50% del vaso").save()
+		Component energizanteAl30 = new Component(ingredient: lataEnergizante, amount: "30% del vaso").save()
+		Component energizanteAl50 = new Component(ingredient: lataEnergizante, amount: "50% del vaso").save()
+		Component jugoAl20 = new Component(ingredient: botellaJugo, amount: "20% del vaso").save()
+		Component champagneAl70 = new Component(ingredient: botellaChampagne, amount: "70% del vaso").save()
 
-		Component component21 = new Component(ingredient: ingredient2, amount: "1/4 Litro").save()
-		Component component22 = new Component(ingredient: ingredient2, amount: "1/2 Litro").save()
-		Component component23 = new Component(ingredient: ingredient2, amount: "1 Litro").save()
-
-		Component component3 = new Component(ingredient: ingredient3, amount: "1 Litro").save()
-		Component component4 = new Component(ingredient: ingredient4, amount: "1 Litro").save()
-		Component component5 = new Component(ingredient: ingredient5, amount: "1 Litro").save()
-		Component component6 = new Component(ingredient: ingredient6, amount: "1 Litro").save()
-		Component component7 = new Component(ingredient: ingredient7, amount: "1 Litro").save()
-
-		Drink drink1 = new Drink(name: "drink1", components: [component11, component12], preparation:"batir todo").save()
-		Drink drink2 = new Drink(name: "drink2", components: [component21, component3], preparation:"batir todo").save()
-		Drink drink3 = new Drink(name: "drink3", components: [component21, component22], preparation:"batir todo").save()
-		Drink drink4 = new Drink(name: "drink4", components: [component7], preparation:"batir todo y agregar azucar").save()
-
+		Drink ganciaConSprite = new Drink(name: "Gancia con Sprite", components: [ganciaAl50, spriteAl50], preparation:"batir todo y agregar Azucar").save()
+		Drink fernetConCoca = new Drink(name: "Fernet con Coca", components: [fernetAl20, cocaAl80], preparation:"servir primero el Fernet").save()
+		Drink cerveza = new Drink(name: "Cerveza", components: [cervezaAl100], preparation:"servir despacio").save()
+		Drink fuegoSagrado = new Drink(name: "Fuego Sagrado", components: [vodkaAl50, energizanteAl50], preparation:"").save()
+		Drink tropicalEnergy = new Drink(name: "Tropical Energy", components: [vodkaAl50, energizanteAl30, jugoAl20], preparation:"").save()
+		Drink acidPsycho = new Drink(name: "Acid Psycho", components: [champagneAl70, energizanteAl30], preparation:"").save()
+		
 		MusicStyle musicStyleRock = new MusicStyle(name: "Rock").save()
 		MusicStyle musicStyleElectro = new MusicStyle(name: "Electro").save()
 		MusicStyle musicStyleReggaeton = new MusicStyle(name: "Reggaeton").save()
+		MusicStyle musicStyleCumbia = new MusicStyle(name: "Cumbia").save()
+		MusicStyle musicStyleUnder = new MusicStyle(name: "Under").save()
+		MusicStyle musicStyle80 = new MusicStyle(name: "80's").save()
 
 		User user1 = new User(name: "User1", bornDate: new Date()).save()
 		User user2 = new User(name: "User2", bornDate: new Date()).save()
@@ -49,9 +54,15 @@ class BootStrap {
 		Review review2 = new Review(title:"review2", body:"body2", score:4, author: user1).save()
 		Review review3 = new Review(title:"review3", body:"body3", score:5, author: user2).save()
 
-		Place place1 = new Place(name: "place1", minimumAge: 18, street: "Av Santa Fe", number:"1234", city:"CABA", reviews: [review1, review3]).save()
-		Place place2 = new Place(name: "place2", minimumAge: 18, street: "Av Santa Fe", number:"1111", city:"CABA", reviews: [review2]).save()
-		Place place3 = new Place(name: "place3", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: []).save()
+		Promo promo1 = new Promo(title: "2x1 en tragos seleccionados", description: "toda la noche", drink: fernetConCoca).save()
+
+		Place place1 = new Place(name: "Sabado fiestero", minimumAge: 18, street: "Av Santa Fe", number:"1234", city:"CABA", reviews: [review1, review3]).save()
+		Place place2 = new Place(name: "El rincon del mal", minimumAge: 18, street: "Av Santa Fe", number:"1111", city:"CABA", reviews: [review2]).save()
+		Place place3 = new Place(name: "Mucha-chica", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: []).save()
+
+		QuickParty quickparty1= new QuickParty(meetingPint: "La casa de Lito", host: user1, place: place1, description: "Mi cumple",startDateTime: new Date()).save()
+
+		//ScheduledParty scheduledParty1 = new ScheduledParty().save()
 	}
 	def destroy = {
 	}
