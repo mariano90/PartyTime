@@ -55,10 +55,11 @@ class BootStrap {
 		Review review3 = new Review(title:"review3", body:"body3", score:5, author: user2).save()
 
 		Promo promo1 = new Promo(title: "2x1 en tragos seleccionados", description: "toda la noche", drink: fernetConCoca).save()
+		Promo promo2 = new Promo(title: "Chicas gratis hasta 2:00 AM", description: "").save()
 
 		Place place1 = new Place(name: "Sabado fiestero", minimumAge: 18, street: "Av Santa Fe", number:"1234", city:"CABA", reviews: [review1, review3]).save()
-		Place place2 = new Place(name: "El rincon del mal", minimumAge: 18, street: "Av Santa Fe", number:"1111", city:"CABA", reviews: [review2]).save()
-		Place place3 = new Place(name: "Mucha-chica", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: []).save()
+		Place place2 = new Place(name: "El rincon del mal", minimumAge: 18, street: "Av Santa Fe", number:"1111", city:"CABA", reviews: [review2], promos: [promo1, promo2]).save()
+		Place place3 = new Place(name: "Mucha-chica", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: [], promos: [promo2]).save()
 
 		QuickParty quickparty1= new QuickParty(meetingPint: "La casa de Lito", host: user1, place: place1, description: "Mi cumple",startDateTime: new Date()).save()
 

@@ -12,6 +12,6 @@ class Drink {
 	}
 	
 	String toString(){
-		return "${name} (${components})"
+		return "${name}"
 	}
 }
