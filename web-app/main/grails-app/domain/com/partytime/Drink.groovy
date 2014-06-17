@@ -8,6 +8,7 @@ class Drink {
 	static hasMany = [components: Component]
 
 	static constraints = {
+		preparation blank: true, nullable: true
 	}
 	
 	String toString(){

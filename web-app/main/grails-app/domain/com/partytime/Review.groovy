@@ -14,6 +14,6 @@ class Review {
     }
 	
 	String toString(){
-		return "${title}(${score} of 5): ${body}"
+		return "${title}(${score}/5): ${body}"
 	}
 }

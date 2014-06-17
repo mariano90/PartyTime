@@ -1,11 +1,12 @@
 package com.partytime
 
 class QuickParty extends Party{
-    String meetingPoint
+	String meetingPoint
 
-    static constraints = {
-    }
-	
+	static constraints = {
+		meetingPoint blank: false, nullable: false
+	}
+
 	String toString(){
 		return "QuickParty ${meetingPoint}"
 	}

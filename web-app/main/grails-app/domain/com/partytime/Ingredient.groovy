@@ -8,6 +8,6 @@ class Ingredient {
     }
 	
 	String toString(){
-		return "${name}"
+		return "${name} (\$${price})" // TODO: format price like XXX.XX
 	}
 }

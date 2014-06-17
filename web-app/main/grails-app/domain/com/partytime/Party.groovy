@@ -11,18 +11,17 @@ abstract class Party {
 
 	static hasMany = [guests: User]
 
-	static mapping = {
-		tablePerHierarchy false
-	}
-	
+	static mapping = { tablePerHierarchy false }
+
 	static constraints = {
 		host nullable: false
 		place nullable: false
+		description blank:false, nullable: false
 		startDateTime nullable: false
-		finsishDateTime nullable: false
+		finsishDateTime nullable: true
 	}
-	
+
 	String toString(){
-		return "${host} @ ${place} on ${startDateTime}"
+		return "${description} @ ${place} el ${startDateTime} por ${host}"
 	}
 }

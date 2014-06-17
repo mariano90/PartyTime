@@ -1,15 +1,14 @@
 package com.partytime
 
-import java.util.Set;
 
 //abstract class Place {
 class Place {
 	String name
 	String openHours
-	String promos
-	Set reviews = []
 	int minimumAge
 	Set musicStyles = []
+	Set reviews = []
+	Set promos = []
 
 	String street
 	int number
@@ -29,12 +28,11 @@ class Place {
 		city blank: false, nullable: false
 		province blank: true, nullable: true
 		country blank: true, nullable: true
-		promos blank: true, nullable: true
 	}
 
 	//static mapping = { tablePerHierarchy false }
 
-	static hasMany = [ musicStyles: MusicStyle, reviews: Review]
+	static hasMany = [ musicStyles: MusicStyle, promos: Promo, reviews: Review]
 
 
 	String toString(){
