@@ -8,4 +8,8 @@ class Component {
         ingredient nullable: false
         amount blank: false, nullable: false
     }
+	
+	String toString(){
+		return "${ingredient} (${amount})"
+	}
 }

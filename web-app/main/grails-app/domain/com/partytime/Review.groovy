@@ -12,4 +12,8 @@ class Review {
         score range: 1..5
         author nullable: false
     }
+	
+	String toString(){
+		return "${title}(${score} of 5): ${body}"
+	}
 }

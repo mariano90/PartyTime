@@ -9,4 +9,8 @@ abstract class Place {
     
 	static constraints = {
     }
+	
+	String toString(){
+		return "${address}"
+	}
 }

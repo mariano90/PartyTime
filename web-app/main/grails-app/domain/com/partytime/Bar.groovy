@@ -12,4 +12,8 @@ class Bar extends Place{
 
 	static constraints = {
 	}
+	
+	String toString(){
+		return "${name} Bar"
+	}
 }

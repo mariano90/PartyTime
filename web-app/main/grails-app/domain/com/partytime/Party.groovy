@@ -21,4 +21,8 @@ abstract class Party {
 		startDateTime nullable: false
 		finsishDateTime nullable: false
 	}
+	
+	String toString(){
+		return "${host} @ ${place} on ${startDateTime}"
+	}
 }

@@ -5,4 +5,8 @@ class QuickParty extends Party{
 
     static constraints = {
     }
+	
+	String toString(){
+		return "QuickParty ${meetingPoint}"
+	}
 }

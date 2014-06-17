@@ -6,4 +6,8 @@ class Ingredient {
 
     static constraints = {
     }
+	
+	String toString(){
+		return "${name}"
+	}
 }

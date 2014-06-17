@@ -9,4 +9,8 @@ class Drink {
 
 	static constraints = {
 	}
+	
+	String toString(){
+		return "${name} (${components})"
+	}
 }

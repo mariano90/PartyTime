@@ -1,7 +1,5 @@
 package com.partytime
 
-import java.util.List;
-
 class NightClub extends Place {
 	String name
 	String openHours
@@ -14,4 +12,8 @@ class NightClub extends Place {
 	
     static constraints = {
     }
+	
+	String toString(){
+		return "${name} NightClub"
+	}
 }

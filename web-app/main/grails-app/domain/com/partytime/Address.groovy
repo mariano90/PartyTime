@@ -16,4 +16,8 @@ class Address {
         province blank: false, nullable: false
         country blank: false, nullable: false
     }
+	
+	String toString(){
+		return "${street} ${number}, ${city}"
+	}
 }

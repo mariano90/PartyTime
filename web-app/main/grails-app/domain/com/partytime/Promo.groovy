@@ -10,4 +10,8 @@ class Promo {
         title(blank: false, nullable: false)
         description(blank: false, nullable: false)
     }
+	
+	String toString(){
+		return "${title} (${description})"
+	}
 }

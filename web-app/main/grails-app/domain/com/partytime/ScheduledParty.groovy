@@ -9,4 +9,8 @@ class ScheduledParty {
 
 	static constraints = {
 	}
+	
+	String toString(){
+		return "ScheduledParty ${dj} ${barman}"
+	}
 }
