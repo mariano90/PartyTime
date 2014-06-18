@@ -9,7 +9,7 @@ class User {
 	static hasMany = [preferedMusicStyles: MusicStyle, preferedDrinks: Drink]
 
 	static constraints = {
-		name blank: false, nullable: false
+		name blank: false, nullable: false, unique: true
 	}
 	
 	String toString(){

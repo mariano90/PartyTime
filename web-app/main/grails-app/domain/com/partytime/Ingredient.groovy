@@ -5,6 +5,7 @@ class Ingredient {
     Float price
 
     static constraints = {
+		name unique: true
     }
 	
 	String toString(){

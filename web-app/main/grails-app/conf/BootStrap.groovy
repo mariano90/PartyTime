@@ -54,7 +54,7 @@ class BootStrap {
 		MusicStyle musicStyleUnder = new MusicStyle(name: "Under").save(failOnError: true)
 		MusicStyle musicStyle80 = new MusicStyle(name: "80's").save(failOnError: true)
 
-		User user1 = new User(name: "User1", bornDate: new Date()).save(failOnError: true)
+		User user1 = new User(name: "Fabricio", bornDate: new Date()).save(failOnError: true)
 		User user2 = new User(name: "User2", bornDate: new Date()).save(failOnError: true)
 		User user3 = new User(name: "User3", bornDate: new Date()).save(failOnError: true)
 
@@ -72,9 +72,7 @@ class BootStrap {
 		QuickParty quickParty1 = new QuickParty(meetingPoint: "La casa de Lito", host: user1, place: place1, description: "Mi cumple", startDateTime: new Date()).save(failOnError: true)
 		QuickParty quickParty2 = new QuickParty(meetingPoint: "La puerta del Dunkue", host: user2, place: place2, description: "Festejemos que estamos vivos", startDateTime: new Date()).save(failOnError: true)
 
-		ScheduledParty scheduledParty1 = new ScheduledParty(drinks: [], dj: user3, barman:user2, host: user3, place: place2, description: "", startDateTime: new Date()).save(failOnError: true)
-
-		//ScheduledParty scheduledParty1 = new ScheduledParty().save()
+		ScheduledParty scheduledParty1 = new ScheduledParty(drinks: [], dj: user3, barman:user2, host: user3, place: place2, description: "Despedida de solteros", startDateTime: new Date()).save(failOnError: true)
 	}
 	def destroy = {
 	}

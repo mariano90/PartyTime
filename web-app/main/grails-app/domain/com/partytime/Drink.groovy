@@ -8,6 +8,7 @@ class Drink {
 	static hasMany = [components: Component]
 
 	static constraints = {
+		name unique: true
 		preparation blank: true, nullable: true
 	}
 	
