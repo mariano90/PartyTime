@@ -1,6 +1,6 @@
 package com.partytime
 
-class ScheduledParty {
+class ScheduledParty extends Party {
 	Set drinks = []
 	User dj
 	User barman
@@ -8,9 +8,12 @@ class ScheduledParty {
 	static hasMany = [ drinks: Drink ]
 
 	static constraints = {
+		drinks nullable: true
+		dj nullable: true
+		barman nullable: true
 	}
-	
+
 	String toString(){
-		return "ScheduledParty ${dj} ${barman}"
+		return "ScheduledParty ${host} el ${startDate} (${dj} ${barman})"
 	}
 }
