@@ -68,7 +68,7 @@ class BootStrap {
 		Place place2 = new Place(name: "El rincon del mal", minimumAge: 18, street: "Av Santa Fe", number:"1111", city:"CABA", reviews: [review2], promos: [promo1, promo2]).save(failOnError: true)
 		Place place3 = new Place(name: "Mucha-chica", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: [], promos: [promo2]).save(failOnError: true)
 
-		QuickParty quickparty1= new QuickParty(meetingPint: "La casa de Lito", host: user1, place: place1, description: "Mi cumple",startDateTime: new Date()).save()
+		QuickParty quickparty1= new QuickParty(meetingPoint: "La casa de Lito", host: user1, place: place1, description: "Mi cumple",startDateTime: new Date()).save(failOnError: true)
 
 		//ScheduledParty scheduledParty1 = new ScheduledParty().save()
 	}
