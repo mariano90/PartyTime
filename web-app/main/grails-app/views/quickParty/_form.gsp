@@ -16,25 +16,7 @@
 		<g:message code="quickParty.place.label" default="Place" />
 		<span class="required-indicator">*</span>
 	</label>
-	
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: quickPartyInstance, field: 'startDateTime', 'error')} required">
-	<label for="startDateTime">
-		<g:message code="quickParty.startDateTime.label" default="Start Date Time" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="startDateTime" precision="day"  value="${quickPartyInstance?.startDateTime}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: quickPartyInstance, field: 'finsishDateTime', 'error')} required">
-	<label for="finsishDateTime">
-		<g:message code="quickParty.finsishDateTime.label" default="Finsish Date Time" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="finsishDateTime" precision="day"  value="${quickPartyInstance?.finsishDateTime}"  />
+	<g:select id="place" name="place.id" from="${com.partytime.Place.list()}" optionKey="id" required="" value="${quickPartyInstance?.place?.id}" class="many-to-one"/>
 
 </div>
 
@@ -47,12 +29,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: quickPartyInstance, field: 'guests', 'error')} ">
-	<label for="guests">
-		<g:message code="quickParty.guests.label" default="Guests" />
+<div class="fieldcontain ${hasErrors(bean: quickPartyInstance, field: 'startDateTime', 'error')} required">
+	<label for="startDateTime">
+		<g:message code="quickParty.startDateTime.label" default="Start Date Time" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:datePicker name="startDateTime" precision="day"  value="${quickPartyInstance?.startDateTime}"  />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: quickPartyInstance, field: 'finsishDateTime', 'error')} ">
+	<label for="finsishDateTime">
+		<g:message code="quickParty.finsishDateTime.label" default="Finsish Date Time" />
 		
 	</label>
-	<g:select name="guests" from="${com.partytime.User.list()}" multiple="multiple" optionKey="id" size="5" value="${quickPartyInstance?.guests*.id}" class="many-to-many"/>
+	<g:datePicker name="finsishDateTime" precision="day"  value="${quickPartyInstance?.finsishDateTime}" default="none" noSelection="['': '']" />
 
 </div>
 
@@ -62,6 +53,15 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="meetingPoint" required="" value="${quickPartyInstance?.meetingPoint}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: quickPartyInstance, field: 'guests', 'error')} ">
+	<label for="guests">
+		<g:message code="quickParty.guests.label" default="Guests" />
+		
+	</label>
+	<g:select name="guests" from="${com.partytime.User.list()}" multiple="multiple" optionKey="id" size="5" value="${quickPartyInstance?.guests*.id}" class="many-to-many"/>
 
 </div>
 

@@ -23,11 +23,13 @@
 			</g:if>
 			<ol class="property-list scheduledParty">
 			
-				<g:if test="${scheduledPartyInstance?.barman}">
+				<g:if test="${scheduledPartyInstance?.drinks}">
 				<li class="fieldcontain">
-					<span id="barman-label" class="property-label"><g:message code="scheduledParty.barman.label" default="Barman" /></span>
+					<span id="drinks-label" class="property-label"><g:message code="scheduledParty.drinks.label" default="Drinks" /></span>
 					
-						<span class="property-value" aria-labelledby="barman-label"><g:link controller="user" action="show" id="${scheduledPartyInstance?.barman?.id}">${scheduledPartyInstance?.barman?.encodeAsHTML()}</g:link></span>
+						<g:each in="${scheduledPartyInstance.drinks}" var="d">
+						<span class="property-value" aria-labelledby="drinks-label"><g:link controller="drink" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>
@@ -41,13 +43,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${scheduledPartyInstance?.drinks}">
+				<g:if test="${scheduledPartyInstance?.barman}">
 				<li class="fieldcontain">
-					<span id="drinks-label" class="property-label"><g:message code="scheduledParty.drinks.label" default="Drinks" /></span>
+					<span id="barman-label" class="property-label"><g:message code="scheduledParty.barman.label" default="Barman" /></span>
 					
-						<g:each in="${scheduledPartyInstance.drinks}" var="d">
-						<span class="property-value" aria-labelledby="drinks-label"><g:link controller="drink" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></span>
-						</g:each>
+						<span class="property-value" aria-labelledby="barman-label"><g:link controller="user" action="show" id="${scheduledPartyInstance?.barman?.id}">${scheduledPartyInstance?.barman?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

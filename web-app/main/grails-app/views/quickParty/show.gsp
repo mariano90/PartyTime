@@ -36,7 +36,16 @@
 				<li class="fieldcontain">
 					<span id="place-label" class="property-label"><g:message code="quickParty.place.label" default="Place" /></span>
 					
-						<span class="property-value" aria-labelledby="place-label"><g:fieldValue bean="${quickPartyInstance}" field="place"/></span>
+						<span class="property-value" aria-labelledby="place-label"><g:link controller="place" action="show" id="${quickPartyInstance?.place?.id}">${quickPartyInstance?.place?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${quickPartyInstance?.description}">
+				<li class="fieldcontain">
+					<span id="description-label" class="property-label"><g:message code="quickParty.description.label" default="Description" /></span>
+					
+						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${quickPartyInstance}" field="description"/></span>
 					
 				</li>
 				</g:if>
@@ -59,11 +68,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${quickPartyInstance?.description}">
+				<g:if test="${quickPartyInstance?.meetingPoint}">
 				<li class="fieldcontain">
-					<span id="description-label" class="property-label"><g:message code="quickParty.description.label" default="Description" /></span>
+					<span id="meetingPoint-label" class="property-label"><g:message code="quickParty.meetingPoint.label" default="Meeting Point" /></span>
 					
-						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${quickPartyInstance}" field="description"/></span>
+						<span class="property-value" aria-labelledby="meetingPoint-label"><g:fieldValue bean="${quickPartyInstance}" field="meetingPoint"/></span>
 					
 				</li>
 				</g:if>
@@ -75,15 +84,6 @@
 						<g:each in="${quickPartyInstance.guests}" var="g">
 						<span class="property-value" aria-labelledby="guests-label"><g:link controller="user" action="show" id="${g.id}">${g?.encodeAsHTML()}</g:link></span>
 						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${quickPartyInstance?.meetingPoint}">
-				<li class="fieldcontain">
-					<span id="meetingPoint-label" class="property-label"><g:message code="quickParty.meetingPoint.label" default="Meeting Point" /></span>
-					
-						<span class="property-value" aria-labelledby="meetingPoint-label"><g:fieldValue bean="${quickPartyInstance}" field="meetingPoint"/></span>
 					
 				</li>
 				</g:if>

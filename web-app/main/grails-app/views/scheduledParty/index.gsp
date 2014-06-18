@@ -24,9 +24,9 @@
 			<thead>
 					<tr>
 					
-						<th><g:message code="scheduledParty.barman.label" default="Barman" /></th>
-					
 						<th><g:message code="scheduledParty.dj.label" default="Dj" /></th>
+					
+						<th><g:message code="scheduledParty.barman.label" default="Barman" /></th>
 					
 					</tr>
 				</thead>
@@ -34,9 +34,9 @@
 				<g:each in="${scheduledPartyInstanceList}" status="i" var="scheduledPartyInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${scheduledPartyInstance.id}">${fieldValue(bean: scheduledPartyInstance, field: "barman")}</g:link></td>
+						<td><g:link action="show" id="${scheduledPartyInstance.id}">${fieldValue(bean: scheduledPartyInstance, field: "dj")}</g:link></td>
 					
-						<td>${fieldValue(bean: scheduledPartyInstance, field: "dj")}</td>
+						<td>${fieldValue(bean: scheduledPartyInstance, field: "barman")}</td>
 					
 					</tr>
 				</g:each>

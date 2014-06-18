@@ -26,13 +26,13 @@
 					
 						<th><g:message code="quickParty.host.label" default="Host" /></th>
 					
-						<g:sortableColumn property="place" title="${message(code: 'quickParty.place.label', default: 'Place')}" />
+						<th><g:message code="quickParty.place.label" default="Place" /></th>
+					
+						<g:sortableColumn property="description" title="${message(code: 'quickParty.description.label', default: 'Description')}" />
 					
 						<g:sortableColumn property="startDateTime" title="${message(code: 'quickParty.startDateTime.label', default: 'Start Date Time')}" />
 					
 						<g:sortableColumn property="finsishDateTime" title="${message(code: 'quickParty.finsishDateTime.label', default: 'Finsish Date Time')}" />
-					
-						<g:sortableColumn property="description" title="${message(code: 'quickParty.description.label', default: 'Description')}" />
 					
 						<g:sortableColumn property="meetingPoint" title="${message(code: 'quickParty.meetingPoint.label', default: 'Meeting Point')}" />
 					
@@ -46,11 +46,11 @@
 					
 						<td>${fieldValue(bean: quickPartyInstance, field: "place")}</td>
 					
+						<td>${fieldValue(bean: quickPartyInstance, field: "description")}</td>
+					
 						<td><g:formatDate date="${quickPartyInstance.startDateTime}" /></td>
 					
 						<td><g:formatDate date="${quickPartyInstance.finsishDateTime}" /></td>
-					
-						<td>${fieldValue(bean: quickPartyInstance, field: "description")}</td>
 					
 						<td>${fieldValue(bean: quickPartyInstance, field: "meetingPoint")}</td>
 					
