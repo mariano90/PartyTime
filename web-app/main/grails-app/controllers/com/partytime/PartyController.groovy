@@ -1,12 +1,4 @@
-package com.partytime
 
-
-
-import static org.springframework.http.HttpStatus.*
-import grails.transaction.Transactional
-
-@Transactional(readOnly = true)
-class PartyController {
 /*
  def index() {
 		User user = User.findById(params.user)
@@ -26,7 +18,63 @@ class PartyController {
 
 	def save() {
 		render "TODO: new party was saved"
+		boolean isQuickParty = true
+
+		// TODO fetch all this
+		String description = ""
+		User owner = null
+		Date startDate = null
+		Date endDate = null
+		Set guests = []
+		Place place = null
+
+		if (isQuickParty) {
+			// TODO fetch
+			String meetingPoint = null
+			new QuickParty(meetingPoint: meetingPoint).save()
+		} else {
+			// TODO fetch
+			Set drinks = []
+			// TODO fetch
+			User dj = null // TODO check availability on selection
+			// TODO fetch
+			User barman = null // TODO check availability on selection
+			new ScheduledParty(drinks: drinks, dj: dj, barman:barman).save()
+		}
+		render "new party was saved"
 	}
+
+ */
+package com.partytime
+
+// def partyService
+
+import static org.springframework.http.HttpStatus.*
+import grails.transaction.Transactional
+
+@Transactional(readOnly = true)
+class PartyController {
+/*
+ def index() {
+       User user = User.findById(params.user)
+       //render "All parties of ${user}<br/>"
+       Set parties = Party.findAllWhere("host": user)
+       //render "${parties}"
+    }
+
+    def create() {
+       User user = User.findById(params.user)
+boolean isQuickParty = true
+       render "hola"
+   }
+
+   def edit() {
+       render "TODO: edit party"
+    }
+
+   def save() {
+       render "TODO: new party was saved"
+    }
  */
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -120,4 +168,11 @@ class PartyController {
             '*'{ render status: NOT_FOUND }
         }
     }
-}
+
+def all() {
+       User user = User.findByName("Fabricio")
+        render user
+    }
+
+ }
+
