@@ -17,7 +17,12 @@ class PartyController {
 	def show(Party partyInstance) {
 		respond partyInstance
 	}
-	
+
+	/**
+	 * Allows the user to create a new party. It's not the same as the method
+	 * create were the admin is the only one that can use it.
+	 * @return
+	 */
 	def organize() {
 		render "TODO: PartyController implement method organize"
 	}
