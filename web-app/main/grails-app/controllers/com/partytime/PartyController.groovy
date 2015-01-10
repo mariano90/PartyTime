@@ -17,6 +17,10 @@ class PartyController {
 	def show(Party partyInstance) {
 		respond partyInstance
 	}
+	
+	def organize() {
+		render "TODO: PartyController implement method organize"
+	}
 
 	def create() {
 	}
