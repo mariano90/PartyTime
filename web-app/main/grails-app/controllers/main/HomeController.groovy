@@ -3,6 +3,6 @@ package main
 class HomeController {
 
     def index() {
-        render "Hola mundo"
+		render view:"home.gsp"
     }
 }
