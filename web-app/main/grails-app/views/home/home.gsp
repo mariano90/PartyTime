@@ -77,8 +77,16 @@ p {
 <body>
 	<div class="nav" role="navigation">
 		<ul>
-			<li><a class="home" href="${createLink(uri: '/')}"><g:message
+			<li><a class="home" href="${createLink(uri: '/home/index')}"><g:message
 						code="default.home.label" /></a></li>
+			<li><g:link class="create" controller="Party" action="organize">
+					<g:message code="New Party" />
+				</g:link></li>
+			<li><g:link class="list" controller="News" action="index">
+					<g:message code="News" />
+				</g:link></li>
+			<li><a class="home" href="${createLink(uri: '/')}"><g:message
+						code="Debug Tools" /></a></li>
 		</ul>
 	</div>
 	<div id="page-body" role="main">
