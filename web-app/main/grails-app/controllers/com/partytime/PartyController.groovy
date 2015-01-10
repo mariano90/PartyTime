@@ -1,49 +1,43 @@
 
 /*
  def index() {
-		User user = User.findById(params.user)
-		//render "All parties of ${user}<br/>"
-		Set parties = Party.findAllWhere("host": user)
-		//render "${parties}"
-	}
-
-	def create() {
-		User user = User.findById(params.user)
-		render "hola"
-	}
-
-	def edit() {
-		render "TODO: edit party"
-	}
-
-	def save() {
-		render "TODO: new party was saved"
-		boolean isQuickParty = true
-
-		// TODO fetch all this
-		String description = ""
-		User owner = null
-		Date startDate = null
-		Date endDate = null
-		Set guests = []
-		Place place = null
-
-		if (isQuickParty) {
-			// TODO fetch
-			String meetingPoint = null
-			new QuickParty(meetingPoint: meetingPoint).save()
-		} else {
-			// TODO fetch
-			Set drinks = []
-			// TODO fetch
-			User dj = null // TODO check availability on selection
-			// TODO fetch
-			User barman = null // TODO check availability on selection
-			new ScheduledParty(drinks: drinks, dj: dj, barman:barman).save()
-		}
-		render "new party was saved"
-	}
-
+ User user = User.findById(params.user)
+ //render "All parties of ${user}<br/>"
+ Set parties = Party.findAllWhere("host": user)
+ //render "${parties}"
+ }
+ def create() {
+ User user = User.findById(params.user)
+ render "hola"
+ }
+ def edit() {
+ render "TODO: edit party"
+ }
+ def save() {
+ render "TODO: new party was saved"
+ boolean isQuickParty = true
+ // TODO fetch all this
+ String description = ""
+ User owner = null
+ Date startDate = null
+ Date endDate = null
+ Set guests = []
+ Place place = null
+ if (isQuickParty) {
+ // TODO fetch
+ String meetingPoint = null
+ new QuickParty(meetingPoint: meetingPoint).save()
+ } else {
+ // TODO fetch
+ Set drinks = []
+ // TODO fetch
+ User dj = null // TODO check availability on selection
+ // TODO fetch
+ User barman = null // TODO check availability on selection
+ new ScheduledParty(drinks: drinks, dj: dj, barman:barman).save()
+ }
+ render "new party was saved"
+ }
  */
 package com.partytime
 
@@ -52,127 +46,134 @@ package com.partytime
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
+
 class PartyController {
-/*
- def index() {
-       User user = User.findById(params.user)
-       //render "All parties of ${user}<br/>"
-       Set parties = Party.findAllWhere("host": user)
-       //render "${parties}"
-    }
+	/*
+	 def index() {
+	 User user = User.findById(params.user)
+	 //render "All parties of ${user}<br/>"
+	 Set parties = Party.findAllWhere("host": user)
+	 //render "${parties}"
+	 }
+	 def create() {
+	 User user = User.findById(params.user)
+	 boolean isQuickParty = true
+	 render "hola"
+	 }
+	 def edit() {
+	 render "TODO: edit party"
+	 }
+	 def save() {
+	 render "TODO: new party was saved"
+	 }
+	 */
+	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def create() {
-       User user = User.findById(params.user)
-boolean isQuickParty = true
-       render "hola"
-   }
+	def index(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		respond Party.list(params), model:[partyInstanceCount: Party.count()]
+	}
 
-   def edit() {
-       render "TODO: edit party"
-    }
+	def show(Party partyInstance) {
+		respond partyInstance
+	}
 
-   def save() {
-       render "TODO: new party was saved"
-    }
- */
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	def create() {
+	}
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Party.list(params), model:[partyInstanceCount: Party.count()]
-    }
+	@Transactional
+	def save(Party partyInstance) {
+		if (partyInstance == null) {
+			notFound()
+			return
+		}
 
-    def show(Party partyInstance) {
-        respond partyInstance
-    }
+		if (partyInstance.hasErrors()) {
+			respond partyInstance.errors, view:'create'
+			return
+		}
 
-    def create() {
-    }
+		partyInstance.save flush:true
 
-    @Transactional
-    def save(Party partyInstance) {
-        if (partyInstance == null) {
-            notFound()
-            return
-        }
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.created.message', args: [
+					message(code: 'party.label', default: 'Party'),
+					partyInstance.id
+				])
+				redirect partyInstance
+			}
+			'*' { respond partyInstance, [status: CREATED] }
+		}
+	}
 
-        if (partyInstance.hasErrors()) {
-            respond partyInstance.errors, view:'create'
-            return
-        }
+	def edit(Party partyInstance) {
+		respond partyInstance
+	}
 
-        partyInstance.save flush:true
+	def update(Party partyInstance) {
+		if (partyInstance == null) {
+			notFound()
+			return
+		}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'party.label', default: 'Party'), partyInstance.id])
-                redirect partyInstance
-            }
-            '*' { respond partyInstance, [status: CREATED] }
-        }
-    }
+		if (partyInstance.hasErrors()) {
+			respond partyInstance.errors, view:'edit'
+			return
+		}
 
-    def edit(Party partyInstance) {
-        respond partyInstance
-    }
+		partyInstance.save flush:true
 
-    @Transactional
-    def update(Party partyInstance) {
-        if (partyInstance == null) {
-            notFound()
-            return
-        }
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.updated.message', args: [
+					message(code: 'Party.label', default: 'Party'),
+					partyInstance.id
+				])
+				redirect partyInstance
+			}
+			'*'{ respond partyInstance, [status: OK] }
+		}
+	}
 
-        if (partyInstance.hasErrors()) {
-            respond partyInstance.errors, view:'edit'
-            return
-        }
+	def delete(Party partyInstance) {
 
-        partyInstance.save flush:true
+		if (partyInstance == null) {
+			notFound()
+			return
+		}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Party.label', default: 'Party'), partyInstance.id])
-                redirect partyInstance
-            }
-            '*'{ respond partyInstance, [status: OK] }
-        }
-    }
+		partyInstance.delete flush:true
 
-    @Transactional
-    def delete(Party partyInstance) {
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.deleted.message', args: [
+					message(code: 'Party.label', default: 'Party'),
+					partyInstance.id
+				])
+				redirect action:"index", method:"GET"
+			}
+			'*'{ render status: NO_CONTENT }
+		}
+	}
 
-        if (partyInstance == null) {
-            notFound()
-            return
-        }
+	protected void notFound() {
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.not.found.message', args: [
+					message(code: 'party.label', default: 'Party'),
+					params.id
+				])
+				redirect action: "index", method: "GET"
+			}
+			'*'{ render status: NOT_FOUND }
+		}
+	}
 
-        partyInstance.delete flush:true
+	def all() {
+		User user = User.findByName("Fabricio")
+		render user
+	}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Party.label', default: 'Party'), partyInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'party.label', default: 'Party'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
-
-def all() {
-       User user = User.findByName("Fabricio")
-        render user
-    }
-
- }
+}
 
