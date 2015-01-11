@@ -29,6 +29,11 @@ class PartyController {
 
 	def create() {
 	}
+	
+	def showList(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		respond Party.list(params), model:[partyInstanceCount: Party.count()]
+	}
 
 	@Transactional
 	def save(Party partyInstance) {
