@@ -9,6 +9,10 @@ import grails.transaction.Transactional
 class DrinkController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	
+	def favourite(){
+		render "TODO: DrinkController implement favourite page, permite elegir mis tragos favoritos"
+	}
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
