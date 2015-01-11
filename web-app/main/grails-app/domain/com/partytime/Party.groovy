@@ -1,6 +1,6 @@
 package com.partytime
 
-abstract class Party {
+class Party {
 	User host
 	Place place
 	String description
