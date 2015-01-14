@@ -1,3 +1,5 @@
+import com.grailsrocks.authentication.AuthenticationUser
+import com.grailsrocks.authentication.AuthenticationService
 import com.partytime.Component
 import com.partytime.Drink
 import com.partytime.Ingredient
@@ -54,6 +56,8 @@ class BootStrap {
 
 		User userf = new User(name: "fabricio", bornDate: new Date()).save(failOnError: true)
 		// TODO: link mode users with plugin authentication users.
+//		assert new AuthenticationUser( login:'fabricio', password:'123456'.encodeAsMD5(), email:'someone@somewhere.com',
+//		status:AuthenticationService.STATUS_VALID).save()
 		User userm = new User(name: "mariano", bornDate: new Date()).save(failOnError: true)
 		User user1 = new User(name: "user1", bornDate: new Date()).save(failOnError: true)
 		User user2 = new User(name: "user2", bornDate: new Date()).save(failOnError: true)

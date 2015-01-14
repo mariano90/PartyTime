@@ -45,6 +45,8 @@ grails.views.default.codec = "html"
 // If unspecified, controllers are prototype scoped.
 grails.controllers.defaultScope = 'singleton'
 
+grails.validateable.classes = [com.grailsrocks.authentication.SignupForm, com.grailsrocks.authentication.LoginForm]
+
 // GSP settings
 grails {
     views {
