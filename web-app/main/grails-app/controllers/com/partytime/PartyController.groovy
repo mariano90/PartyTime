@@ -17,6 +17,12 @@ class PartyController {
 	def show(Party partyInstance) {
 		respond partyInstance
 	}
+		
+	def showList(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		//respond Party.list(params), model:[partyInstanceCount: Party.count()]
+		render "TODO: PartyController implement showList"
+	}
 
 	/**
 	 * Allows the user to create a new party. It's not the same as the method
