@@ -28,14 +28,15 @@ class PartyController {
 	/**
 	 * Allows the user to create a new party. It's not the same as the method
 	 * create were the admin is the only one that can use it.
-	 * @return
 	 */
 	def organize() {
-		render "TODO: PartyController implement method organize"
 		//params.max = 10
 		//respond Party.list(params), model:[partyInstanceCount: Party.count()]
 	}
 
+	/**
+	 * Is executed when the user does hit the button for saving an instance of a party.
+	 */
 	def organizeNew() {
 		render "TODO: implement the save"
 	}
