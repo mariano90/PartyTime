@@ -41,11 +41,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${partyInstance?.description}">
+				<g:if test="${partyInstance?.title}">
 				<li class="fieldcontain">
-					<span id="description-label" class="property-label"><g:message code="party.description.label" default="Description" /></span>
+					<span id="title-label" class="property-label"><g:message code="party.title.label" default="Title" /></span>
 					
-						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${partyInstance}" field="description"/></span>
+						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${partyInstance}" field="title"/></span>
 					
 				</li>
 				</g:if>
@@ -64,6 +64,15 @@
 					<span id="finsishDateTime-label" class="property-label"><g:message code="party.finsishDateTime.label" default="Finsish Date Time" /></span>
 					
 						<span class="property-value" aria-labelledby="finsishDateTime-label"><g:formatDate date="${partyInstance?.finsishDateTime}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${partyInstance?.description}">
+				<li class="fieldcontain">
+					<span id="description-label" class="property-label"><g:message code="party.description.label" default="Description" /></span>
+					
+						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${partyInstance}" field="description"/></span>
 					
 				</li>
 				</g:if>

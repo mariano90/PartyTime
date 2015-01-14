@@ -28,11 +28,13 @@
 					
 						<th><g:message code="party.place.label" default="Place" /></th>
 					
-						<g:sortableColumn property="description" title="${message(code: 'party.description.label', default: 'Description')}" />
+						<g:sortableColumn property="title" title="${message(code: 'party.title.label', default: 'Title')}" />
 					
 						<g:sortableColumn property="startDateTime" title="${message(code: 'party.startDateTime.label', default: 'Start Date Time')}" />
 					
 						<g:sortableColumn property="finsishDateTime" title="${message(code: 'party.finsishDateTime.label', default: 'Finsish Date Time')}" />
+					
+						<g:sortableColumn property="description" title="${message(code: 'party.description.label', default: 'Description')}" />
 					
 					</tr>
 				</thead>
@@ -44,11 +46,13 @@
 					
 						<td>${fieldValue(bean: partyInstance, field: "place")}</td>
 					
-						<td>${fieldValue(bean: partyInstance, field: "description")}</td>
+						<td>${fieldValue(bean: partyInstance, field: "title")}</td>
 					
 						<td><g:formatDate date="${partyInstance.startDateTime}" /></td>
 					
 						<td><g:formatDate date="${partyInstance.finsishDateTime}" /></td>
+					
+						<td>${fieldValue(bean: partyInstance, field: "description")}</td>
 					
 					</tr>
 				</g:each>

@@ -1,23 +1,14 @@
 package com.partytime
 
-// def partyService
+
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
-import com.partytime.User
 
-
+@Transactional(readOnly = true)
 class PartyController {
-	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-	def index(Integer max) {
-		params.max = Math.min(max ?: 10, 100)
-		respond Party.list(params), model:[partyInstanceCount: Party.count()]
-	}
-
-	def show(Party partyInstance) {
-		respond partyInstance
-	}
+    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	def showList(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
@@ -41,102 +32,96 @@ class PartyController {
 		render "TODO: implement the save"
 	}
 
-	def create() {
-	}
+	
+    def index(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        respond Party.list(params), model:[partyInstanceCount: Party.count()]
+    }
 
-	@Transactional
-	def save(Party partyInstance) {
-		if (partyInstance == null) {
-			notFound()
-			return
-		}
+    def show(Party partyInstance) {
+        respond partyInstance
+    }
 
-		if (partyInstance.hasErrors()) {
-			respond partyInstance.errors, view:'create'
-			return
-		}
+    def create() {
+        respond new Party(params)
+    }
 
-		partyInstance.save flush:true
+    @Transactional
+    def save(Party partyInstance) {
+        if (partyInstance == null) {
+            notFound()
+            return
+        }
 
-		request.withFormat {
-			form multipartForm {
-				flash.message = message(code: 'default.created.message', args: [
-					message(code: 'party.label', default: 'Party'),
-					partyInstance.id
-				])
-				redirect partyInstance
-			}
-			'*' { respond partyInstance, [status: CREATED] }
-		}
-	}
+        if (partyInstance.hasErrors()) {
+            respond partyInstance.errors, view:'create'
+            return
+        }
 
-	def edit(Party partyInstance) {
-		respond partyInstance
-	}
+        partyInstance.save flush:true
 
-	def update(Party partyInstance) {
-		if (partyInstance == null) {
-			notFound()
-			return
-		}
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.created.message', args: [message(code: 'party.label', default: 'Party'), partyInstance.id])
+                redirect partyInstance
+            }
+            '*' { respond partyInstance, [status: CREATED] }
+        }
+    }
 
-		if (partyInstance.hasErrors()) {
-			respond partyInstance.errors, view:'edit'
-			return
-		}
+    def edit(Party partyInstance) {
+        respond partyInstance
+    }
 
-		partyInstance.save flush:true
+    @Transactional
+    def update(Party partyInstance) {
+        if (partyInstance == null) {
+            notFound()
+            return
+        }
 
-		request.withFormat {
-			form multipartForm {
-				flash.message = message(code: 'default.updated.message', args: [
-					message(code: 'Party.label', default: 'Party'),
-					partyInstance.id
-				])
-				redirect partyInstance
-			}
-			'*'{ respond partyInstance, [status: OK] }
-		}
-	}
+        if (partyInstance.hasErrors()) {
+            respond partyInstance.errors, view:'edit'
+            return
+        }
 
-	def delete(Party partyInstance) {
+        partyInstance.save flush:true
 
-		if (partyInstance == null) {
-			notFound()
-			return
-		}
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'Party.label', default: 'Party'), partyInstance.id])
+                redirect partyInstance
+            }
+            '*'{ respond partyInstance, [status: OK] }
+        }
+    }
 
-		partyInstance.delete flush:true
+    @Transactional
+    def delete(Party partyInstance) {
 
-		request.withFormat {
-			form multipartForm {
-				flash.message = message(code: 'default.deleted.message', args: [
-					message(code: 'Party.label', default: 'Party'),
-					partyInstance.id
-				])
-				redirect action:"index", method:"GET"
-			}
-			'*'{ render status: NO_CONTENT }
-		}
-	}
+        if (partyInstance == null) {
+            notFound()
+            return
+        }
 
-	protected void notFound() {
-		request.withFormat {
-			form multipartForm {
-				flash.message = message(code: 'default.not.found.message', args: [
-					message(code: 'party.label', default: 'Party'),
-					params.id
-				])
-				redirect action: "index", method: "GET"
-			}
-			'*'{ render status: NOT_FOUND }
-		}
-	}
+        partyInstance.delete flush:true
 
-	def all() {
-		User user = User.getMyUser()
-		render user
-	}
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Party.label', default: 'Party'), partyInstance.id])
+                redirect action:"index", method:"GET"
+            }
+            '*'{ render status: NO_CONTENT }
+        }
+    }
 
+    protected void notFound() {
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'party.label', default: 'Party'), params.id])
+                redirect action: "index", method: "GET"
+            }
+            '*'{ render status: NOT_FOUND }
+        }
+    }
 }
-

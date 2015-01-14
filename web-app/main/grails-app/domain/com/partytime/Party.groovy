@@ -3,6 +3,7 @@ package com.partytime
 class Party {
 	User host
 	Place place
+	String title
 	String description
 	Date startDateTime
 	Date finsishDateTime
@@ -16,12 +17,12 @@ class Party {
 	static constraints = {
 		host nullable: false
 		place nullable: false
-		description blank:false, nullable: false
+		title blank:false, nullable: false
 		startDateTime nullable: false
 		finsishDateTime nullable: true
 	}
 
 	String toString(){
-		return "${description} @ ${place} el ${startDateTime} por ${host}"
+		return "${title} @ ${place} el ${startDateTime} por ${host}"
 	}
 }

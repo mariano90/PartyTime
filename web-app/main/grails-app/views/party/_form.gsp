@@ -20,12 +20,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: partyInstance, field: 'description', 'error')} required">
-	<label for="description">
-		<g:message code="party.description.label" default="Description" />
+<div class="fieldcontain ${hasErrors(bean: partyInstance, field: 'title', 'error')} required">
+	<label for="title">
+		<g:message code="party.title.label" default="Title" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="description" required="" value="${partyInstance?.description}"/>
+	<g:textField name="title" required="" value="${partyInstance?.title}"/>
 
 </div>
 
@@ -44,6 +44,15 @@
 		
 	</label>
 	<g:datePicker name="finsishDateTime" precision="day"  value="${partyInstance?.finsishDateTime}" default="none" noSelection="['': '']" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: partyInstance, field: 'description', 'error')} required">
+	<label for="description">
+		<g:message code="party.description.label" default="Description" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="description" required="" value="${partyInstance?.description}"/>
 
 </div>
 
