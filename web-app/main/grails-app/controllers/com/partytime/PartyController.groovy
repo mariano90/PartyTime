@@ -32,6 +32,12 @@ class PartyController {
 	 */
 	def organize() {
 		render "TODO: PartyController implement method organize"
+		//params.max = 10
+		//respond Party.list(params), model:[partyInstanceCount: Party.count()]
+	}
+
+	def organizeNew() {
+		render "TODO: implement the save"
 	}
 
 	def create() {

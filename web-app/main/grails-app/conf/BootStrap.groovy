@@ -53,8 +53,8 @@ class BootStrap {
 		MusicStyle musicStyle80 = new MusicStyle(name: "80's").save(failOnError: true)
 
 		User userf = new User(name: "fabricio", bornDate: new Date()).save(failOnError: true)
+		// TODO: link mode users with plugin authentication users.
 		User userm = new User(name: "mariano", bornDate: new Date()).save(failOnError: true)
-		
 		User user1 = new User(name: "user1", bornDate: new Date()).save(failOnError: true)
 		User user2 = new User(name: "user2", bornDate: new Date()).save(failOnError: true)
 		User user3 = new User(name: "user3", bornDate: new Date()).save(failOnError: true)
@@ -68,11 +68,12 @@ class BootStrap {
 		Promo promo1 = new Promo(title: "2x1 en tragos seleccionados", description: "toda la noche", drink: fernetConCoca).save(failOnError: true)
 		Promo promo2 = new Promo(title: "Chicas gratis hasta 2:00 AM", description: "").save(failOnError: true)
 
+		Place place0 = new Place(name: "Ninguno", minimumAge: 0, street: "-", number:"0", city:"-", reviews: []).save(failOnError: true)
 		Place place1 = new Place(name: "Sabado fiestero", minimumAge: 18, street: "Av Santa Fe", number:"1234", city:"CABA", reviews: [review1, review3]).save(failOnError: true)
 		Place place2 = new Place(name: "El rincon del mal", minimumAge: 18, street: "Av Santa Fe", number:"1111", city:"CABA", reviews: [review2], promos: [promo1, promo2]).save(failOnError: true)
 		Place place3 = new Place(name: "Mucha-chica", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: [], promos: [promo2]).save(failOnError: true)
 	}
-	
+
 	def destroy = {
 	}
 }
