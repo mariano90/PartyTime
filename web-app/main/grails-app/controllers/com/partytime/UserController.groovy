@@ -11,9 +11,9 @@ class UserController {
 
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-	def myinfo(){
+	def settings(){
 		User myUser = User.getMyUser()
-		render "TODO: UserController implement personal info page " + myUser
+		respond myUser
 	}
 
 	def index(Integer max) {
