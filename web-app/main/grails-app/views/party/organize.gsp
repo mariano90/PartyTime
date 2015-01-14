@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="layout" content="main">
+<meta name="layout" content="home">
 <g:set var="entityName"
 	value="${message(code: 'party.label', default: 'Party')}" />
 <title><g:message code="default.create.label"
@@ -29,9 +29,15 @@
 				</g:eachError>
 			</ul>
 		</g:hasErrors>
-		<g:form url="[resource:partyInstance, action:'organizeNew']">
+		<g:form controller="party" action="organizeNew">
 			<fieldset class="form">
-				<g:render template="form" />
+				<label>First Name: </label>
+				<g:textField name="firstName" />
+				<br /> <label>Last Name: </label>
+				<g:textField name="lastName" />
+				<br /> <label>Age: </label>
+				<g:textField name="age" />
+				<br />
 			</fieldset>
 			<fieldset class="buttons">
 				<g:submitButton name="create" class="save"

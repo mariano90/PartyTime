@@ -82,6 +82,9 @@ p {
 			<li><g:link class="create" controller="Party" action="organize">
 					<g:message code="New Party" />
 				</g:link></li>
+			<li><g:link class="list" controller="Party" action="showList">
+					<g:message code="My Parties" />
+				</g:link></li>
 			<li><g:link class="list" controller="News" action="index">
 					<g:message code="News" />
 				</g:link></li>
@@ -95,13 +98,12 @@ p {
 	<div id="page-body" role="main">
 		<h1>Welcome to Party Time</h1>
 
-		<br />
-		<br /> TODO: mostrar las fiestas que estan por suceder manana o
-		pasado manana a las cuales el usuario esta inscripto. <br />
-		<br /> TODO: mostrar publicidad dirigida. <br /> <br /> TODO:
-		mostrar las fiestas publicas a las cuales el usuario puede asistir sin
-		estar invitado. <br /> <br /> TODO: mostrar nivel del usuario,
-		permio a destrabar en el proximo nivel.
+		<br /> <br /> TODO: mostrar las fiestas que estan por suceder manana
+		o pasado manana a las cuales el usuario esta inscripto. <br /> <br />
+		TODO: mostrar publicidad dirigida. <br /> <br /> TODO: mostrar las
+		fiestas publicas a las cuales el usuario puede asistir sin estar
+		invitado. <br /> <br /> TODO: mostrar nivel del usuario, permio a
+		destrabar en el proximo nivel.
 	</div>
 </body>
 </html>
