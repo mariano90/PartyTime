@@ -52,9 +52,14 @@ class BootStrap {
 		MusicStyle musicStyleUnder = new MusicStyle(name: "Under").save(failOnError: true)
 		MusicStyle musicStyle80 = new MusicStyle(name: "80's").save(failOnError: true)
 
-		User user1 = new User(name: "Fabricio", bornDate: new Date()).save(failOnError: true)
-		User user2 = new User(name: "User2", bornDate: new Date()).save(failOnError: true)
-		User user3 = new User(name: "User3", bornDate: new Date()).save(failOnError: true)
+		User userf = new User(name: "fabricio", bornDate: new Date()).save(failOnError: true)
+		User userm = new User(name: "mariano", bornDate: new Date()).save(failOnError: true)
+		
+		User user1 = new User(name: "user1", bornDate: new Date()).save(failOnError: true)
+		User user2 = new User(name: "user2", bornDate: new Date()).save(failOnError: true)
+		User user3 = new User(name: "user3", bornDate: new Date()).save(failOnError: true)
+		User user4 = new User(name: "user4", bornDate: new Date()).save(failOnError: true)
+		User user5 = new User(name: "user5", bornDate: new Date()).save(failOnError: true)
 
 		Review review1 = new Review(title:"review1", body:"body1", score:4, author: user1).save(failOnError: true)
 		Review review2 = new Review(title:"review2", body:"body2", score:4, author: user1).save(failOnError: true)
@@ -67,6 +72,7 @@ class BootStrap {
 		Place place2 = new Place(name: "El rincon del mal", minimumAge: 18, street: "Av Santa Fe", number:"1111", city:"CABA", reviews: [review2], promos: [promo1, promo2]).save(failOnError: true)
 		Place place3 = new Place(name: "Mucha-chica", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: [], promos: [promo2]).save(failOnError: true)
 	}
+	
 	def destroy = {
 	}
 }

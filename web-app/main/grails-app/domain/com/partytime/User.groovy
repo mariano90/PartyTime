@@ -11,8 +11,12 @@ class User {
 	static constraints = {
 		name blank: false, nullable: false, unique: true
 	}
-	
+
 	String toString(){
 		return "${name}"
+	}
+
+	static getMyUser(){
+		return User.findByName("mariano")
 	}
 }

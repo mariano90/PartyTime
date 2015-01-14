@@ -4,6 +4,7 @@ package com.partytime
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import com.partytime.User
 
 
 class PartyController {
@@ -17,7 +18,7 @@ class PartyController {
 	def show(Party partyInstance) {
 		respond partyInstance
 	}
-		
+
 	def showList(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
 		//respond Party.list(params), model:[partyInstanceCount: Party.count()]
@@ -126,7 +127,7 @@ class PartyController {
 	}
 
 	def all() {
-		User user = User.findByName("Fabricio")
+		User user = User.getMyUser()
 		render user
 	}
 

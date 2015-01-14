@@ -4,6 +4,7 @@ package com.partytime
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import com.partytime.User
 
 @Transactional(readOnly = true)
 class UserController {
@@ -11,7 +12,8 @@ class UserController {
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	def myinfo(){
-		render "TODO: UserController implement personal info page"
+		User myUser = User.getMyUser()
+		render "TODO: UserController implement personal info page " + myUser
 	}
 
 	def index(Integer max) {
