@@ -69,7 +69,7 @@
 							class="fa fa-search">Bar Search</span></a></li>
 					<li><a href="http://localhost:8080/main/news/index"
 						class="skel-panels-ignoreHref"><span class="fa fa-glass">News</span></a></li>
-					<li><a href="http://localhost:8080/main/user/myinfo"
+					<li><a href="http://localhost:8080/main/user/settings"
 						class="skel-panels-ignoreHref"><span class="fa fa-gear">Settings</span></a></li>
 				</ul>
 			</nav>
