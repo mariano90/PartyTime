@@ -86,6 +86,52 @@ class BootStrap {
 		,date: "2015/01/04",	imageUrl:"").save(failOnError: true)
 		new News(title:"Noticia 4", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id."
 		,date: "2015/01/07",	imageUrl:"").save(failOnError: true)
+
+		new PublicEvent(
+				title:"Creamfields",
+				description:"...",
+				lineup:"...",
+				minimumAge:18,
+				startDateTime: new Date(),
+				externalUrl:"...",
+				address:"..."
+				).save(failOnError: true)
+		new PublicEvent(
+				title:"Ultramusic Festival",
+				description:"...",
+				lineup:"...",
+				minimumAge:18,
+				startDateTime: new Date(),
+				externalUrl:"...",
+				address:"..."
+				).save(failOnError: true)
+		new PublicEvent(
+				title:"Tomorrowland",
+				description:"...",
+				lineup:"...",
+				minimumAge:0,
+				startDateTime: new Date(),
+				externalUrl:"...",
+				address:"..."
+				).save(failOnError: true)
+		new PublicEvent(
+				title:"Cirque du Soleil",
+				description:"...",
+				lineup:"...",
+				minimumAge:0,
+				startDateTime: new Date(),
+				externalUrl:"...",
+				address:"..."
+				).save(failOnError: true)
+		new PublicEvent(
+				title:"David Copperfield",
+				description:"...",
+				lineup:"...",
+				minimumAge:18,
+				startDateTime: new Date(),
+				externalUrl:"...",
+				address:"..."
+				).save(failOnError: true)
 	}
 
 	def destroy = {
