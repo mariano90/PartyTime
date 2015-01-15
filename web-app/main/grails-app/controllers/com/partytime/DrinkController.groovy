@@ -27,6 +27,16 @@ class DrinkController {
         respond new Drink(params)
     }
 
+	def showList(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		respond Drink.list(params), model:[drinkInstanceCount: Drink.count()]
+	}
+	
+	def mine() {
+		def myDrinks = User.find{ name == "mariano"}.getPreferedDrinks()
+		[myDrinks:myDrinks]
+	}
+	
     @Transactional
     def save(Drink drinkInstance) {
         if (drinkInstance == null) {

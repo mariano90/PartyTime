@@ -48,7 +48,7 @@
 								<li><a href="http://localhost:8080/main/party/mine" id="my-parties-link" class="skel-panels-ignoreHref"><span class="fa fa-music">My Parties</span></a></li>
 								<li><a href="http://localhost:8080/main/drink/mine" id="my-drinks-link" class="skel-panels-ignoreHref"><span class="fa fa-beer">My Drinks</span></a></li>
 								<li><a href="http://localhost:8080/main/bar/search" id="bar-search-link" class="skel-panels-ignoreHref"><span class="fa fa-search">Bar Search</span></a></li>
-								<li><a href="http://localhost:8080/main/news/all" id="bar-search-link" class="skel-panels-ignoreHref"><span class="fa fa-news">News</span></a></li>
+								<li><a href="http://localhost:8080/main/news/all" id="bar-search-link" class="skel-panels-ignoreHref"><span class="fa fa-list-alt">News</span></a></li>
 								<li><a href="http://localhost:8080/main/user/settings" id="settings-link" class="skel-panels-ignoreHref"><span class="fa fa-gear">Settings</span></a></li>
 								<li><a href="http://localhost:8080/main/" class="skel-panels-ignoreHref"><span class="fa fa-gear">Debug</span></a></li>
 							</ul>
@@ -60,7 +60,7 @@
 			</div>
 
 		<!-- Main -->
-			<div id="main">
+			<div id="main" style="background-color: #f7f7f7;">
 				
 					<g:layoutBody/>
 					
