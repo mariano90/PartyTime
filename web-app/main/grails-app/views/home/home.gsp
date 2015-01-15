@@ -82,14 +82,14 @@ p {
 			<li><g:link class="create" controller="Party" action="organize">
 					<g:message code="New Party" />
 				</g:link></li>
-			<li><g:link class="list" controller="Party" action="showList">
+			<li><g:link class="list" controller="Party" action="mine">
 					<g:message code="My Parties" />
 				</g:link></li>
 			<li><g:link class="list" controller="News" action="index">
 					<g:message code="News" />
 				</g:link></li>
-			<li><g:link class="" controller="User" action="myinfo">
-					<g:message code="Profile" />
+			<li><g:link class="" controller="User" action="settings">
+					<g:message code="Settings" />
 				</g:link></li>
 			<li><a class="home" href="${createLink(uri: '/')}"><g:message
 						code="Debug Tools" /></a></li>
