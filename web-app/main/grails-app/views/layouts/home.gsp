@@ -97,7 +97,7 @@
 	<div id="footer">
 
 		<div class="copyright">
-			<p>&copy; 2014 Mariano&Fabricio. All rights reserved.</p>
+			<p>&copy; 2014 Mariano & <a href="http://fabricioph.com">Fabricio PH</a>. All rights reserved.</p>
 			<ul class="menu">
 				<li>PARTY TIME, ENJOY IT!</li>
 			</ul>
