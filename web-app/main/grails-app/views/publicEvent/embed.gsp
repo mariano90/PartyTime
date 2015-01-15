@@ -6,12 +6,6 @@
 <body>
 	<div id="list-publicEvent" class="content scaffold-list" role="main">
 		<table>
-			<thead>
-				<tr>
-					<td>Title</td>
-					<td>Date</td>
-				</tr>
-			</thead>
 			<tbody>
 				<g:each in="${publicEventInstanceList}" status="i"
 					var="publicEventInstance">
