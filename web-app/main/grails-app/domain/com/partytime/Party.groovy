@@ -15,10 +15,11 @@ class Party {
 	static mapping = { tablePerHierarchy false }
 
 	static constraints = {
-		host nullable: false
-		place nullable: false
 		title blank:false, nullable: false
+		place nullable: true
+		host nullable: false
 		startDateTime nullable: false
+		description blank:true, nullable: true
 		finsishDateTime nullable: true
 	}
 
