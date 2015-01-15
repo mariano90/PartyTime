@@ -97,13 +97,23 @@ p {
 	</div>
 	<div id="page-body" role="main">
 		<h1>Welcome to Party Time</h1>
-
-		<br /> <br /> TODO: mostrar las fiestas que estan por suceder manana
-		o pasado manana a las cuales el usuario esta inscripto. <br /> <br />
-		TODO: mostrar publicidad dirigida. <br /> <br /> TODO: mostrar las
-		fiestas publicas a las cuales el usuario puede asistir sin estar
-		invitado. <br /> <br /> TODO: mostrar nivel del usuario, permio a
-		destrabar en el proximo nivel.
+		<div>
+			<h2>Public events</h2>
+			<iframe src="http://localhost:8080/main/publicEvent/embed"></iframe>
+		</div>
+		<div>
+			<h2>Upcoming parties</h2>
+			<iframe src=""></iframe>
+		</div>
+		<div>
+			<h2>Publicidad</h2>
+			<iframe src=""></iframe>
+		</div>
+		<div>
+			<h2>Experiencia acumulada</h2>
+			Nivel de usuario, puntos...<br/>
+			<iframe src=""></iframe>
+		</div>
 	</div>
 </body>
 </html>
