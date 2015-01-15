@@ -1,10 +1,11 @@
 import com.grailsrocks.authentication.AuthenticationUser
 import com.grailsrocks.authentication.AuthenticationService
+import com.partytime.Bar
 import com.partytime.Component
 import com.partytime.Drink
 import com.partytime.Ingredient
 import com.partytime.MusicStyle
-import com.partytime.Bar
+import com.partytime.News
 import com.partytime.Promo
 import com.partytime.Review
 import com.partytime.User
@@ -76,6 +77,15 @@ class BootStrap {
 		Bar place1 = new Bar(name: "Sabado fiestero", minimumAge: 18, street: "Av Santa Fe", number:"1234", city:"CABA", reviews: [review1, review3]).save(failOnError: true)
 		Bar place2 = new Bar(name: "El rincon del mal", minimumAge: 18, street: "Av Santa Fe", number:"1111", city:"CABA", reviews: [review2], promos: [promo1, promo2]).save(failOnError: true)
 		Bar place3 = new Bar(name: "Mucha-chica", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: [], promos: [promo2]).save(failOnError: true)
+
+		new News(title:"Noticia 1", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id."
+		,date: "2015/01/01",	imageUrl:"").save(failOnError: true)
+		new News(title:"Noticia 2", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id."
+		,date: "2015/01/01",	imageUrl:"").save(failOnError: true)
+		new News(title:"Noticia 3", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id."
+		,date: "2015/01/04",	imageUrl:"").save(failOnError: true)
+		new News(title:"Noticia 4", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id."
+		,date: "2015/01/07",	imageUrl:"").save(failOnError: true)
 	}
 
 	def destroy = {

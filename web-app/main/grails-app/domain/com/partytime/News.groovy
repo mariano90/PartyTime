@@ -9,7 +9,7 @@ class News {
 	static constraints = {
 		title blank: false, nullable: false
 		description blank: false, nullable: false
-		imageUrl blank: false, nullable: false
+		imageUrl blank: true, nullable: true
 	}
 
 	String toString(){

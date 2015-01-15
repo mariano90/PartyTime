@@ -9,6 +9,11 @@ import grails.transaction.Transactional
 class NewsController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	
+	def all() {
+		params.max = 100
+		respond News.list(params), model:[newsInstanceCount: News.count()]
+	}
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
