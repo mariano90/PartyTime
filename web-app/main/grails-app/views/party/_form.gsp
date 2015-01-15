@@ -16,7 +16,7 @@
 		<g:message code="party.place.label" default="Place" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="place" name="place.id" from="${com.partytime.Place.list()}" optionKey="id" required="" value="${partyInstance?.place?.id}" class="many-to-one"/>
+	<g:select id="place" name="place.id" from="${com.partytime.Bar.list()}" optionKey="id" required="" value="${partyInstance?.place?.id}" class="many-to-one"/>
 
 </div>
 

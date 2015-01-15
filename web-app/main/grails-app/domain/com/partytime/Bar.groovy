@@ -2,7 +2,7 @@ package com.partytime
 
 
 //abstract class Place {
-class Place {
+class Bar {
 	String name
 	String openHours
 	int minimumAge

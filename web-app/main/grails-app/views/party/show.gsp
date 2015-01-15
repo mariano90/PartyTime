@@ -48,7 +48,7 @@
 				<li class="fieldcontain"><span id="place-label"
 					class="property-label"><g:message code="party.place.label"
 							default="Place" /></span> <span class="property-value"
-					aria-labelledby="place-label"><g:link controller="place"
+					aria-labelledby="place-label"><g:link controller="bar"
 							action="show" id="${partyInstance?.place?.id}">
 							${partyInstance?.place?.encodeAsHTML()}
 						</g:link></span></li>

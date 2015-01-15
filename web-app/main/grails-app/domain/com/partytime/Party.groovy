@@ -2,7 +2,7 @@ package com.partytime
 
 class Party {
 	User host
-	Place place
+	Bar place
 	String title
 	String description
 	Date startDateTime
