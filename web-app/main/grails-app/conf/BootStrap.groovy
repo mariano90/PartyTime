@@ -7,6 +7,7 @@ import com.partytime.Ingredient
 import com.partytime.MusicStyle
 import com.partytime.News
 import com.partytime.Promo
+import com.partytime.PublicEvent
 import com.partytime.Review
 import com.partytime.User
 
