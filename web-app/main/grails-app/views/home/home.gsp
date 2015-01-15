@@ -85,7 +85,7 @@ p {
 			<li><g:link class="list" controller="Party" action="mine">
 					<g:message code="My Parties" />
 				</g:link></li>
-			<li><g:link class="list" controller="News" action="index">
+			<li><g:link class="list" controller="News" action="all">
 					<g:message code="News" />
 				</g:link></li>
 			<li><g:link class="" controller="User" action="settings">
