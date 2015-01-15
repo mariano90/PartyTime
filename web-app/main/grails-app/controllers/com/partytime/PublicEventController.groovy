@@ -10,10 +10,19 @@ class PublicEventController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+	def embed(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]
+	}
+	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]
     }
+	
+	def details(PublicEvent publicEventInstance) {
+		respond publicEventInstance
+	}
 
     def show(PublicEvent publicEventInstance) {
         respond publicEventInstance
