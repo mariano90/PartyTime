@@ -8,9 +8,6 @@
 		args="[entityName]" /></title>
 </head>
 <body>
-	<a href="#create-party" class="skip" tabindex="-1"><g:message
-			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
-
 	<div id="create-party" class="content scaffold-create" role="main">
 		<h1>
 			<g:message code="default.create.label" args="[entityName]" />

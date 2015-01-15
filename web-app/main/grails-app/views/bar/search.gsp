@@ -9,8 +9,6 @@
 <title><g:message code="default.list.label" args="[entityName]" /></title>
 </head>
 <body>
-	<a href="#list-bar" class="skip" tabindex="-1"><g:message
-			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
 	<div id="list-bar" class="content scaffold-list" role="main">
 		<h1>
 			<g:message code="default.barsearch.label" default="Bar search" />
