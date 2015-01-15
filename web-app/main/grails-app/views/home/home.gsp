@@ -88,6 +88,9 @@ p {
 			<li><g:link class="list" controller="News" action="all">
 					<g:message code="News" />
 				</g:link></li>
+			<li><g:link class="bar" controller="Bar" action="search">
+					<g:message code="Bar search" />
+				</g:link></li>
 			<li><g:link class="" controller="User" action="settings">
 					<g:message code="Settings" />
 				</g:link></li>
@@ -98,7 +101,10 @@ p {
 	<div id="page-body" role="main">
 		<h1>Welcome to Party Time</h1>
 		<div>
-			<h2>Public events <a href="http://localhost:8080/main/publicEvent/all">[list all]</a></h2>
+			<h2>
+				Public events <a href="http://localhost:8080/main/publicEvent/all">[list
+					all]</a>
+			</h2>
 			<iframe src="http://localhost:8080/main/publicEvent/embed"></iframe>
 		</div>
 		<div>
@@ -111,7 +117,7 @@ p {
 		</div>
 		<div>
 			<h2>Experiencia acumulada</h2>
-			Nivel de usuario, puntos...<br/>
+			Nivel de usuario, puntos...<br />
 			<iframe src=""></iframe>
 		</div>
 	</div>
