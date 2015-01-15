@@ -12,6 +12,14 @@ class PublicEventController {
 
 	def embed(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
+		// TODO only show events that are in the future
+		// TODO show more events of the preference of the user.
+		respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]
+	}
+	
+	def all(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		// TODO only show events that are in the future
 		respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]
 	}
 	

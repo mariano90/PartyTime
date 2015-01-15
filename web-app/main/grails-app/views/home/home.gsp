@@ -98,7 +98,7 @@ p {
 	<div id="page-body" role="main">
 		<h1>Welcome to Party Time</h1>
 		<div>
-			<h2>Public events</h2>
+			<h2>Public events <a href="http://localhost:8080/main/publicEvent/all">[list all]</a></h2>
 			<iframe src="http://localhost:8080/main/publicEvent/embed"></iframe>
 		</div>
 		<div>
