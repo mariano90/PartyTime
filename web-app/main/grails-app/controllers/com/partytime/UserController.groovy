@@ -13,7 +13,6 @@ class UserController {
 
 	def settings(){
 		User myUser = User.getMyUser()
-		respond myUser
 	}
 
 	def index(Integer max) {

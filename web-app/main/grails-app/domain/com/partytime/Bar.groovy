@@ -1,7 +1,5 @@
 package com.partytime
 
-
-//abstract class Place {
 class Bar {
 	String name
 	String openHours
