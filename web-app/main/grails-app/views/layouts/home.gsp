@@ -65,9 +65,10 @@
 					<li><a href="http://localhost:8080/main/party/mine"
 						class="skel-panels-ignoreHref"><span class="fa fa-glass">My
 								Parties</span></a></li>
-					<li><a href="http://localhost:8080/main/bar/search" class="skel-panels-ignoreHref"><span
-							class="fa fa-search">Bar Search</span></a></li>
-					<li><a href="http://localhost:8080/main/news/index"
+					<li><a href="http://localhost:8080/main/bar/search"
+						class="skel-panels-ignoreHref"><span class="fa fa-search">Bar
+								Search</span></a></li>
+					<li><a href="http://localhost:8080/main/news/all"
 						class="skel-panels-ignoreHref"><span class="fa fa-glass">News</span></a></li>
 					<li><a href="http://localhost:8080/main/user/settings"
 						class="skel-panels-ignoreHref"><span class="fa fa-gear">Settings</span></a></li>
