@@ -1,104 +1,119 @@
 package com.partytime
 
-
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class BarController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Bar.list(params), model:[barInstanceCount: Bar.count()]
-    }
+	def search() {
+		params.max = 100
+		respond Bar.list(params), model:[barInstanceCount: Bar.count()]
+	}
 
-    def show(Bar barInstance) {
-        respond barInstance
-    }
+	def index(Integer max) {
+		params.max = Math.min(max ?: 10, 100)
+		respond Bar.list(params), model:[barInstanceCount: Bar.count()]
+	}
 
-    def create() {
-        respond new Bar(params)
-    }
+	def show(Bar barInstance) {
+		respond barInstance
+	}
 
-    @Transactional
-    def save(Bar barInstance) {
-        if (barInstance == null) {
-            notFound()
-            return
-        }
+	def create() {
+		respond new Bar(params)
+	}
 
-        if (barInstance.hasErrors()) {
-            respond barInstance.errors, view:'create'
-            return
-        }
+	@Transactional
+	def save(Bar barInstance) {
+		if (barInstance == null) {
+			notFound()
+			return
+		}
 
-        barInstance.save flush:true
+		if (barInstance.hasErrors()) {
+			respond barInstance.errors, view:'create'
+			return
+		}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'bar.label', default: 'Bar'), barInstance.id])
-                redirect barInstance
-            }
-            '*' { respond barInstance, [status: CREATED] }
-        }
-    }
+		barInstance.save flush:true
 
-    def edit(Bar barInstance) {
-        respond barInstance
-    }
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.created.message', args: [
+					message(code: 'bar.label', default: 'Bar'),
+					barInstance.id
+				])
+				redirect barInstance
+			}
+			'*' { respond barInstance, [status: CREATED] }
+		}
+	}
 
-    @Transactional
-    def update(Bar barInstance) {
-        if (barInstance == null) {
-            notFound()
-            return
-        }
+	def edit(Bar barInstance) {
+		respond barInstance
+	}
 
-        if (barInstance.hasErrors()) {
-            respond barInstance.errors, view:'edit'
-            return
-        }
+	@Transactional
+	def update(Bar barInstance) {
+		if (barInstance == null) {
+			notFound()
+			return
+		}
 
-        barInstance.save flush:true
+		if (barInstance.hasErrors()) {
+			respond barInstance.errors, view:'edit'
+			return
+		}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Bar.label', default: 'Bar'), barInstance.id])
-                redirect barInstance
-            }
-            '*'{ respond barInstance, [status: OK] }
-        }
-    }
+		barInstance.save flush:true
 
-    @Transactional
-    def delete(Bar barInstance) {
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.updated.message', args: [
+					message(code: 'Bar.label', default: 'Bar'),
+					barInstance.id
+				])
+				redirect barInstance
+			}
+			'*'{ respond barInstance, [status: OK] }
+		}
+	}
 
-        if (barInstance == null) {
-            notFound()
-            return
-        }
+	@Transactional
+	def delete(Bar barInstance) {
 
-        barInstance.delete flush:true
+		if (barInstance == null) {
+			notFound()
+			return
+		}
 
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Bar.label', default: 'Bar'), barInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
+		barInstance.delete flush:true
 
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'bar.label', default: 'Bar'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.deleted.message', args: [
+					message(code: 'Bar.label', default: 'Bar'),
+					barInstance.id
+				])
+				redirect action:"index", method:"GET"
+			}
+			'*'{ render status: NO_CONTENT }
+		}
+	}
+
+	protected void notFound() {
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.not.found.message', args: [
+					message(code: 'bar.label', default: 'Bar'),
+					params.id
+				])
+				redirect action: "index", method: "GET"
+			}
+			'*'{ render status: NOT_FOUND }
+		}
+	}
 }
