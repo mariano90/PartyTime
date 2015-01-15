@@ -1,4 +1,3 @@
-
 <%@ page import="com.partytime.News"%>
 <!DOCTYPE html>
 <html>
@@ -9,17 +8,10 @@
 <title><g:message value="News" /></title>
 </head>
 <body>
-	<a href="#list-news" class="skip" tabindex="-1"><g:message
-			code="default.link.skip.label" default="Skip to content&hellip;" /></a>
 	<div id="list-news" class="content scaffold-list" role="main">
 		<h1>
-			<g:message code="default.list.label" args="[entityName]" />
+			<g:message code="default.news.label" default="News" />
 		</h1>
-		<g:if test="${flash.message}">
-			<div class="message" role="status">
-				${flash.message}
-			</div>
-		</g:if>
 		<table>
 			<tbody>
 				<g:each in="${newsInstanceList}" status="i" var="newsInstance">
