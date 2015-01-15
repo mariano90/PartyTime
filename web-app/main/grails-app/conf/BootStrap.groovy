@@ -66,6 +66,10 @@ class BootStrap {
 		User user3 = new User(name: "user3", bornDate: new Date()).save(failOnError: true)
 		User user4 = new User(name: "user4", bornDate: new Date()).save(failOnError: true)
 		User user5 = new User(name: "user5", bornDate: new Date()).save(failOnError: true)
+		
+		userm.preferedDrinks.add(fernetConCoca)
+		userm.preferedDrinks.add(cerveza)
+		userm.save()
 
 		Review review1 = new Review(title:"review1", body:"body1", score:4, author: user1).save(failOnError: true)
 		Review review2 = new Review(title:"review2", body:"body2", score:4, author: user1).save(failOnError: true)
