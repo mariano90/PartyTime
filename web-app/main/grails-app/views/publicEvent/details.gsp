@@ -13,19 +13,16 @@
 		<h1>
 			<g:message code="default.publicEvent.label" default="Public Event" />
 		</h1>
-		<g:if test="${flash.message}">
-			<div class="message" role="status">
-				${flash.message}
-			</div>
-		</g:if>
 		<ol class="property-list publicEvent">
-
 			<g:if test="${publicEventInstance?.title}">
-				<li class="fieldcontain"><span id="title-label"
-					class="property-label"><g:message
-							code="publicEvent.title.label" default="Title" /></span> <span
-					class="property-value" aria-labelledby="title-label"><g:fieldValue
-							bean="${publicEventInstance}" field="title" /></span></li>
+				<li class="fieldcontain">
+					<h2>
+						<span class="property-value" aria-labelledby="title-label">
+							<g:fieldValue bean="${publicEventInstance}" field="title" />
+						</span>
+
+					</h2>
+				</li>
 			</g:if>
 
 			<g:if test="${publicEventInstance?.description}">
@@ -78,17 +75,6 @@
 			</g:if>
 
 		</ol>
-		<g:form url="[resource:publicEventInstance, action:'delete']"
-			method="DELETE">
-			<fieldset class="buttons">
-				<g:link class="edit" action="edit" resource="${publicEventInstance}">
-					<g:message code="default.button.edit.label" default="Edit" />
-				</g:link>
-				<g:actionSubmit class="delete" action="delete"
-					value="${message(code: 'default.button.delete.label', default: 'Delete')}"
-					onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-			</fieldset>
-		</g:form>
 	</div>
 </body>
 </html>
