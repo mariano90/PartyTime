@@ -75,29 +75,6 @@ p {
 </style>
 </head>
 <body>
-	<div class="nav" role="navigation">
-		<ul>
-			<li><a class="home" href="${createLink(uri: '/home/index')}"><g:message
-						code="default.home.label" /></a></li>
-			<li><g:link class="create" controller="Party" action="organize">
-					<g:message code="New Party" />
-				</g:link></li>
-			<li><g:link class="list" controller="Party" action="mine">
-					<g:message code="My Parties" />
-				</g:link></li>
-			<li><g:link class="list" controller="News" action="all">
-					<g:message code="News" />
-				</g:link></li>
-			<li><g:link class="bar" controller="Bar" action="search">
-					<g:message code="Bar search" />
-				</g:link></li>
-			<li><g:link class="" controller="User" action="settings">
-					<g:message code="Settings" />
-				</g:link></li>
-			<li><a class="home" href="${createLink(uri: '/')}"><g:message
-						code="Debug Tools" /></a></li>
-		</ul>
-	</div>
 	<div id="page-body" role="main">
 		<h1>Welcome to Party Time</h1>
 		<div>
