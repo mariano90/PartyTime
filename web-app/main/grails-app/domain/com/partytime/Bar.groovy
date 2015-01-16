@@ -34,6 +34,6 @@ class Bar {
 
 
 	String toString(){
-		return "${name} @ ${street} ${number}, ${city}"
+		return "${name}"
 	}
 }
