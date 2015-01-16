@@ -29,7 +29,7 @@
 		<g:form controller="party" action="organizeNew">
 			<fieldset class="form">
 				<label>Title:</label>
-				<g:textField name=partyTitle " />
+				<g:textField name="partyTitle " />
 				<br /> <label>Description:</label>
 				<g:textField name="partyDescription" />
 				<br /> <label>Min age: </label>
