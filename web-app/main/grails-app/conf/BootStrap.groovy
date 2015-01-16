@@ -6,6 +6,7 @@ import com.partytime.Drink
 import com.partytime.Ingredient
 import com.partytime.MusicStyle
 import com.partytime.News
+import com.partytime.Party
 import com.partytime.Promo
 import com.partytime.PublicEvent
 import com.partytime.Review
@@ -67,7 +68,7 @@ class BootStrap {
 		User user3 = new User(name: "user3", bornDate: new Date()).save(failOnError: true)
 		User user4 = new User(name: "user4", bornDate: new Date()).save(failOnError: true)
 		User user5 = new User(name: "user5", bornDate: new Date()).save(failOnError: true)
-		
+
 		userm.preferedDrinks.add(fernetConCoca)
 		userm.preferedDrinks.add(cerveza)
 		userm.save()
@@ -98,46 +99,83 @@ class BootStrap {
 				description:"...",
 				lineup:"...",
 				minimumAge:18,
-				startDateTime: new Date(),
+				startDateTime: new Date(1429067000000L),
 				externalUrl:"...",
 				address:"..."
 				).save(failOnError: true)
+
 		new PublicEvent(
 				title:"Ultramusic Festival",
 				description:"...",
 				lineup:"...",
 				minimumAge:18,
-				startDateTime: new Date(),
+				startDateTime: new Date(1429066100000L),
 				externalUrl:"...",
 				address:"..."
 				).save(failOnError: true)
+
 		new PublicEvent(
 				title:"Tomorrowland",
 				description:"...",
 				lineup:"...",
 				minimumAge:0,
-				startDateTime: new Date(),
+				startDateTime: new Date(1429066200000L),
 				externalUrl:"...",
 				address:"..."
 				).save(failOnError: true)
+
 		new PublicEvent(
 				title:"Cirque du Soleil",
 				description:"...",
 				lineup:"...",
 				minimumAge:0,
-				startDateTime: new Date(),
+				startDateTime: new Date(1429066890000L),
 				externalUrl:"...",
 				address:"..."
 				).save(failOnError: true)
+
 		new PublicEvent(
 				title:"David Copperfield",
 				description:"...",
 				lineup:"...",
 				minimumAge:18,
-				startDateTime: new Date(),
+				startDateTime: new Date(1429066800000L),
 				externalUrl:"...",
 				address:"..."
 				).save(failOnError: true)
+
+
+		new Party(host: userm,
+		place: place1,
+		title: "Fiesta1",
+		description: "...",
+		startDateTime: new Date(1429066800000L),
+		finsishDateTime: new Date(1429066900000L),
+		guests: [user1, user2]).save(failOnError: true)
+
+		new Party(host: userm,
+		place: place1,
+		title: "Fiesta2",
+		description: "...",
+		startDateTime: new Date(1429066800000L),
+		finsishDateTime: new Date(1429066900000L),
+		guests: [user1, user2, userf]).save(failOnError: true)
+
+		new Party(host: userf,
+		place: place1,
+		title: "Fiesta3",
+		description: "...",
+		startDateTime: new Date(1429076800000L),
+		finsishDateTime: new Date(1429076900000L),
+		guests: [user1, user2]).save(failOnError: true)
+		
+		new Party(host: userm,
+		place: place1,
+		title: "Fiesta4",
+		description: "...",
+		startDateTime: new Date(1429066800000L),
+		finsishDateTime: new Date(1429066900000L),
+		guests: [user1, user2, userm]).save(failOnError: true)
 	}
 
 	def destroy = {
