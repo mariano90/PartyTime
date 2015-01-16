@@ -3,6 +3,10 @@
 <head>
 <meta name="layout" content="home" />
 <title>Welcome to Party Time</title>
+
+<link rel="stylesheet" href="${resource(dir: 'css', file: 'home.css')}"
+	type="text/css" />
+
 <style type="text/css" media="screen">
 #status {
 	background-color: #eee;
@@ -77,26 +81,31 @@ p {
 <body>
 	<div id="page-body" role="main">
 		<h1>Welcome to Party Time</h1>
-		<div>
-			<h2>
-				Public events <a href="http://localhost:8080/main/publicEvent/all">[list
-					all]</a>
-			</h2>
-			<iframe src="http://localhost:8080/main/publicEvent/embed"></iframe>
+		<div class="side-by-side">
+			<div class="left-side">
+				<h2>
+					Public events <a href="http://localhost:8080/main/publicEvent/all">[list
+						all]</a>
+				</h2>
+				<iframe src="http://localhost:8080/main/publicEvent/embed"></iframe>
+			</div>
+			<div class="right-side">
+				<h2>Experiencia acumulada</h2>
+				Nivel de usuario, puntos...<br />
+				<iframe src=""></iframe>
+			</div>
 		</div>
-		<div>
-			<h2>Upcoming parties</h2>
-			<iframe src=""></iframe>
+		<div class="side-by-side">
+			<div class="left-side">
+				<h2>Upcoming parties</h2>
+				<iframe src=""></iframe>
+			</div>
+			<div class="right-side">
+				<h2>Publicidad</h2>
+				<iframe src=""></iframe>
+			</div>
 		</div>
-		<div>
-			<h2>Publicidad</h2>
-			<iframe src=""></iframe>
-		</div>
-		<div>
-			<h2>Experiencia acumulada</h2>
-			Nivel de usuario, puntos...<br />
-			<iframe src=""></iframe>
-		</div>
+
 	</div>
 </body>
 </html>

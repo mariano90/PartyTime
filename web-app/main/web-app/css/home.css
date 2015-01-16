@@ -1,0 +1,13 @@
+.side-by-side {
+	width: 100%;
+	overflow: hidden;
+}
+
+.left-side {
+	width: 300px;
+	float: left;
+}
+
+.right-side {
+	margin-left: 320px;
+}
