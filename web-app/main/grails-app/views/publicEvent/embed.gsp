@@ -2,21 +2,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script type="text/javascript">
+	function initLinks() {
+		var linksList = document.getElementsByTagName("a");
+		for (var i = 0; i < linksList.length; i++) {
+			linksList[i].setAttribute("target", "_top");
+		}
+	}
+</script>
 </head>
-<body>
+<body onload="initLinks()">
 	<div id="list-publicEvent" class="content scaffold-list" role="main">
 		<table>
 			<tbody>
 				<g:each in="${publicEventInstanceList}" status="i"
 					var="publicEventInstance">
-					<!-- TODO: hacer que los links sean target="_top"
-					quizas se pueda definir el parametro en el g:link
-					
-					u otro forma seria escribir en JS init, que modifique esos links para agregarles ese atributo
-					hacer el JS en este HTML y no en el container.
-					-->
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link action="details" id="${publicEventInstance.id}">
+						<td><g:link action="details" absolute="true"
+								id="${publicEventInstance.id}">
 								${fieldValue(bean: publicEventInstance, field: "title")}
 							</g:link></td>
 						<td><g:formatDate date="${publicEventInstance.startDateTime}" /></td>
