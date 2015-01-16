@@ -28,9 +28,9 @@
 					
 						<g:sortableColumn property="description" title="${message(code: 'news.description.label', default: 'Description')}" />
 					
-						<g:sortableColumn property="imageUrl" title="${message(code: 'news.imageUrl.label', default: 'Image Url')}" />
-					
 						<g:sortableColumn property="date" title="${message(code: 'news.date.label', default: 'Date')}" />
+					
+						<g:sortableColumn property="imageUrl" title="${message(code: 'news.imageUrl.label', default: 'Image Url')}" />
 					
 					</tr>
 				</thead>
@@ -42,9 +42,9 @@
 					
 						<td>${fieldValue(bean: newsInstance, field: "description")}</td>
 					
-						<td>${fieldValue(bean: newsInstance, field: "imageUrl")}</td>
+						<td><g:formatDate date="${newsInstance.date}" /></td>
 					
-						<td>${fieldValue(bean: newsInstance, field: "date")}</td>
+						<td>${fieldValue(bean: newsInstance, field: "imageUrl")}</td>
 					
 					</tr>
 				</g:each>

@@ -41,20 +41,20 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${newsInstance?.date}">
+				<li class="fieldcontain">
+					<span id="date-label" class="property-label"><g:message code="news.date.label" default="Date" /></span>
+					
+						<span class="property-value" aria-labelledby="date-label"><g:formatDate date="${newsInstance?.date}" /></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${newsInstance?.imageUrl}">
 				<li class="fieldcontain">
 					<span id="imageUrl-label" class="property-label"><g:message code="news.imageUrl.label" default="Image Url" /></span>
 					
 						<span class="property-value" aria-labelledby="imageUrl-label"><g:fieldValue bean="${newsInstance}" field="imageUrl"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${newsInstance?.date}">
-				<li class="fieldcontain">
-					<span id="date-label" class="property-label"><g:message code="news.date.label" default="Date" /></span>
-					
-						<span class="property-value" aria-labelledby="date-label"><g:fieldValue bean="${newsInstance}" field="date"/></span>
 					
 				</li>
 				</g:if>

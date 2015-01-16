@@ -20,21 +20,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: newsInstance, field: 'imageUrl', 'error')} required">
-	<label for="imageUrl">
-		<g:message code="news.imageUrl.label" default="Image Url" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="imageUrl" required="" value="${newsInstance?.imageUrl}"/>
-
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: newsInstance, field: 'date', 'error')} required">
 	<label for="date">
 		<g:message code="news.date.label" default="Date" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="date" required="" value="${newsInstance?.date}"/>
+	<g:datePicker name="date" precision="day"  value="${newsInstance?.date}"  />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: newsInstance, field: 'imageUrl', 'error')} ">
+	<label for="imageUrl">
+		<g:message code="news.imageUrl.label" default="Image Url" />
+		
+	</label>
+	<g:textField name="imageUrl" value="${newsInstance?.imageUrl}"/>
 
 </div>
 

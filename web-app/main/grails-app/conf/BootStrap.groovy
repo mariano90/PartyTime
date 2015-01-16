@@ -85,14 +85,10 @@ class BootStrap {
 		Bar place2 = new Bar(name: "El rincon del mal", minimumAge: 18, street: "Av Santa Fe", number:"1111", city:"CABA", reviews: [review2], promos: [promo1, promo2]).save(failOnError: true)
 		Bar place3 = new Bar(name: "Mucha-chica", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: [], promos: [promo2]).save(failOnError: true)
 
-		new News(title:"Noticia 1", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id."
-		,date: "2015/01/01",	imageUrl:"").save(failOnError: true)
-		new News(title:"Noticia 2", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id."
-		,date: "2015/01/01",	imageUrl:"").save(failOnError: true)
-		new News(title:"Noticia 3", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id."
-		,date: "2015/01/04",	imageUrl:"").save(failOnError: true)
-		new News(title:"Noticia 4", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id."
-		,date: "2015/01/07",	imageUrl:"").save(failOnError: true)
+		new News(title:"Noticia 1", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1429066800000L), imageUrl:"").save(failOnError: true)
+		new News(title:"Noticia 2", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1428066810000L), imageUrl:"").save(failOnError: true)
+		new News(title:"Noticia 3", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1427066820000L), imageUrl:"").save(failOnError: true)
+		new News(title:"Noticia 4", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1426066830000L), imageUrl:"").save(failOnError: true)
 
 		new PublicEvent(
 				title:"Creamfields",
@@ -169,7 +165,7 @@ class BootStrap {
 		finsishDateTime: new Date(1429076900000L),
 		guests: [user1, user2]).save(failOnError: true)
 		
-		new Party(host: userm,
+		new Party(host: userf,
 		place: place1,
 		title: "Fiesta4",
 		description: "...",
