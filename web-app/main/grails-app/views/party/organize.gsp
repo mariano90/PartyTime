@@ -28,12 +28,12 @@
 		</g:hasErrors>
 		<g:form controller="party" action="organizeNew">
 			<fieldset class="form">
-				<label>First Name: </label>
-				<g:textField name="firstName" />
-				<br /> <label>Last Name: </label>
-				<g:textField name="lastName" />
-				<br /> <label>Age: </label>
-				<g:textField name="age" />
+				<label>Title:</label>
+				<g:textField name=partyTitle " />
+				<br /> <label>Description:</label>
+				<g:textField name="partyDescription" />
+				<br /> <label>Min age: </label>
+				<g:textField name="partyMinAge" />
 				<br />
 			</fieldset>
 			<fieldset class="buttons">
