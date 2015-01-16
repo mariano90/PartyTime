@@ -22,7 +22,8 @@
 								id="${publicEventInstance.id}">
 								${fieldValue(bean: publicEventInstance, field: "title")}
 							</g:link></td>
-						<td><g:formatDate date="${publicEventInstance.startDateTime}" /></td>
+						<td><g:formatDate format="yyyy-MM-dd"
+								date="${publicEventInstance.startDateTime}" /></td>
 					</tr>
 				</g:each>
 			</tbody>

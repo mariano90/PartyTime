@@ -47,6 +47,7 @@
 							code="publicEvent.startDateTime.label" default="Start Date Time" /></span>
 
 					<span class="property-value" aria-labelledby="startDateTime-label"><g:formatDate
+							format="yyyy-MM-dd HH:mm"
 							date="${publicEventInstance?.startDateTime}" /></span></li>
 			</g:if>
 
