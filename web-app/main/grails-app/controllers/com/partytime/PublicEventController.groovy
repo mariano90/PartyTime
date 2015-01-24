@@ -10,6 +10,10 @@ class PublicEventController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+	/**
+	 * Shows all available Public event, this view is prepared for been
+	 * displayed as an iframe.
+	 */
 	def embed(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
 		// TODO only show events that are in the future
@@ -17,20 +21,26 @@ class PublicEventController {
 		respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]
 	}
 	
+	/**
+	 * Shows all available public events.
+	 */
 	def all(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
 		// TODO only show events that are in the future
 		respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]
 	}
 	
+	/**
+	 * Shows the detail of a Public Event.
+	 */
+	def details(PublicEvent publicEventInstance) {
+		respond publicEventInstance
+	}
+	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]
     }
-	
-	def details(PublicEvent publicEventInstance) {
-		respond publicEventInstance
-	}
 
     def show(PublicEvent publicEventInstance) {
         respond publicEventInstance
