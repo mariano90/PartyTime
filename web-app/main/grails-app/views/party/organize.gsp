@@ -29,11 +29,17 @@
 		<g:form controller="party" action="organizeNew">
 			<fieldset class="form">
 				<label>Title:</label>
-				<g:textField name="partyTitle " />
+				<g:textField name="partyTitle" />
 				<br /> <label>Description:</label>
 				<g:textField name="partyDescription" />
-				<br /> <label>Min age: </label>
-				<g:textField name="partyMinAge" />
+				<br /> <label>Place: </label>
+				<g:textField name="partyPlace" />
+				<br /> <label>Starts at: </label>
+				<g:datePicker name="partyStart" value="${new Date()}"
+					precision="day" years="[2015, 2016, 2017, 2018]" />
+				<br /> <label>Until: </label>
+				<g:datePicker name="partyEnd" value="${new Date()}"
+					precision="day" years="[2015, 2016, 2017, 2018]" />
 				<br />
 			</fieldset>
 			<fieldset class="buttons">
