@@ -8,9 +8,20 @@ class BarController {
 
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+	/**
+	 * Feature for searching bars.
+	 * @return
+	 */
 	def search() {
 		params.max = 100
 		respond Bar.list(params), model:[barInstanceCount: Bar.count()]
+	}
+	
+	/**
+	 * Shows details about a Bar.
+	 */
+	def details(Bar barInstance) {
+		respond barInstance
 	}
 
 	def index(Integer max) {
