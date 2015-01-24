@@ -11,7 +11,7 @@
 <body>
 	<div id="show-party" class="content scaffold-show" role="main">
 		<h1>
-			<g:message code="Party details"/>
+			<g:message code="Party details" />
 		</h1>
 		<g:if test="${flash.message}">
 			<div class="message" role="status">
@@ -21,11 +21,12 @@
 		<ol class="property-list party">
 
 			<g:if test="${partyInstance?.host}">
-				<li class="fieldcontain"><span id="host-label"
-					class="property-label"><g:message code="party.host.label"
-							default="Host" /></span> <span class="property-value"
-					aria-labelledby="host-label"><g:link controller="user"
-							action="show" id="${partyInstance?.host?.id}">
+				<li class="fieldcontain">
+				<span id="host-label" class="property-label">
+					<g:message code="party.host.label"
+							default="Host" /></span>
+				<span class="property-value" aria-labelledby="host-label">
+					<g:link controller="user" action="show" id="${partyInstance?.host?.id}">
 							${partyInstance?.host?.encodeAsHTML()}
 						</g:link></span></li>
 			</g:if>
@@ -50,20 +51,23 @@
 
 			<g:if test="${partyInstance?.startDateTime}">
 				<li class="fieldcontain"><span id="startDateTime-label"
-					class="property-label"><g:message
-							code="party.startDateTime.label" default="Start Date Time" /></span> <span
-					class="property-value" aria-labelledby="startDateTime-label"><g:formatDate
-							date="${partyInstance?.startDateTime}" /></span></li>
+					class="property-label">
+					<g:message
+							code="party.startDateTime.label" default="Starts" /></span> <span
+					class="property-value" aria-labelledby="startDateTime-label">
+						<g:formatDate format="yyyy-MM-dd" date="${partyInstance?.startDateTime}" />
+				</span></li>
 			</g:if>
 
 			<g:if test="${partyInstance?.finsishDateTime}">
-				<li class="fieldcontain"><span id="finsishDateTime-label"
-					class="property-label"><g:message
-							code="party.finsishDateTime.label" default="Finsish Date Time" /></span>
+				<li class="fieldcontain">
+				<span id="finsishDateTime-label" class="property-label">
+					<g:message code="party.finsishDateTime.label" default="Finishes" />
+				</span>
 
 					<span class="property-value"
 					aria-labelledby="finsishDateTime-label"><g:formatDate
-							date="${partyInstance?.finsishDateTime}" /></span></li>
+							format="yyyy-MM-dd" date="${partyInstance?.finsishDateTime}" /></span></li>
 			</g:if>
 
 			<g:if test="${partyInstance?.description}">
@@ -75,14 +79,17 @@
 			</g:if>
 
 			<g:if test="${partyInstance?.guests}">
-				<li class="fieldcontain"><span id="guests-label"
-					class="property-label"><g:message code="party.guests.label"
-							default="Guests" /></span> <g:each in="${partyInstance.guests}" var="g">
-						<span class="property-value" aria-labelledby="guests-label"><g:link
-								controller="user" action="show" id="${g.id}">
+				<li class="fieldcontain">
+				<span id="guests-label" class="property-label">
+					<g:message code="party.guests.label" default="Guests" />
+				</span>
+				<g:each in="${partyInstance.guests}" var="g">
+						<span class="property-value" aria-labelledby="guests-label">
+						<g:link controller="user" action="details" id="${g.id}">
 								${g?.encodeAsHTML()}
-							</g:link></span>
-					</g:each></li>
+						</g:link></span>
+				</g:each>
+				</li>
 			</g:if>
 		</ol>
 	</div>
