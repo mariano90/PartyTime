@@ -80,10 +80,11 @@ class BootStrap {
 		Promo promo1 = new Promo(title: "2x1 en tragos seleccionados", description: "toda la noche", drink: fernetConCoca).save(failOnError: true)
 		Promo promo2 = new Promo(title: "Chicas gratis hasta 2:00 AM", description: "").save(failOnError: true)
 
-		Bar place0 = new Bar(name: "Ninguno", minimumAge: 0, street: "-", number:"0", city:"-", reviews: []).save(failOnError: true)
-		Bar place1 = new Bar(name: "Sabado fiestero", minimumAge: 18, street: "Av Santa Fe", number:"1234", city:"CABA", reviews: [review1, review3]).save(failOnError: true)
+		Bar place0 = new Bar(name: "Groove", minimumAge: 0, street: "-", number:"0", city:"-", reviews: []).save(failOnError: true)
+		Bar place1 = new Bar(name: "Brook on brails", minimumAge: 18, street: "Av Santa Fe", number:"1234", city:"CABA", reviews: [review1, review3]).save(failOnError: true)
 		Bar place2 = new Bar(name: "El rincon del mal", minimumAge: 18, street: "Av Santa Fe", number:"1111", city:"CABA", reviews: [review2], promos: [promo1, promo2]).save(failOnError: true)
 		Bar place3 = new Bar(name: "Mucha-chica", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: [], promos: [promo2]).save(failOnError: true)
+		Bar place4 = new Bar(name: "La casa embrujada de Palermo", minimumAge: 21, street: "Av Corrientes", number:"1234", city:"CABA", reviews: [], promos: []).save(failOnError: true)
 
 		new News(title:"Noticia 1", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1429066800000L), imageUrl:"").save(failOnError: true)
 		new News(title:"Noticia 2", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1428066810000L), imageUrl:"").save(failOnError: true)
