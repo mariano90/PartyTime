@@ -34,10 +34,10 @@
 			<tbody>
 				<g:each in="${barInstanceList}" status="i" var="barInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link action="show" id="${barInstance.id}">
+						<td><g:link action="details" id="${barInstance.id}">
 								${fieldValue(bean: barInstance, field: "name")}
-							</g:link></td>
-
+							</g:link>
+						</td>
 						<td>
 							${fieldValue(bean: barInstance, field: "street")} ${fieldValue(bean: barInstance, field: "number")}
 						</td>

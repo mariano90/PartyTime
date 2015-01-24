@@ -84,8 +84,7 @@ p {
 		<div class="side-by-side">
 			<div class="left-side">
 				<h2>
-					Public events <a href="http://localhost:8080/main/publicEvent/all">[list
-						all]</a>
+					Public events <a href="http://localhost:8080/main/publicEvent/all">[see all]</a>
 				</h2>
 				<iframe src="http://localhost:8080/main/publicEvent/embed"></iframe>
 			</div>

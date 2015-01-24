@@ -16,9 +16,9 @@
 			<tbody>
 				<g:each in="${newsInstanceList}" status="i" var="newsInstance">
 					<td>
-						<h3>
+						<h1>
 							${fieldValue(bean: newsInstance, field: "date")}
-						</h3>
+						</h1>
 						<h2>
 							${fieldValue(bean: newsInstance, field: "title")}
 						</h2>
