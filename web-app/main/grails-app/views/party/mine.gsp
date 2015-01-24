@@ -34,7 +34,7 @@
 			<tbody>
 				<g:each in="${partyInstanceList}" status="i" var="partyInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link action="show" id="${partyInstance.id}">
+						<td><g:link action="details" id="${partyInstance.id}">
 								${fieldValue(bean: partyInstance, field: "host")}
 							</g:link></td>
 						<td>

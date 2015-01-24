@@ -1,0 +1,90 @@
+
+<%@ page import="com.partytime.Party"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="layout" content="home">
+<g:set var="entityName"
+	value="${message(code: 'party.label', default: 'Party')}" />
+<title><g:message code="default.show.label" args="[entityName]" /></title>
+</head>
+<body>
+	<div id="show-party" class="content scaffold-show" role="main">
+		<h1>
+			<g:message code="Party details"/>
+		</h1>
+		<g:if test="${flash.message}">
+			<div class="message" role="status">
+				${flash.message}
+			</div>
+		</g:if>
+		<ol class="property-list party">
+
+			<g:if test="${partyInstance?.host}">
+				<li class="fieldcontain"><span id="host-label"
+					class="property-label"><g:message code="party.host.label"
+							default="Host" /></span> <span class="property-value"
+					aria-labelledby="host-label"><g:link controller="user"
+							action="show" id="${partyInstance?.host?.id}">
+							${partyInstance?.host?.encodeAsHTML()}
+						</g:link></span></li>
+			</g:if>
+
+			<g:if test="${partyInstance?.place}">
+				<li class="fieldcontain"><span id="place-label"
+					class="property-label"><g:message code="party.place.label"
+							default="Place" /></span> <span class="property-value"
+					aria-labelledby="place-label"><g:link controller="bar"
+							action="show" id="${partyInstance?.place?.id}">
+							${partyInstance?.place?.encodeAsHTML()}
+						</g:link></span></li>
+			</g:if>
+
+			<g:if test="${partyInstance?.title}">
+				<li class="fieldcontain"><span id="title-label"
+					class="property-label"><g:message code="party.title.label"
+							default="Title" /></span> <span class="property-value"
+					aria-labelledby="title-label"><g:fieldValue
+							bean="${partyInstance}" field="title" /></span></li>
+			</g:if>
+
+			<g:if test="${partyInstance?.startDateTime}">
+				<li class="fieldcontain"><span id="startDateTime-label"
+					class="property-label"><g:message
+							code="party.startDateTime.label" default="Start Date Time" /></span> <span
+					class="property-value" aria-labelledby="startDateTime-label"><g:formatDate
+							date="${partyInstance?.startDateTime}" /></span></li>
+			</g:if>
+
+			<g:if test="${partyInstance?.finsishDateTime}">
+				<li class="fieldcontain"><span id="finsishDateTime-label"
+					class="property-label"><g:message
+							code="party.finsishDateTime.label" default="Finsish Date Time" /></span>
+
+					<span class="property-value"
+					aria-labelledby="finsishDateTime-label"><g:formatDate
+							date="${partyInstance?.finsishDateTime}" /></span></li>
+			</g:if>
+
+			<g:if test="${partyInstance?.description}">
+				<li class="fieldcontain"><span id="description-label"
+					class="property-label"><g:message
+							code="party.description.label" default="Description" /></span> <span
+					class="property-value" aria-labelledby="description-label"><g:fieldValue
+							bean="${partyInstance}" field="description" /></span></li>
+			</g:if>
+
+			<g:if test="${partyInstance?.guests}">
+				<li class="fieldcontain"><span id="guests-label"
+					class="property-label"><g:message code="party.guests.label"
+							default="Guests" /></span> <g:each in="${partyInstance.guests}" var="g">
+						<span class="property-value" aria-labelledby="guests-label"><g:link
+								controller="user" action="show" id="${g.id}">
+								${g?.encodeAsHTML()}
+							</g:link></span>
+					</g:each></li>
+			</g:if>
+		</ol>
+	</div>
+</body>
+</html>

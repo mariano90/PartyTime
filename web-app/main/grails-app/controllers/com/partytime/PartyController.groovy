@@ -10,6 +10,9 @@ class PartyController {
 
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+	/**
+	 * Shows the list of the parties where the logged user is host or is invited.
+	 */
 	def mine(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
 		// TODO: only show parties where the logged user is the host, or its invited
@@ -51,6 +54,13 @@ class PartyController {
 
 		newParty.save flush:true
 		redirect(controller:"party",action:"mine")
+	}
+	
+	/**
+	 * Shows details about a party.
+	 */
+	def details(Party partyInstance) {
+		respond partyInstance
 	}
 
 	def index(Integer max) {
