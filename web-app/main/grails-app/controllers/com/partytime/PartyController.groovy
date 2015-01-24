@@ -27,19 +27,31 @@ class PartyController {
 	 * Is executed when the user does hit the button for saving an instance of a party.
 	 */
 	def organizeNew(Party partyInstance) {
-		if (partyInstance == null) {
-			notFound()
-			return
-		}
-
-		if (partyInstance.hasErrors()) {
-			respond partyInstance.errors, view:'create'
-			return
-		}
+		// TODO not empty
+		String title = params.partyTitle
+		String description = params.partyDescription
+		// TODO render Bars in textfield and autocmolpete feature
+		// TODO Doublecheckear que Bar exista
+		Bar bar = Bar.findByName("Groove")
+		Date startDate = new Date()
+		// TODO Checkear Start < Finish
+		Date finishDate = new Date()
+		// TODO Checkear que no tenga otras fiestas en esos dias, mostrar warning.
 		User host = User.getMyUser()
-		render "TODO: implement the save"
-	}
+		
+		// TODO check errors
+		
+		Party newParty = new Party()
+		newParty.setTitle(title)
+		newParty.setDescription(description)
+		newParty.setPlace(bar)
+		newParty.setStartDateTime(startDate)
+		newParty.setFinsishDateTime(finishDate)
+		newParty.setHost(host)
 
+		newParty.save flush:true
+		redirect(controller:"party",action:"mine")
+	}
 
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
