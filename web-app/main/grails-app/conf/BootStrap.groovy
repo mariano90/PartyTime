@@ -77,9 +77,9 @@ class BootStrap {
 		userm.preferedDrinks.add(cerveza)
 		userm.save()
 
-		Review review1 = new Review(title:"review1", body:"body1", score:4, author: user1).save(failOnError: true)
-		Review review2 = new Review(title:"review2", body:"body2", score:4, author: user1).save(failOnError: true)
-		Review review3 = new Review(title:"review3", body:"body3", score:5, author: user2).save(failOnError: true)
+		Review review1 = new Review(title:"Bueno en pareja", body:"Fue una increible salida conmi novia, y eso que soy informatico.", score:4, author: user1).save(failOnError: true)
+		Review review2 = new Review(title:"Me gusta el ron", body:"Fuimos al lugar disfrazados de piratas, que mejor sorpresa que ordenar un buen ron y disfrutar el botin todos juntos, arrrghhh.", score:4, author: user1).save(failOnError: true)
+		Review review3 = new Review(title:"Lo vi a Harry Potter!", body:"Al entrar al lugar note alguien haciendo magia, fue una noche increible con el show de luces.", score:5, author: user2).save(failOnError: true)
 
 		Promo promo1 = new Promo(title: "2x1 en tragos seleccionados", description: "toda la noche", drink: fernetConCoca).save(failOnError: true)
 		Promo promo2 = new Promo(title: "Chicas gratis hasta 2:00 AM", description: "").save(failOnError: true)
@@ -90,59 +90,59 @@ class BootStrap {
 		Bar place3 = new Bar(name: "Mucha-chica", minimumAge: 21, street: "Av Cordoba", number:"1234", city:"CABA", reviews: [], promos: [promo2]).save(failOnError: true)
 		Bar place4 = new Bar(name: "La casa embrujada de Palermo", minimumAge: 21, street: "Av Corrientes", number:"1234", city:"CABA", reviews: [], promos: []).save(failOnError: true)
 
-		new News(title:"Noticia 1", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1429066800000L), imageUrl:"").save(failOnError: true)
-		new News(title:"Noticia 2", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1428066810000L), imageUrl:"").save(failOnError: true)
-		new News(title:"Noticia 3", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1427066820000L), imageUrl:"").save(failOnError: true)
+		new News(title:"Lanzamos Party Time!", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1429066800000L), imageUrl:"").save(failOnError: true)
+		new News(title:"Soportamos iPhone y Android", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1428066810000L), imageUrl:"").save(failOnError: true)
+		new News(title:"Aniversario Party Time, 50% descuento en todo!", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1427066820000L), imageUrl:"").save(failOnError: true)
 		new News(title:"Noticia 4", description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",date: new Date(1426066830000L), imageUrl:"").save(failOnError: true)
 
 		new PublicEvent(
 				title:"Creamfields",
-				description:"...",
-				lineup:"...",
+				description:"La fiesta de musica electronica mas famosa del mundo",
+				lineup:"Tiesto, Axwel, Swedish House Mafia",
 				minimumAge:18,
 				startDateTime: new Date(1429067000000L),
-				externalUrl:"...",
-				address:"..."
+				externalUrl:"http://www.creamfields.com/",
+				address:"Puerto Madero, CABA"
 				).save(failOnError: true)
 
 		new PublicEvent(
 				title:"Ultramusic Festival",
-				description:"...",
-				lineup:"...",
+				description:"",
+				lineup:"Pinion Fijo, Bala, y balas",
 				minimumAge:18,
 				startDateTime: new Date(1429066100000L),
-				externalUrl:"...",
-				address:"..."
+				externalUrl:"",
+				address:"Autodromo, CABA"
 				).save(failOnError: true)
 
 		new PublicEvent(
 				title:"Tomorrowland",
-				description:"...",
-				lineup:"...",
+				description:"DJs lideres",
+				lineup:"",
 				minimumAge:0,
 				startDateTime: new Date(1429066200000L),
-				externalUrl:"...",
-				address:"..."
+				externalUrl:"http://www.tomorrowland.com/global-splash/",
+				address:"Belgium"
 				).save(failOnError: true)
 
 		new PublicEvent(
 				title:"Cirque du Soleil",
-				description:"...",
-				lineup:"...",
+				description:"Veni a ver Ka, el show mas espectacular de circo a nivel mundial.",
+				lineup:"",
 				minimumAge:0,
 				startDateTime: new Date(1429066890000L),
-				externalUrl:"...",
-				address:"..."
+				externalUrl:"http://www.cirquedusoleil.com",
+				address:"Teatro Colon, CABA"
 				).save(failOnError: true)
 
 		new PublicEvent(
 				title:"David Copperfield",
-				description:"...",
-				lineup:"...",
-				minimumAge:18,
+				description:"¿Te gusta la magia?",
+				lineup:"",
+				minimumAge:9,
 				startDateTime: new Date(1429066800000L),
-				externalUrl:"...",
-				address:"..."
+				externalUrl:"",
+				address:"Las Vegas, NV, USA"
 				).save(failOnError: true)
 
 
