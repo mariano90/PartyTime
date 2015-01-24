@@ -43,7 +43,7 @@
 						<td>
 							${fieldValue(bean: partyInstance, field: "title")}
 						</td>
-						<td><g:formatDate date="${partyInstance.startDateTime}" /></td>
+						<td><g:formatDate format="yyyy-MM-dd" date="${partyInstance.startDateTime}" /></td>
 					</tr>
 				</g:each>
 			</tbody>
