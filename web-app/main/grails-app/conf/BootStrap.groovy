@@ -62,6 +62,10 @@ class BootStrap {
 		// TODO: link mode users with plugin authentication users.
 		//		assert new AuthenticationUser( login:'fabricio', password:'123456'.encodeAsMD5(), email:'someone@somewhere.com',
 		//		status:AuthenticationService.STATUS_VALID).save()
+		userf.preferedDrinks.add(tropicalEnergy)
+		userf.preferedDrinks.add(acidPsycho)
+		userf.save()
+		
 		User userm = new User(name: "mariano", bornDate: new Date()).save(failOnError: true)
 		User user1 = new User(name: "user1", bornDate: new Date()).save(failOnError: true)
 		User user2 = new User(name: "user2", bornDate: new Date()).save(failOnError: true)
