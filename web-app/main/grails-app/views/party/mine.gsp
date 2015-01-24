@@ -22,28 +22,33 @@
 		<table>
 			<thead>
 				<tr>
-
-					<th><g:message code="party.host.label" default="Host" /></th>
+					<g:sortableColumn property="host" title="${message(code: 'party.host.label', default: 'Host')}" />
 					<th><g:message code="party.place.label" default="Place" /></th>
-					<g:sortableColumn property="title"
-						title="${message(code: 'party.title.label', default: 'Title')}" />
-					<g:sortableColumn property="startDateTime"
-						title="${message(code: 'party.startDateTime.label', default: 'Starting at')}" />
+					<g:sortableColumn property="title" title="${message(code: 'party.title.label', default: 'Title')}" />
+					<g:sortableColumn property="startDateTime" title="${message(code: 'party.startDateTime.label', default: 'Starting at')}" />
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<g:each in="${partyInstanceList}" status="i" var="partyInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link action="details" id="${partyInstance.id}">
-								${fieldValue(bean: partyInstance, field: "host")}
-							</g:link></td>
+						<td>
+							${fieldValue(bean: partyInstance, field: "host")}
+						</td>
 						<td>
 							${fieldValue(bean: partyInstance, field: "place")}
 						</td>
 						<td>
 							${fieldValue(bean: partyInstance, field: "title")}
 						</td>
-						<td><g:formatDate format="yyyy-MM-dd" date="${partyInstance.startDateTime}" /></td>
+						<td>
+							<g:formatDate format="yyyy-MM-dd" date="${partyInstance.startDateTime}" />
+						</td>
+						<td>
+							<g:link action="details" id="${partyInstance.id}">
+								Details
+							</g:link>
+						</td>
 					</tr>
 				</g:each>
 			</tbody>
