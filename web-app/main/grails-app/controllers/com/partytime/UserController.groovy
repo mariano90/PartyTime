@@ -14,6 +14,13 @@ class UserController {
 	def settings(){
 		User myUser = User.getMyUser()
 	}
+	
+	/**
+	 * Shows details about the selected user.
+	 */
+	def details(User userInstance) {
+		respond userInstance
+	}
 
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)

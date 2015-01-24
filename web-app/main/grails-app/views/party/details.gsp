@@ -26,27 +26,30 @@
 					<g:message code="party.host.label"
 							default="Host" /></span>
 				<span class="property-value" aria-labelledby="host-label">
-					<g:link controller="user" action="show" id="${partyInstance?.host?.id}">
+					<g:link controller="user" action="details" id="${partyInstance?.host?.id}">
 							${partyInstance?.host?.encodeAsHTML()}
 						</g:link></span></li>
 			</g:if>
 
 			<g:if test="${partyInstance?.place}">
-				<li class="fieldcontain"><span id="place-label"
-					class="property-label"><g:message code="party.place.label"
-							default="Place" /></span> <span class="property-value"
-					aria-labelledby="place-label"><g:link controller="bar"
-							action="show" id="${partyInstance?.place?.id}">
+				<li class="fieldcontain">
+				<span id="place-label" class="property-label">
+					<g:message code="party.place.label" default="Place" />
+				</span>
+				<span class="property-value" aria-labelledby="place-label">
+					<g:link controller="bar" action="details" id="${partyInstance?.place?.id}">
 							${partyInstance?.place?.encodeAsHTML()}
-						</g:link></span></li>
+					</g:link>
+				</span>
+				</li>
 			</g:if>
-
 			<g:if test="${partyInstance?.title}">
-				<li class="fieldcontain"><span id="title-label"
-					class="property-label"><g:message code="party.title.label"
-							default="Title" /></span> <span class="property-value"
-					aria-labelledby="title-label"><g:fieldValue
-							bean="${partyInstance}" field="title" /></span></li>
+				<li class="fieldcontain">
+				<span id="title-label" class="property-label">
+					<g:message code="party.title.label" default="Title" />
+				</span>
+				<span class="property-value" aria-labelledby="title-label">
+					<g:fieldValue bean="${partyInstance}" field="title" /></span></li>
 			</g:if>
 
 			<g:if test="${partyInstance?.startDateTime}">
