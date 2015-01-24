@@ -18,38 +18,22 @@
 				<tr>
 					<g:sortableColumn property="title"
 						title="${message(code: 'publicEvent.title.label', default: 'Title')}" />
-					<g:sortableColumn property="description"
-						title="${message(code: 'publicEvent.description.label', default: 'Description')}" />
-					<g:sortableColumn property="lineup"
-						title="${message(code: 'publicEvent.lineup.label', default: 'Lineup')}" />
+					<th><g:message code="publicEvent.lineup.label" default="Lineup" /></th>
 					<g:sortableColumn property="startDateTime"
-						title="${message(code: 'publicEvent.startDateTime.label', default: 'Start Date Time')}" />
-					<g:sortableColumn property="externalUrl"
-						title="${message(code: 'publicEvent.externalUrl.label', default: 'External Url')}" />
-					<g:sortableColumn property="address"
-						title="${message(code: 'publicEvent.address.label', default: 'Address')}" />
+						title="${message(code: 'publicEvent.startDateTime.label', default: 'Date')}" />
 				</tr>
 			</thead>
 			<tbody>
 				<g:each in="${publicEventInstanceList}" status="i"
 					var="publicEventInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link action="show" id="${publicEventInstance.id}">
+						<td>
+							<g:link action="details" id="${publicEventInstance.id}">
 								${fieldValue(bean: publicEventInstance, field: "title")}
-							</g:link></td>
-						<td>
-							${fieldValue(bean: publicEventInstance, field: "description")}
+							</g:link>
 						</td>
-						<td>
-							${fieldValue(bean: publicEventInstance, field: "lineup")}
-						</td>
-						<td><g:formatDate date="${publicEventInstance.startDateTime}" /></td>
-						<td>
-							${fieldValue(bean: publicEventInstance, field: "externalUrl")}
-						</td>
-						<td>
-							${fieldValue(bean: publicEventInstance, field: "address")}
-						</td>
+						<td>${fieldValue(bean: publicEventInstance, field: "lineup")}</td>
+						<td><g:formatDate format="yyyy-MM-dd" date="${publicEventInstance.startDateTime}" /></td>
 					</tr>
 				</g:each>
 			</tbody>
