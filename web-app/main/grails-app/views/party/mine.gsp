@@ -9,6 +9,7 @@
 <title><g:message code="default.list.label" args="[entityName]" /></title>
 </head>
 <body>
+TODO: Only show my parties, or the ones Im invited.
 	<div class="nav" role="navigation"></div>
 	<div id="list-party" class="content scaffold-list" role="main">
 		<h1>
