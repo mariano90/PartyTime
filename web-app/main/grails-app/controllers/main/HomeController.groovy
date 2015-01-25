@@ -10,4 +10,13 @@ class HomeController {
 //		}
 		render view:"home.gsp"
 	}
+	
+	def login() {
+	}
+	
+	def signup() {
+	}
+	
+	def about() {
+	}
 }
