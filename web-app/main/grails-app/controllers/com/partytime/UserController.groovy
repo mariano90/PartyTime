@@ -34,6 +34,14 @@ class UserController {
 	def create() {
 		respond new User(params)
 	}
+	
+	def addDrink() {
+		User host = User.getMyUser()
+		Drink drink = Drink.findByName(params.drinkSelected)
+		host.preferedDrinks.add(drink)
+		host.save flush:true
+		redirect(controller:"drink",action:"mine")
+	}
 
 	@Transactional
 	def save(User userInstance) {
