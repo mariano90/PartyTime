@@ -6,12 +6,19 @@
 <meta name="layout" content="home">
 <g:set var="entityName"
 	value="${message(code: 'party.label', default: 'Party')}" />
-<title><g:message code="default.show.label" args="[entityName]" /></title>
+<title>
+	<g:message code="default.show.label" args="[entityName]" />
+	 - <g:if test="${partyInstance?.title}">
+			<g:fieldValue bean="${partyInstance}" field="title" />
+		</g:if>
+</title>
 </head>
 <body>
 	<div id="show-party" class="content scaffold-show" role="main">
 		<h1>
-			<g:message code="Party details" />
+			<g:if test="${partyInstance?.title}">
+				<g:fieldValue bean="${partyInstance}" field="title" />
+			</g:if>
 		</h1>
 		<g:if test="${flash.message}">
 			<div class="message" role="status">
@@ -42,14 +49,6 @@
 					</g:link>
 				</span>
 				</li>
-			</g:if>
-			<g:if test="${partyInstance?.title}">
-				<li class="fieldcontain">
-				<span id="title-label" class="property-label">
-					<g:message code="party.title.label" default="Title" />
-				</span>
-				<span class="property-value" aria-labelledby="title-label">
-					<g:fieldValue bean="${partyInstance}" field="title" /></span></li>
 			</g:if>
 
 			<g:if test="${partyInstance?.startDateTime}">
