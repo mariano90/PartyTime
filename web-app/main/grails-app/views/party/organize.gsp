@@ -33,6 +33,7 @@
 				<br /> <label>Description:</label>
 				<g:textField name="partyDescription" />
 				<br /> <label>Place: </label>
+				<br/>TODO: fill this with autocomplete places<br/><br/>
 				<g:textField name="partyPlace" />
 				<br /> <label>Starts at: </label>
 				<g:datePicker name="partyStart" value="${new Date()}"
