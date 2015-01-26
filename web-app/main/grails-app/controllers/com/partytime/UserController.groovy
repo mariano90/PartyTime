@@ -12,7 +12,7 @@ class UserController {
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	def settings(){
-		User myUser = User.getMyUser()
+		respond User.getMyUser()
 	}
 	
 	/**
@@ -84,19 +84,8 @@ class UserController {
 			respond userInstance.errors, view:'edit'
 			return
 		}
-
 		userInstance.save flush:true
-
-		request.withFormat {
-			form multipartForm {
-				flash.message = message(code: 'default.updated.message', args: [
-					message(code: 'User.label', default: 'User'),
-					userInstance.id
-				])
-				redirect userInstance
-			}
-			'*'{ respond userInstance, [status: OK] }
-		}
+		redirect(controller:"home",action:"index")
 	}
 
 	@Transactional
