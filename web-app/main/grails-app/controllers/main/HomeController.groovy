@@ -14,6 +14,9 @@ class HomeController {
 	def login() {
 	}
 	
+	def loginError() {
+	}
+	
 	def signup() {
 	}
 	

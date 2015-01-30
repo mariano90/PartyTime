@@ -49,6 +49,9 @@
 					<li><a href="http://localhost:8080/main/home/about"
 						class=""><span
 							class="fa fa-music">About</span></a></li>
+					<li><a href="http://localhost:8080/main/authentication/index"
+						class=""><span
+							class="fa fa-music">Old login</span></a></li>
 				</ul>
 			</nav>
 		</div>

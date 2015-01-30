@@ -13,10 +13,18 @@
 	<g:if test="${flash.authenticationFailure}">
 	Login failed: ${message(code:"authentication.failure."+flash.authenticationFailure.result).encodeAsHTML()}
 	</g:if>
-	<auth:form authAction="login" success="[controller:'admin', action:'index']" error="[controller:'admin', action:'loginError']">
+	<auth:form authAction="login"
+	      success="[controller:'home', action:'index']"
+	      error="[controller:'home', action:'loginError']">
     	User: <g:textField name="login"/><br/>
     	Password: <input type="password" name="password"/><br/>
     	<input type="submit" value="Log in"/>
 	</auth:form>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 </body>
 </html>
