@@ -65,9 +65,10 @@ class BootStrap {
 		userf.preferedDrinks.add(acidPsycho)
 		userf.save()
 		// TODO: link mode users with plugin authentication users.
-		//      assert new AuthenticationUser( login:'fabricio',password:'123456'.encodeAsMD5(),email:'someone@somewhere.com',
-
-		//      status:AuthenticationService.STATUS_VALID).save()
+//		assert new AuthenticationUser( login:'fabricio',
+//			password:'123456'.encodeAsMD5(),
+//			email:'someone@somewhere.com',
+//			status:AuthenticationService.STATUS_VALID).save()
 		
 		
 		User userm = new User(name: "mariano",
