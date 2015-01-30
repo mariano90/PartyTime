@@ -1,5 +1,7 @@
-<!DOCTYPE HTML>
 
+<%@ page import="com.partytime.User"%>
+
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
 <title><g:layoutTitle default="Party Time" /></title>
@@ -32,9 +34,7 @@
 
 <g:layoutHead />
 </head>
-
 <body>
-
 	<!-- Header -->
 	<div id="header" class="skel-panels-fixed">
 
@@ -44,7 +44,7 @@
 			<div id="logo">
 				<span class="image avatar48"><img src="images/avatar.jpg"
 					alt="" /></span>
-				<h1 id="title">Mariano Sanchez</h1>
+				<h1 id="title">${User.getMyUser().toString()}</h1>
 			</div>
 
 			<!-- Nav -->
