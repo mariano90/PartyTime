@@ -8,11 +8,13 @@
 		<div id="list-drink"  role="main" style="height: 800px">
 			<h2><strong>My Drinks</strong></h2>
 			<div id="add_drink" style="margin-top:25px;">
-				<button class="button" style="margin-left:30px">Add Drink</button>
+			<g:form controller="user" action="addDrink">
+				<g:submitButton name="AddDrink" class="button" style="margin-left:30px" 
+					value="${message(code: 'drink.button.add', default: 'Add Drink')}"/>
 <%--				 TODO deberia ser un listado de tragos para que el usuario agregue		--%>
-				<g:select style="margin-left:30px" name="components" from="${com.partytime.Drink.list()}"
-					multiple="multiple" optionKey="id" size="5"
-					class="many-to-many" />
+				<g:select style="margin-left:30px;width:500px;margin-top:20px" name="drinkSelected" from="${com.partytime.Drink.list()}"
+					optionKey="name"/>
+			</g:form>
 			</div>
 			
 			<div style="margin-top: 50px">

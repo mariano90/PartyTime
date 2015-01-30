@@ -33,7 +33,7 @@ class DrinkController {
 	}
 	
 	def mine() {
-		def myDrinks = User.find{ name == "mariano"}.getPreferedDrinks()
+		def myDrinks = User.find{ name == User.getMyUser().name}.getPreferedDrinks()
 		[myDrinks:myDrinks]
 	}
 	

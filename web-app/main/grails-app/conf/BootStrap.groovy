@@ -59,7 +59,7 @@ class BootStrap {
 		MusicStyle musicStyle80 = new MusicStyle(name: "80's").save(failOnError: true)
 
 		User userf = new User(name: "fabricio",
-			bornDate: new Date()
+			bornDate: new Date(), mail: "fabriph@gmail.com"
 			).save(failOnError: true)
 		userf.preferedDrinks.add(tropicalEnergy)
 		userf.preferedDrinks.add(acidPsycho)
@@ -72,17 +72,17 @@ class BootStrap {
 		
 		
 		User userm = new User(name: "mariano",
-			bornDate: new Date()).save(failOnError: true)
+			bornDate: new Date(), mail: "sanchezmariano90@gmail.com").save(failOnError: true)
 		User user1 = new User(name: "user1",
-			bornDate: new Date()).save(failOnError: true)
+			bornDate: new Date(), mail: "user1@gmail.com").save(failOnError: true)
 		User user2 = new User(name: "user2",
-			bornDate: new Date()).save(failOnError: true)
+			bornDate: new Date(), mail: "user2@gmail.com").save(failOnError: true)
 		User user3 = new User(name: "user3",
-			bornDate: new Date()).save(failOnError: true)
+			bornDate: new Date(), mail: "user3@gmail.com").save(failOnError: true)
 		User user4 = new User(name: "user4",
-			bornDate: new Date()).save(failOnError: true)
+			bornDate: new Date(), mail: "user4@gmail.com").save(failOnError: true)
 		User user5 = new User(name: "user5",
-			bornDate: new Date()).save(failOnError: true)
+			bornDate: new Date(), mail: "user5@gmail.com").save(failOnError: true)
 
 		userm.preferedDrinks.add(fernetConCoca)
 		userm.preferedDrinks.add(cerveza)
