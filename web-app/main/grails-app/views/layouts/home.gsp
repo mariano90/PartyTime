@@ -45,6 +45,17 @@
 				<span class="image avatar48"><img src="images/avatar.jpg"
 					alt="" /></span>
 				<h1 id="title">${User.getMyUser().toString()}</h1>
+				<form action="/main/authentication/logout" method="post">
+					<input type="hidden" name="success_controller"
+						value="home" id="success_controller">
+					<input type="hidden" name="success_action"
+						value="index" id="success_action">
+					<input type="hidden" name="error_controller"
+						value="home" id="error_controller">
+					<input type="hidden" name="error_action"
+						value="error" id="error_action">
+			    	<input type="submit" name="_action_Log out" value="Log out"> 
+			</form>
 			</div>
 
 			<!-- Nav -->
@@ -71,8 +82,8 @@
 					<li><a href="http://localhost:8080/main/user/settings"
 						id="settings-link" class="skel-panels-ignoreHref"><span
 							class="fa fa-gear">Settings</span></a></li>
-					<li><a href="http://localhost:8080/main/"
-						class="skel-panels-ignoreHref"><span class="fa fa-gear">Debug</span></a></li>
+					<li><a href="http://localhost:8080/main/" class="skel-panels-ignoreHref">
+						<span class="fa fa-gear">Debug</span></a></li>
 				</ul>
 			</nav>
 
