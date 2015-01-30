@@ -1,5 +1,6 @@
 
 <%@ page import="com.partytime.Component"%>
+
 <!DOCTYPE html>
 <html>
 <head>

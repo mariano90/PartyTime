@@ -16,6 +16,7 @@ class Party {
 
 	static constraints = {
 		title blank:false, nullable: false
+		description blank:true, nullable: true
 		place nullable: true
 		host nullable: false
 		startDateTime nullable: false
