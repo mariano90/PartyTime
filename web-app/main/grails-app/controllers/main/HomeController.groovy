@@ -22,4 +22,10 @@ class HomeController {
 	
 	def about() {
 	}
+	
+	def logout() {
+	}
+	
+	def error() {
+	}
 }
