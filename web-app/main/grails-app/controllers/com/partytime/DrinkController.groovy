@@ -38,6 +38,8 @@ class DrinkController {
 		[myDrinks:myDrinks]
 	}
 	
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	/* * *                  Methods used for maintenance                 * * */
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -58,14 +60,11 @@ class DrinkController {
             notFound()
             return
         }
-
         if (drinkInstance.hasErrors()) {
             respond drinkInstance.errors, view:'create'
             return
         }
-
         drinkInstance.save flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'drink.label', default: 'Drink'), drinkInstance.id])
@@ -85,14 +84,11 @@ class DrinkController {
             notFound()
             return
         }
-
         if (drinkInstance.hasErrors()) {
             respond drinkInstance.errors, view:'edit'
             return
         }
-
         drinkInstance.save flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Drink.label', default: 'Drink'), drinkInstance.id])
@@ -104,14 +100,11 @@ class DrinkController {
 
     @Transactional
     def delete(Drink drinkInstance) {
-
         if (drinkInstance == null) {
             notFound()
             return
         }
-
         drinkInstance.delete flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Drink.label', default: 'Drink'), drinkInstance.id])

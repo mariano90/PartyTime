@@ -23,6 +23,9 @@ class NewsController {
 		params.max = 100
 		respond News.list(params), model:[newsInstanceCount: News.count()]
 	}
+	
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	/* * *                  Methods used for maintenance                 * * */
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -70,14 +73,11 @@ class NewsController {
             notFound()
             return
         }
-
         if (newsInstance.hasErrors()) {
             respond newsInstance.errors, view:'edit'
             return
         }
-
         newsInstance.save flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'News.label', default: 'News'), newsInstance.id])
@@ -89,14 +89,11 @@ class NewsController {
 
     @Transactional
     def delete(News newsInstance) {
-
         if (newsInstance == null) {
             notFound()
             return
         }
-
         newsInstance.delete flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'News.label', default: 'News'), newsInstance.id])

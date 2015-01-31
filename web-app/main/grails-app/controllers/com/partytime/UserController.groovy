@@ -35,6 +35,9 @@ class UserController {
 		User.sync(authenticationService.getUserPrincipal())
 		respond userInstance
 	}
+	
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	/* * *                  Methods used for maintenance                 * * */
 
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
@@ -63,14 +66,11 @@ class UserController {
 			notFound()
 			return
 		}
-
 		if (userInstance.hasErrors()) {
 			respond userInstance.errors, view:'create'
 			return
 		}
-
 		userInstance.save flush:true
-
 		request.withFormat {
 			form multipartForm {
 				flash.message = message(code: 'default.created.message', args: [
@@ -93,7 +93,6 @@ class UserController {
 			notFound()
 			return
 		}
-
 		if (userInstance.hasErrors()) {
 			respond userInstance.errors, view:'edit'
 			return
@@ -104,14 +103,11 @@ class UserController {
 
 	@Transactional
 	def delete(User userInstance) {
-
 		if (userInstance == null) {
 			notFound()
 			return
 		}
-
 		userInstance.delete flush:true
-
 		request.withFormat {
 			form multipartForm {
 				flash.message = message(code: 'default.deleted.message', args: [

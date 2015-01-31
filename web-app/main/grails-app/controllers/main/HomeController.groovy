@@ -6,6 +6,9 @@ class HomeController {
 
 	def authenticationService
 
+	/**
+	 * Homepage of the app, dashboard is shown with general info.
+	 */
 	def index() {
 		if (!authenticationService.isLoggedIn(request)) {
 			redirect action:"login"

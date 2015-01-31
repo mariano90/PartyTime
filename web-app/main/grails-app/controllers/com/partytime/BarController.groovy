@@ -35,6 +35,9 @@ class BarController {
 		respond barInstance
 	}
 
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	/* * *                  Methods used for maintenance                 * * */
+
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
 		respond Bar.list(params), model:[barInstanceCount: Bar.count()]

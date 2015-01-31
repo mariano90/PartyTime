@@ -82,6 +82,9 @@ class PartyController {
 		}
 		respond partyInstance
 	}
+	
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	/* * *                  Methods used for maintenance                 * * */
 
 	def index(Integer max) {
 		params.max = Math.min(max ?: 10, 100)
@@ -102,14 +105,11 @@ class PartyController {
 			notFound()
 			return
 		}
-
 		if (partyInstance.hasErrors()) {
 			respond partyInstance.errors, view:'create'
 			return
 		}
-
 		partyInstance.save flush:true
-
 		request.withFormat {
 			form multipartForm {
 				flash.message = message(code: 'default.created.message', args: [
@@ -132,14 +132,11 @@ class PartyController {
 			notFound()
 			return
 		}
-
 		if (partyInstance.hasErrors()) {
 			respond partyInstance.errors, view:'edit'
 			return
 		}
-
 		partyInstance.save flush:true
-
 		request.withFormat {
 			form multipartForm {
 				flash.message = message(code: 'default.updated.message', args: [

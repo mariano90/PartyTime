@@ -53,6 +53,9 @@ class PublicEventController {
 		respond publicEventInstance
 	}
 	
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	/* * *                  Methods used for maintenance                 * * */
+	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]

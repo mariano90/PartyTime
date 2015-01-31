@@ -9,6 +9,9 @@ import grails.transaction.Transactional
 class ComponentController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	/* * *                  Methods used for maintenance                 * * */
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -29,14 +32,11 @@ class ComponentController {
             notFound()
             return
         }
-
         if (componentInstance.hasErrors()) {
             respond componentInstance.errors, view:'create'
             return
         }
-
         componentInstance.save flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'component.label', default: 'Component'), componentInstance.id])
@@ -56,14 +56,11 @@ class ComponentController {
             notFound()
             return
         }
-
         if (componentInstance.hasErrors()) {
             respond componentInstance.errors, view:'edit'
             return
         }
-
         componentInstance.save flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Component.label', default: 'Component'), componentInstance.id])
@@ -75,14 +72,11 @@ class ComponentController {
 
     @Transactional
     def delete(Component componentInstance) {
-
         if (componentInstance == null) {
             notFound()
             return
         }
-
         componentInstance.delete flush:true
-
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Component.label', default: 'Component'), componentInstance.id])
