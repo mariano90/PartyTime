@@ -17,8 +17,18 @@ class User {
 	String toString(){
 		return "${name}"
 	}
+	
+	static activeLogin = ""
 
-	static getMyUser(){
-		return User.findByName("mariano")
+	static existsUser(String login){
+		return User.findByName(login) != null
+	}
+
+	static activeMyUser(String login) {
+		activeLogin = login
+    }
+
+	static getMyUser() {
+		return User.findByName(activeLogin)
 	}
 }
