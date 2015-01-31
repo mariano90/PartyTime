@@ -8,12 +8,18 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class PartyController {
 
+	def authenticationService
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	/**
 	 * Shows the list of the parties where the logged user is host or is invited.
 	 */
 	def mine(Integer max) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 		params.max = Math.min(max ?: 10, 100)
 		// TODO: only show parties where the logged user is the host, or its invited
 		respond Party.list(params), model:[partyInstanceCount: Party.count()]
@@ -24,12 +30,22 @@ class PartyController {
 	 * create were the admin is the only one that can use it.
 	 */
 	def organize() {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 	}
 
 	/**
 	 * Is executed when the user does hit the button for saving an instance of a party.
 	 */
 	def organizeNew(Party partyInstance) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 		// TODO not empty
 		String title = params.partyTitle
 		String description = params.partyDescription
@@ -60,6 +76,10 @@ class PartyController {
 	 * Shows details about a party.
 	 */
 	def details(Party partyInstance) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
 		respond partyInstance
 	}
 

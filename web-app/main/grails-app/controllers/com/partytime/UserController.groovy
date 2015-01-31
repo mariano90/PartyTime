@@ -9,9 +9,18 @@ import com.partytime.User
 @Transactional(readOnly = true)
 class UserController {
 
+	def authenticationService
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+	/**
+	 * Allows the user to define his personal info.
+	 */
 	def settings(){
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 		respond User.getMyUser()
 	}
 	
@@ -19,6 +28,11 @@ class UserController {
 	 * Shows details about the selected user.
 	 */
 	def details(User userInstance) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 		respond userInstance
 	}
 

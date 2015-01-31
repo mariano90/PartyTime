@@ -1,5 +1,7 @@
 package com.partytime
 
+import com.grailsrocks.authentication.AuthenticationUser
+
 class User {
 	String name
 	Date bornDate
@@ -16,6 +18,17 @@ class User {
 
 	String toString(){
 		return "${name}"
+	}
+	
+	static sync(AuthenticationUser authUser) {
+		String login = authUser.getLogin()
+		if (!User.existsUser(login)) {
+			String email = authUser.getEmail()
+			User newUser = new User(name: login,
+			  bornDate: new Date(),
+			  mail: email).save(failOnError: true)
+		}
+		User.activeMyUser(login)
 	}
 	
 	static activeLogin = ""

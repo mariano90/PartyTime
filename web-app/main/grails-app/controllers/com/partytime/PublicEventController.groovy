@@ -8,6 +8,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class PublicEventController {
 
+	def authenticationService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	/**
@@ -15,6 +16,11 @@ class PublicEventController {
 	 * displayed as an iframe.
 	 */
 	def embed(Integer max) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect "Not logged in"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 		params.max = Math.min(max ?: 10, 100)
 		// TODO only show events that are in the future
 		// TODO show more events of the preference of the user.
@@ -25,6 +31,11 @@ class PublicEventController {
 	 * Shows all available public events.
 	 */
 	def all(Integer max) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 		params.max = Math.min(max ?: 10, 100)
 		// TODO only show events that are in the future
 		respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]
@@ -34,6 +45,11 @@ class PublicEventController {
 	 * Shows the detail of a Public Event.
 	 */
 	def details(PublicEvent publicEventInstance) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 		respond publicEventInstance
 	}
 	

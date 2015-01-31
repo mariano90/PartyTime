@@ -5,7 +5,8 @@ import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class BarController {
-
+	
+	def authenticationService
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	/**
@@ -13,6 +14,11 @@ class BarController {
 	 * @return
 	 */
 	def search() {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 		params.max = 100
 		respond Bar.list(params), model:[barInstanceCount: Bar.count()]
 	}
@@ -21,6 +27,11 @@ class BarController {
 	 * Shows details about a Bar.
 	 */
 	def details(Bar barInstance) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 		respond barInstance
 	}
 

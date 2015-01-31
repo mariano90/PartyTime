@@ -8,11 +8,36 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class DrinkController {
 
+	def authenticationService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-		
-	def favourite(){
-		render "TODO: DrinkController implement favourite page, permite elegir mis tragos favoritos"
+	
+	/**
+	 * TODO: Maybe this method is no longed used. Check
+	 */
+	def showList(Integer max) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
+		params.max = Math.min(max ?: 10, 100)
+		respond Drink.list(params), model:[drinkInstanceCount: Drink.count()]
 	}
+	
+	/**
+	 * Used to check the list of favorite drinks of a user.
+	 * @return
+	 */
+	def mine() {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
+		def myDrinks = User.find{ name == User.getMyUser().name}.getPreferedDrinks()
+		[myDrinks:myDrinks]
+	}
+	
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -26,16 +51,6 @@ class DrinkController {
     def create() {
         respond new Drink(params)
     }
-
-	def showList(Integer max) {
-		params.max = Math.min(max ?: 10, 100)
-		respond Drink.list(params), model:[drinkInstanceCount: Drink.count()]
-	}
-	
-	def mine() {
-		def myDrinks = User.find{ name == User.getMyUser().name}.getPreferedDrinks()
-		[myDrinks:myDrinks]
-	}
 	
     @Transactional
     def save(Drink drinkInstance) {

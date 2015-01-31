@@ -10,7 +10,16 @@ class NewsController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
+	/**
+	 * Shows the list of whole news.
+	 * @return
+	 */
 	def all() {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 		params.max = 100
 		respond News.list(params), model:[newsInstanceCount: News.count()]
 	}
