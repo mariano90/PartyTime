@@ -16,6 +16,6 @@ class Promo {
     }
 	
 	String toString(){
-		return "${title} (${description} ${drink})" // TODO avoid nulls to be printed
+		return "${title} (${description})"
 	}
 }
