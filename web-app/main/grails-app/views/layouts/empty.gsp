@@ -27,16 +27,7 @@
 
 	<!-- Header -->
 	<div id="header" class="skel-panels-fixed">
-
 		<div class="top">
-
-			<!-- Logo -->
-			<div id="logo">
-				<span class="image avatar48"><img src="images/avatar.jpg"
-					alt="" /></span>
-				<h1 id="title">Mariano Sanchez</h1>
-			</div>
-
 			<!-- Nav -->
 			<nav id="nav">
 				<ul>
