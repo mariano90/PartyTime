@@ -44,9 +44,7 @@
 				<g:if test="${barInstance?.street}">
 				<li class="fieldcontain">
 					<span id="street-label" class="property-label"><g:message code="bar.street.label" default="Street" /></span>
-					
 						<span class="property-value" aria-labelledby="street-label"><g:fieldValue bean="${barInstance}" field="street"/></span>
-					
 				</li>
 				</g:if>
 			
