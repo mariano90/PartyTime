@@ -8,6 +8,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class NewsController {
 
+	def authenticationService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
 	/**
@@ -16,7 +17,7 @@ class NewsController {
 	 */
 	def all() {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())

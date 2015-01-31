@@ -32,7 +32,7 @@ class PublicEventController {
 	 */
 	def all(Integer max) {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
@@ -46,7 +46,7 @@ class PublicEventController {
 	 */
 	def details(PublicEvent publicEventInstance) {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())

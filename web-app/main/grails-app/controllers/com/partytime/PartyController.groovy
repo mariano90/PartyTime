@@ -16,7 +16,7 @@ class PartyController {
 	 */
 	def mine(Integer max) {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
@@ -31,7 +31,7 @@ class PartyController {
 	 */
 	def organize() {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
@@ -42,7 +42,7 @@ class PartyController {
 	 */
 	def organizeNew(Party partyInstance) {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
@@ -77,7 +77,7 @@ class PartyController {
 	 */
 	def details(Party partyInstance) {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		respond partyInstance

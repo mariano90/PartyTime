@@ -15,7 +15,7 @@ class BarController {
 	 */
 	def search() {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
@@ -28,7 +28,7 @@ class BarController {
 	 */
 	def details(Bar barInstance) {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())

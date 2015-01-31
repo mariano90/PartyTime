@@ -11,7 +11,7 @@ class HomeController {
 	 */
 	def index() {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())

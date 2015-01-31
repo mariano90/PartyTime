@@ -17,7 +17,7 @@ class UserController {
 	 */
 	def settings(){
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
@@ -29,7 +29,7 @@ class UserController {
 	 */
 	def details(User userInstance) {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())

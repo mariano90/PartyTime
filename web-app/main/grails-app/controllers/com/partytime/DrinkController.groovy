@@ -16,7 +16,7 @@ class DrinkController {
 	 */
 	def showList(Integer max) {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
@@ -30,7 +30,7 @@ class DrinkController {
 	 */
 	def mine() {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect action:"login"
+			redirect controller:"home", action:"login"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
