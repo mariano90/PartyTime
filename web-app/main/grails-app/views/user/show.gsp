@@ -62,6 +62,21 @@
 					
 				</li>
 				</g:if>
+				
+				<g:if test="${userInstance?.partiesInvited}">
+				    <li class="fieldcontain">
+				        <span id="partiesInvited-label" class="property-label">
+				            <g:message code="user.partiesInvited.label" default="invited to" />
+				        </span>
+				        <g:each in="${userInstance.partiesInvited}" var="r">
+				            <span class="property-value" aria-labelledby="partiesInvited-label">
+				                <g:link controller="party" action="show" id="${r.id}">
+				                    ${r?.encodeAsHTML()}
+				                </g:link>
+				            </span>
+				        </g:each>
+				    </li>
+				</g:if>
 			
 			</ol>
 			<g:form url="[resource:userInstance, action:'delete']" method="DELETE">
