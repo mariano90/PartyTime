@@ -12,19 +12,6 @@ class DrinkController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
 	/**
-	 * TODO: Maybe this method is no longed used. Check
-	 */
-	def showList(Integer max) {
-		if (!authenticationService.isLoggedIn(request)) {
-			redirect controller:"home", action:"login"
-			return
-		}
-		User.sync(authenticationService.getUserPrincipal())
-		params.max = Math.min(max ?: 10, 100)
-		respond Drink.list(params), model:[drinkInstanceCount: Drink.count()]
-	}
-	
-	/**
 	 * Used to check the list of favorite drinks of a user.
 	 * @return
 	 */

@@ -18,7 +18,6 @@
 <%--	<script type="text/javascript" src="${resource(dir:'js', file:'skel.min.js')}" ></script>--%>
 <%--	<script type="text/javascript" src="${resource(dir:'js', file:'skel-panels.min.js')}" ></script>--%>
 <%--	<script type="text/javascript" src="${resource(dir:'js', file:'init.js')}" ></script>--%>
-<%--	<script type="text/javascript" src="${resource(dir:'js', file:'menu_functions.js')}" ></script>--%>
 
 <%-- CSS DE GRAILS --%>
 <%--		<link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">  --%>
