@@ -10,6 +10,10 @@ class ReviewController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
+	def details(Review reviewInstance) {
+		respond reviewInstance
+	}
+	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	/* * *                  Methods used for maintenance                 * * */
 
