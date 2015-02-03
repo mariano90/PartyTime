@@ -1,5 +1,7 @@
 package com.partytime
 
+import com.partytime.User
+
 class Party {
 	User host
 	Bar place
@@ -8,7 +10,6 @@ class Party {
 	Date startDateTime
 	Date finsishDateTime
 	Set guests = []
-	// TODO: maybe split into confirmed, pending and not-going
 
 	static hasMany = [guests: User]
 
@@ -26,5 +27,11 @@ class Party {
 
 	String toString(){
 		return "${title} @ ${place} el ${startDateTime} por ${host}"
+	}
+	
+	void sendInvitations() {
+		for (User x in this.guests) {
+			x.partiesInvited.add(this)
+		}
 	}
 }

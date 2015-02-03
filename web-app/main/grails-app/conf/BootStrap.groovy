@@ -70,10 +70,10 @@ class BootStrap {
 //			status:AuthenticationService.STATUS_VALID).save()
 		
 		
-		User userm = new User(name: "asdasd",
+		User user0 = new User(name: "asdasd",
 			bornDate: new Date(), mail: "asd@asd.com").save(failOnError: true)
-		User user1 = new User(name: "user1",
-			bornDate: new Date(), mail: "user1@gmail.com").save(failOnError: true)
+		User user1 = new User(name: "zxczxc",
+			bornDate: new Date(), mail: "zxc@zxc.com").save(failOnError: true)
 		User user2 = new User(name: "user2",
 			bornDate: new Date(), mail: "user2@gmail.com").save(failOnError: true)
 		User user3 = new User(name: "user3",
@@ -83,9 +83,9 @@ class BootStrap {
 		User user5 = new User(name: "user5",
 			bornDate: new Date(), mail: "user5@gmail.com").save(failOnError: true)
 
-		userm.preferedDrinks.add(fernetConCoca)
-		userm.preferedDrinks.add(cerveza)
-		userm.save()
+		user0.preferedDrinks.add(fernetConCoca)
+		user0.preferedDrinks.add(cerveza)
+		user0.save()
 
 		Review review1 = new Review(title:"Bueno en pareja",
 			body:"Fue una increible salida conmi novia, y eso que soy informatico.",
@@ -212,7 +212,7 @@ class BootStrap {
 			).save(failOnError: true)
 
 
-		new Party(host: userm,
+		Party party1 = new Party(host: user0,
 			place: place1,
 			title: "Fiesta1",
 			description: "...",
@@ -220,8 +220,9 @@ class BootStrap {
 			finsishDateTime: new Date(1429066900000L),
 			guests: [user1, user2]
 			).save(failOnError: true)
+		party1.sendInvitations()
 
-		new Party(host: userm,
+		Party party2 = new Party(host: user0,
 			place: place1,
 			title: "Fiesta2",
 			description: "...",
@@ -229,8 +230,9 @@ class BootStrap {
 			finsishDateTime: new Date(1429066900000L),
 			guests: [user1, user2, userf]
 			).save(failOnError: true)
+		party2.sendInvitations()
 
-		new Party(host: userf,
+		Party party3 = new Party(host: userf,
 			place: place1,
 			title: "Fiesta3",
 			description: "...",
@@ -238,15 +240,17 @@ class BootStrap {
 			finsishDateTime: new Date(1429076900000L),
 			guests: [user1, user2]
 			).save(failOnError: true)
+		party3.sendInvitations()
 		
-		new Party(host: userf,
+		Party party4 = new Party(host: userf,
 			place: place1,
 			title: "Fiesta4",
 			description: "...",
 			startDateTime: new Date(1429066800000L),
 			finsishDateTime: new Date(1429066900000L),
-			guests: [user1, user2, userm]
+			guests: [user1, user2, user0]
 			).save(failOnError: true)
+		party4.sendInvitations()
 	}
 
 	def destroy = {
