@@ -15,10 +15,22 @@
 	</g:if>
 	<auth:form authAction="login"
 	      success="[controller:'home', action:'index']"
-	      error="[controller:'home', action:'loginError']">
-    	User: <g:textField name="login"/><br/>
-    	Password: <input type="password" name="password"/><br/>
-    	<input type="submit" value="Log in"/>
+	      error="[controller:'home', action:'login']">
+    	User: <g:textField name="login"/>
+    	<g:hasErrors
+			bean="${flash.loginFormErrors}"
+			field="login">
+			Invalid user.
+		</g:hasErrors>
+    	<br/>
+    	Password: <input type="password" name="password"/>
+    	<g:hasErrors
+			bean="${flash.loginFormErrors}"
+			field="password">
+			Invalid password.
+		</g:hasErrors>
+		<br/>
+		<input type="submit" value="Log in"/>
 	</auth:form>
 	<br/>
 	<br/>
