@@ -70,7 +70,10 @@
 							class="fa fa-create">New party</span></a></li>
 					<li><a href="http://localhost:8080/main/party/mine"
 						id="my-parties-link" class="skel-panels-ignoreHref"><span
-							class="fa fa-music">My Parties</span></a></li>
+							class="fa fa-music">My parties</span></a></li>
+							<li><a href="http://localhost:8080/main/party/invited"
+						id="my-parties-link" class="skel-panels-ignoreHref"><span
+							class="fa fa-music">My invitations</span></a></li>
 					<li><a href="http://localhost:8080/main/drink/mine"
 						id="my-drinks-link" class="skel-panels-ignoreHref"><span
 							class="fa fa-beer">My Drinks</span></a></li>
