@@ -24,6 +24,19 @@ class PartyController {
 		User myself = User.getMyUser()
 		def content = Party.findAllByHost(myself)
 		respond content, model:[partyInstanceCount: Party.count()]
+	}
+	
+	/**
+	 * Shows the list of the parties where the logged user is invited.
+	 */
+	def invited(Integer max) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
+		params.max = Math.min(max ?: 10, 100)
+		// TODO: only show parties where the logged user is invited
 		respond Party.list(params), model:[partyInstanceCount: Party.count()]
 	}
 
