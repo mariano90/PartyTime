@@ -64,7 +64,6 @@ class BootStrap {
 		userf.preferedDrinks.add(tropicalEnergy)
 		userf.preferedDrinks.add(acidPsycho)
 		userf.save()
-		// TODO: link mode users with plugin authentication users.
 //		assert new AuthenticationUser( login:'fabricio',
 //			password:'123456'.encodeAsMD5(),
 //			email:'someone@somewhere.com',
@@ -175,7 +174,7 @@ class BootStrap {
 		new PublicEvent(
 			title:"Ultramusic Festival",
 			description:"",
-			lineup:"Pinion Fijo, Bala, y balas",
+			lineup:"Pinion Fijo, Bala y cirqueros",
 			minimumAge:18,
 			startDateTime: new Date(1429066100000L),
 			externalUrl:"",

@@ -42,8 +42,10 @@
 
 			<!-- Logo -->
 			<div id="logo">
-				<span class="image avatar48"><img src="images/avatar.jpg"
-					alt="" /></span>
+				<span class="image avatar48">
+					<img src="images/${User.getMyUser().toString()}.jpg"
+						alt=""/>
+				</span>
 				<h1 id="title">${User.getMyUser().toString()}</h1>
 				<form action="/main/authentication/logout" method="post">
 					<input type="hidden" name="success_controller"
