@@ -84,7 +84,7 @@
 				<li class="fieldcontain">
 					<span id="musicStyles-label" class="property-label"><g:message code="bar.musicStyles.label" default="Music Styles" /></span>
 						<g:each in="${barInstance.musicStyles}" var="m">
-						<span class="property-value" aria-labelledby="musicStyles-label"><g:link controller="musicStyle" action="show" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="musicStyles-label"><g:link controller="musicStyle" action="details" id="${m.id}">${m?.encodeAsHTML()}</g:link></span>
 						</g:each>
 				</li>
 				</g:if>
@@ -107,7 +107,7 @@
 					<span id="reviews-label" class="property-label"><g:message code="bar.reviews.label" default="Reviews" /></span>
 					
 						<g:each in="${barInstance.reviews}" var="r">
-						<span class="property-value" aria-labelledby="reviews-label"><g:link controller="review" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="reviews-label"><g:link controller="review" action="details" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>
