@@ -58,8 +58,8 @@ class BootStrap {
 		MusicStyle musicStyleUnder = new MusicStyle(name: "Under").save(failOnError: true)
 		MusicStyle musicStyle80 = new MusicStyle(name: "80's").save(failOnError: true)
 
-		User userf = new User(name: "fabricio",
-			bornDate: new Date(), mail: "fabriph@gmail.com"
+		User userf = new User(name: "qweqwe",
+			bornDate: new Date(), mail: "qwe@qwe.com"
 			).save(failOnError: true)
 		userf.preferedDrinks.add(tropicalEnergy)
 		userf.preferedDrinks.add(acidPsycho)
@@ -70,8 +70,8 @@ class BootStrap {
 //			status:AuthenticationService.STATUS_VALID).save()
 		
 		
-		User userm = new User(name: "mariano",
-			bornDate: new Date(), mail: "sanchezmariano90@gmail.com").save(failOnError: true)
+		User userm = new User(name: "asdasd",
+			bornDate: new Date(), mail: "asd@asd.com").save(failOnError: true)
 		User user1 = new User(name: "user1",
 			bornDate: new Date(), mail: "user1@gmail.com").save(failOnError: true)
 		User user2 = new User(name: "user2",
