@@ -9,7 +9,6 @@
 <title><g:message code="default.list.label" args="[entityName]" /></title>
 </head>
 <body>
-TODO: Only show my parties, or the ones Im invited.
 	<div class="nav" role="navigation"></div>
 	<div id="list-party" class="content scaffold-list" role="main">
 		<h1>
@@ -23,7 +22,6 @@ TODO: Only show my parties, or the ones Im invited.
 		<table>
 			<thead>
 				<tr>
-					<g:sortableColumn property="host" title="${message(code: 'party.host.label', default: 'Host')}" />
 					<th><g:message code="party.place.label" default="Place" /></th>
 					<g:sortableColumn property="title" title="${message(code: 'party.title.label', default: 'Title')}" />
 					<g:sortableColumn property="startDateTime" title="${message(code: 'party.startDateTime.label', default: 'Starting at')}" />
@@ -33,9 +31,6 @@ TODO: Only show my parties, or the ones Im invited.
 			<tbody>
 				<g:each in="${partyInstanceList}" status="i" var="partyInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td>
-							${fieldValue(bean: partyInstance, field: "host")}
-						</td>
 						<td>
 							${fieldValue(bean: partyInstance, field: "place")}
 						</td>

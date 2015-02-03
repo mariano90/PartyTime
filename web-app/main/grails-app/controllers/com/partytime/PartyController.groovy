@@ -12,7 +12,7 @@ class PartyController {
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	/**
-	 * Shows the list of the parties where the logged user is host or is invited.
+	 * Shows the list of the parties where the logged user is host.
 	 */
 	def mine(Integer max) {
 		if (!authenticationService.isLoggedIn(request)) {
@@ -21,7 +21,9 @@ class PartyController {
 		}
 		User.sync(authenticationService.getUserPrincipal())
 		params.max = Math.min(max ?: 10, 100)
-		// TODO: only show parties where the logged user is the host, or its invited
+		User myself = User.getMyUser()
+		def content = Party.findAllByHost(myself)
+		respond content, model:[partyInstanceCount: Party.count()]
 		respond Party.list(params), model:[partyInstanceCount: Party.count()]
 	}
 
