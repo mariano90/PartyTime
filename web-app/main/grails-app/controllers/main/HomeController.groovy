@@ -19,12 +19,20 @@ class HomeController {
 	}
 	
 	def login() {
+		if (authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"index"
+			return
+		}
 	}
 	
 	def loginError() {
 	}
 	
 	def signup() {
+		if (authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"index"
+			return
+		}
 	}
 	
 	def about() {
