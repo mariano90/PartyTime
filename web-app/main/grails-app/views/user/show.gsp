@@ -55,7 +55,6 @@
 				<g:if test="${userInstance?.preferedMusicStyles}">
 				<li class="fieldcontain">
 					<span id="preferedMusicStyles-label" class="property-label"><g:message code="user.preferedMusicStyles.label" default="Prefered Music Styles" /></span>
-					
 						<g:each in="${userInstance.preferedMusicStyles}" var="p">
 						<span class="property-value" aria-labelledby="preferedMusicStyles-label"><g:link controller="musicStyle" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
 						</g:each>
@@ -77,7 +76,7 @@
 				        </g:each>
 				    </li>
 				</g:if>
-			
+
 			</ol>
 			<g:form url="[resource:userInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">
