@@ -23,7 +23,7 @@ class PartyController {
 		params.max = Math.min(max ?: 10, 100)
 		User myself = User.getMyUser()
 		def content = Party.findAllByHost(myself)
-		respond content, model:[partyInstanceCount: Party.count()]
+		respond content
 	}
 	
 	/**
@@ -35,9 +35,17 @@ class PartyController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
-		params.max = Math.min(max ?: 10, 100)
-		// TODO: only show parties where the logged user is invited
-		respond Party.list(params), model:[partyInstanceCount: Party.count()]
+
+		User myself = User.getMyUser()
+		def allParties = Party.list()
+		def partiesImInvitedTo = []
+		for (Party p in allParties) {
+			def guests = p.getGuestsInvited()
+			if (guests.contains(myself)) {
+				partiesImInvitedTo.add(p)
+			}
+		} 
+		respond partiesImInvitedTo
 	}
 
 	/**
