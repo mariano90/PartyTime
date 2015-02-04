@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="layout" content="home" />
-<title>Welcome to Party Time</title>
+<title>This is not the page you are looking for</title>
 
 <link rel="stylesheet" href="${resource(dir: 'css', file: 'home.css')}"
 	type="text/css" />

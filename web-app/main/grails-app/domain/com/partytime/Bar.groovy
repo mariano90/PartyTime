@@ -28,8 +28,6 @@ class Bar {
 		country blank: true, nullable: true
 	}
 
-	//static mapping = { tablePerHierarchy false }
-
 	static hasMany = [ musicStyles: MusicStyle, promos: Promo, reviews: Review]
 
 
