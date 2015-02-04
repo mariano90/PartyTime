@@ -7,9 +7,6 @@
 <meta name="layout" content="home">
 <g:set var="entityName"
 	value="${message(code: 'party.label', default: 'Party')}" />
-<%
-User myself = User.getMyUser()
-%>
 <title><g:message code="default.list.label" args="[entityName]" /></title>
 </head>
 <body>
@@ -48,7 +45,9 @@ User myself = User.getMyUser()
 							<g:formatDate format="yyyy-MM-dd" date="${partyInstance.startDateTime}" />
 						</td>
 						<td>
-							${partyInstance.getStatus(myself)}
+						  <%User myself = User.getMyUser()
+							print partyInstance.getStatus(myself)
+						  %>
 						</td>
 						<td>
 							<g:link action="details" id="${partyInstance.id}">
