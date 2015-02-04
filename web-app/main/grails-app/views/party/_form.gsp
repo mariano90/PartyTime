@@ -56,12 +56,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: partyInstance, field: 'guests', 'error')} ">
-	<label for="guests">
-		<g:message code="party.guests.label" default="Guests" />
+<div class="fieldcontain ${hasErrors(bean: partyInstance, field: 'guestsInvited', 'error')} ">
+	<label for="guestsInvited">
+		<g:message code="party.guestsInvited.label" default="Guests" />
 		
 	</label>
-	<g:select name="guests" from="${com.partytime.User.list()}" multiple="multiple" optionKey="id" size="5" value="${partyInstance?.guests*.id}" class="many-to-many"/>
+	<g:select name="guestsInvited" from="${com.partytime.User.list()}" multiple="multiple" optionKey="id" size="5" value="${partyInstance?.guests*.id}" class="many-to-many"/>
 
 </div>
 

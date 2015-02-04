@@ -80,13 +80,13 @@
 							bean="${partyInstance}" field="description" /></span></li>
 			</g:if>
 
-			<g:if test="${partyInstance?.guests}">
+			<g:if test="${partyInstance?.guestsInvited}">
 				<li class="fieldcontain">
-				<span id="guests-label" class="property-label">
-					<g:message code="party.guests.label" default="Guests" />
+				<span id="guestsInvited-label" class="property-label">
+					<g:message code="party.guestsInvited.label" default="Guests" />
 				</span>
-				<g:each in="${partyInstance.guests}" var="g">
-						<span class="property-value" aria-labelledby="guests-label">
+				<g:each in="${partyInstance.guestsInvited}" var="g">
+						<span class="property-value" aria-labelledby="guestsInvited-label">
 						<g:link controller="user" action="details" id="${g.id}">
 								${g?.encodeAsHTML()}
 						</g:link></span>

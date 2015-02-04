@@ -12,7 +12,7 @@
 	<div class="nav" role="navigation"></div>
 	<div id="list-party" class="content scaffold-list" role="main">
 		<h1>
-			<g:message code="default.myparties.label" default="My parties" />
+			<g:message code="default.myparties.label" default="Invitations" />
 		</h1>
 		<g:if test="${flash.message}">
 			<div class="message" role="status">
@@ -23,9 +23,10 @@
 			<thead>
 				<tr>
 					<g:sortableColumn property="host" title="${message(code: 'party.host.label', default: 'Host')}" />
-					<th><g:message code="party.place.label" default="Place" /></th>
+					<th><g:message code="party.place.label" default="Place"/></th>
 					<g:sortableColumn property="title" title="${message(code: 'party.title.label', default: 'Title')}" />
-					<g:sortableColumn property="startDateTime" title="${message(code: 'party.startDateTime.label', default: 'Starting at')}" />
+					<g:sortableColumn property="startDateTime" title="${message(code: 'party.startDateTime.label', default: 'When')}" />
+					<th><g:message code="party.status.label" default="Status"/></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -43,6 +44,9 @@
 						</td>
 						<td>
 							<g:formatDate format="yyyy-MM-dd" date="${partyInstance.startDateTime}" />
+						</td>
+						<td>
+							${partyInstance.getStatus()}
 						</td>
 						<td>
 							<g:link action="details" id="${partyInstance.id}">

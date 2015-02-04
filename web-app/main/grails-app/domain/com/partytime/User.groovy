@@ -8,17 +8,9 @@ class User {
 	Set preferedMusicStyles = []
 	Set preferedDrinks = []
 	String mail
-	Set partiesInvited = []
-	Set partiesConfirmed = []
-	Set partiesNotGoing= []
 
 	static hasMany = [preferedMusicStyles: MusicStyle,
-		preferedDrinks: Drink,
-		partiesInvited: Party,
-		partiesConfirmed: Party,
-		partiesNotGoing: Party]
-	
-	static belongsTo = com.partytime.Party
+		preferedDrinks: Drink]
 
 	static constraints = {
 		name blank: false, nullable: false, unique: true

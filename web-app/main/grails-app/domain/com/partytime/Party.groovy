@@ -9,11 +9,13 @@ class Party {
 	String description
 	Date startDateTime
 	Date finsishDateTime
-	Set guests = []
+	Set guestsInvited = []
+	Set guestsConfirmed = []
+	Set guestsNotGoing = []
 
-	static hasMany = [guests: User]
-
-	static mapping = { tablePerHierarchy false }
+	static hasMany = [guestsInvited: User,
+		guestsConfirmed: User,
+		guestsNotGoing: User]
 
 	static constraints = {
 		title blank:false, nullable: false
@@ -29,9 +31,20 @@ class Party {
 		return "${title} @ ${place} el ${startDateTime} por ${host}"
 	}
 	
-	void sendInvitations() {
-		for (User x in this.guests) {
-			x.partiesInvited.add(this)
+	String getStatus() {
+		User myself = User.getMyUser();
+		if (this.guestsConfirmed.contains(myself)) {
+			return "Going"
+		} else if (this.guestsNotGoing.contains(myself)) {
+			return "Not going"
+		} else {
+			return "Pending reply"
 		}
+	}
+
+	void sendInvitations() {
+//		for (User x in this.guestsInvited) {
+//			x.partiesInvited.add(this)
+//		}
 	}
 }

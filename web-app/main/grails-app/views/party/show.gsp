@@ -88,16 +88,46 @@
 							bean="${partyInstance}" field="description" /></span></li>
 			</g:if>
 
-			<g:if test="${partyInstance?.guests}">
-				<li class="fieldcontain"><span id="guests-label"
-					class="property-label"><g:message code="party.guests.label"
-							default="Guests" /></span> <g:each in="${partyInstance.guests}" var="g">
-						<span class="property-value" aria-labelledby="guests-label"><g:link
+			<g:if test="${partyInstance?.guestsInvited}">
+				<li class="fieldcontain"><span id="guestsInvited-label"
+					class="property-label"><g:message code="party.guestsInvited.label"
+							default="Guests invited" /></span> <g:each in="${partyInstance.guestsInvited}" var="g">
+						<span class="property-value" aria-labelledby="guestsInvited-label"><g:link
 								controller="user" action="show" id="${g.id}">
 								${g?.encodeAsHTML()}
 							</g:link></span>
 					</g:each></li>
 			</g:if>
+			
+			<g:if test="${partyInstance?.guestsConfirmed}">
+                <li class="fieldcontain">
+                    <span id="guestsConfirmed-label"
+                        class="property-label">
+                        <g:message code="party.guestsConfirmed.label"
+                            default="Guests confirmed" /></span> <g:each in="${partyInstance.guestsConfirmed}" var="g">
+                        <span class="property-value" aria-labelledby="guestsConfirmed-label">
+                        	<g:link controller="user" action="show" id="${g.id}">
+                                ${g?.encodeAsHTML()}
+                            </g:link>
+                           </span>
+                    </g:each>
+				</li>
+            </g:if>
+
+            <g:if test="${partyInstance?.guestsNotGoing}">
+                <li class="fieldcontain">
+                    <span id="guestsNotGoing-label"
+                        class="property-label">
+                        <g:message code="party.guestsNotGoing.label"
+                            default="Guests not going" /></span> <g:each in="${partyInstance.guestsNotGoing}" var="g">
+                        <span class="property-value" aria-labelledby="guestsNotGoing-label">
+                            <g:link controller="user" action="show" id="${g.id}">
+                                ${g?.encodeAsHTML()}
+                            </g:link>
+                           </span>
+                    </g:each>
+                </li>
+            </g:if>
 
 		</ol>
 		<g:form url="[resource:partyInstance, action:'delete']"
