@@ -15,7 +15,6 @@ class HomeController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
-		render view:"home.gsp"
 	}
 	
 	def login() {
