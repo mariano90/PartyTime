@@ -4,6 +4,7 @@ package com.partytime
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import com.partytime.User
 
 @Transactional(readOnly = true)
 class PartyController {
@@ -103,7 +104,14 @@ class PartyController {
 			redirect controller:"home", action:"login"
 			return
 		}
-		respond partyInstance
+		User myself = User.getMyUser()
+		if (partyInstance.getHost() == myself) {
+			respond partyInstance
+		} else if (partyInstance.isInvited(myself)) {
+			respond partyInstance
+		} else {
+			redirect controller:"home", action:"forbidden"
+		}
 	}
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */

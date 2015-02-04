@@ -31,6 +31,10 @@ class Party {
 		return "${title} @ ${place} el ${startDateTime} por ${host}"
 	}
 	
+	boolean isInvited(User user) {
+		return this.guestsInvited.contains(user)
+	}
+	
 	String getStatus() {
 		User myself = User.getMyUser();
 		if (this.guestsConfirmed.contains(myself)) {
