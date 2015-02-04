@@ -111,12 +111,14 @@ class BootStrap {
 			street: "-",
 			number:"0",
 			city:"-",
+			musicStyles: [musicStyleRock],
 			reviews: []).save(failOnError: true)
 		Bar place1 = new Bar(name: "Brook on brails",
 			minimumAge: 18,
 			street: "Av Santa Fe",
 			number:"1234",
 			city:"CABA",
+			musicStyles: [musicStyleElectro],
 			reviews: [review1, review3]
 			).save(failOnError: true)
 		Bar place2 = new Bar(name: "El rincon del mal",
@@ -124,6 +126,7 @@ class BootStrap {
 			street: "Av Santa Fe",
 			number:"1111",
 			city:"CABA",
+			musicStyles: [musicStyleReggaeton, musicStyleUnder, musicStyleCumbia],
 			reviews: [review2],
 			promos: [promo1, promo2]
 			).save(failOnError: true)
@@ -132,6 +135,7 @@ class BootStrap {
 			street: "Av Cordoba",
 			number:"1234",
 			city:"CABA",
+			musicStyles: [musicStyle80, musicStyleRock],
 			reviews: [],
 			promos: [promo2]).save(failOnError: true)
 		Bar place4 = new Bar(name: "La casa embrujada de Palermo",
@@ -139,6 +143,7 @@ class BootStrap {
 			street: "Av Corrientes",
 			number:"1234",
 			city:"CABA",
+			musicStyles: [musicStyleRock, musicStyleUnder],
 			reviews: [],
 			promos: []).save(failOnError: true)
 
