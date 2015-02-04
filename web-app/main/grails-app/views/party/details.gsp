@@ -1,5 +1,6 @@
 
 <%@ page import="com.partytime.Party"%>
+<%@ page import="com.partytime.User"%>
 
 <!DOCTYPE html>
 <html>
@@ -27,8 +28,28 @@
             ${flash.message}
           </div>
         </g:if>
+
+        <%
+		  User host = partyInstance.getHost()
+		  User myself = User.getMyUser()
+		  boolean notHostingThisParty =  host != myself
+		%>
+		
+		<g:if test="${notHostingThisParty}">
+		Mark as: 
+			<g:if test="${!partyInstance.isAccepted(myself)}">
+				<g:link controller="party" action="accept" id="${partyInstance?.id}">
+					Going
+				</g:link>
+			</g:if>
+			<g:if test="${!partyInstance.isRejected(myself)}">
+				<g:link controller="party" action="reject" id="${partyInstance?.id}">
+					Not going
+				</g:link>
+			</g:if>
+		</g:if>
+
         <ol class="property-list party">
-          
           <g:if test="${partyInstance?.host}">
             <li class="fieldcontain">
               <span id="host-label" class="property-label">

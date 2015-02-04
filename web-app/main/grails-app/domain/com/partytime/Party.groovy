@@ -44,6 +44,32 @@ class Party {
 			return "Pending reply"
 		}
 	}
+	
+	boolean isAccepted(User user) {
+		return this.guestsConfirmed.contains(user)
+	}
+	
+	boolean isRejected(User user) {
+		return this.guestsNotGoing.contains(user)
+	}
+	
+	void markAccepted(User user) {
+		if (this.guestsConfirmed.contains(user)) {
+			return
+		} else if (this.guestsNotGoing.contains(user)) {
+			this.guestsNotGoing.remove(user)
+		}
+		this.guestsConfirmed.add(user)
+	}
+	
+	void markRejected(User user) {
+		if (this.guestsNotGoing.contains(user)) {
+			return
+		} else if (this.guestsConfirmed.contains(user)) {
+			this.guestsConfirmed.remove(user)
+		}
+		this.guestsNotGoing.add(user)
+	}
 
 	void sendInvitations() {
 //		for (User x in this.guestsInvited) {

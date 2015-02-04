@@ -113,6 +113,38 @@ class PartyController {
 			redirect controller:"home", action:"forbidden"
 		}
 	}
+
+	def accept(Party partyInstance) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"login"
+			return
+		}
+		User myself = User.getMyUser()
+		// TODO: check user in invited list
+		partyInstance.markAccepted(myself)
+		partyInstance.save(flush:true, failOnError: true)
+		redirect controller:"party", action:"details", id: partyInstance.id
+	}
+	
+	def reject(Party partyInstance) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"login"
+			return
+		}
+		User myself = User.getMyUser()
+		// TODO: check user in invited list
+		partyInstance.markRejected(myself)
+		partyInstance.save(flush:true, failOnError: true)
+		redirect controller:"party", action:"details", id: partyInstance.id
+	}
+	
+	def debug(Party partyInstance) {
+		render partyInstance.guestsInvited
+		render "<br/>"
+		render partyInstance.guestsConfirmed
+		render "<br/>"
+		render partyInstance.guestsNotGoing
+	}
 	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	/* * *                  Methods used for maintenance                 * * */
