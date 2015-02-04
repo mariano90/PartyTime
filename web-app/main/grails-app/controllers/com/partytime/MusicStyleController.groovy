@@ -10,6 +10,10 @@ class MusicStyleController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
+	def details(MusicStyle musicStyleInstance) {
+		respond musicStyleInstance
+	}
+	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	/* * *                  Methods used for maintenance                 * * */
 

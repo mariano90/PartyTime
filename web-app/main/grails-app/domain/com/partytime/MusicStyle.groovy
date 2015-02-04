@@ -4,14 +4,7 @@ class MusicStyle {
 	String name
 
 	static constraints = {
-		name(inList: [
-			"Rock",
-			"Electro",
-			"Reggaeton",
-			"Cumbia",
-			"Under",
-			"80's"
-		])
+		name blank: false, nullable: false, unique: true
 	}
 
 	String toString(){
