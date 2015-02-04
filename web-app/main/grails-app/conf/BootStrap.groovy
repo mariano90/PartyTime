@@ -70,35 +70,35 @@ class BootStrap {
 //			status:AuthenticationService.STATUS_VALID).save()
 		
 		
-		User user0 = new User(name: "asdasd",
+		User user01 = new User(name: "asdasd",
 			bornDate: new Date(), mail: "asd@asd.com").save(failOnError: true)
-		User user1 = new User(name: "zxczxc",
+		User user02 = new User(name: "zxczxc",
 			bornDate: new Date(), mail: "zxc@zxc.com").save(failOnError: true)
-		User user2 = new User(name: "user2",
-			bornDate: new Date(), mail: "user2@gmail.com").save(failOnError: true)
-		User user3 = new User(name: "user3",
-			bornDate: new Date(), mail: "user3@gmail.com").save(failOnError: true)
-		User user4 = new User(name: "user4",
-			bornDate: new Date(), mail: "user4@gmail.com").save(failOnError: true)
-		User user5 = new User(name: "user5",
-			bornDate: new Date(), mail: "user5@gmail.com").save(failOnError: true)
+		User user03 = new User(name: "user03",
+			bornDate: new Date(), mail: "user03@gmail.com").save(failOnError: true)
+		User user04 = new User(name: "user04",
+			bornDate: new Date(), mail: "user04@gmail.com").save(failOnError: true)
+		User user05 = new User(name: "user05",
+			bornDate: new Date(), mail: "user05@gmail.com").save(failOnError: true)
+		User user06 = new User(name: "user06",
+			bornDate: new Date(), mail: "user06@gmail.com").save(failOnError: true)
 
-		user0.preferedDrinks.add(fernetConCoca)
-		user0.preferedDrinks.add(cerveza)
-		user0.save()
+		user01.preferedDrinks.add(fernetConCoca)
+		user01.preferedDrinks.add(cerveza)
+		user01.save()
 
 		Review review1 = new Review(title:"Bueno en pareja",
 			body:"Fue una increible salida conmi novia, y eso que soy informatico.",
 			score:4,
-			author: user1).save(failOnError: true)
+			author: user02).save(failOnError: true)
 		Review review2 = new Review(title:"Me gusta el ron",
 			body:"Fuimos al lugar disfrazados de piratas, que mejor sorpresa que ordenar un buen ron y disfrutar el botin todos juntos, arrrghhh.",
 			score:4,
-			author: user1).save(failOnError: true)
+			author: user02).save(failOnError: true)
 		Review review3 = new Review(title:"Lo vi a Harry Potter!",
 			body:"Al entrar al lugar note alguien haciendo magia, fue una noche increible con el show de luces.",
 			score:5,
-			author: user2).save(failOnError: true)
+			author: user03).save(failOnError: true)
 
 		Promo promo1 = new Promo(title: "2x1 en tragos seleccionados",
 			description: "toda la noche",
@@ -212,25 +212,23 @@ class BootStrap {
 			).save(failOnError: true)
 
 
-		Party party1 = new Party(host: user0,
+		Party party1 = new Party(host: user01,
 			place: place1,
 			title: "Fiesta1",
 			description: "...",
 			startDateTime: new Date(1429066800000L),
 			finsishDateTime: new Date(1429066900000L),
-			guests: [user1, user2]
+			guestsInvited: [user02, user03]
 			).save(failOnError: true)
-		party1.sendInvitations()
 
-		Party party2 = new Party(host: user0,
+		Party party2 = new Party(host: user01,
 			place: place1,
 			title: "Fiesta2",
 			description: "...",
 			startDateTime: new Date(1429066800000L),
 			finsishDateTime: new Date(1429066900000L),
-			guests: [user1, user2, userf]
+			guestsInvited: [user02, user03, userf]
 			).save(failOnError: true)
-		party2.sendInvitations()
 
 		Party party3 = new Party(host: userf,
 			place: place1,
@@ -238,9 +236,8 @@ class BootStrap {
 			description: "...",
 			startDateTime: new Date(1429076800000L),
 			finsishDateTime: new Date(1429076900000L),
-			guests: [user1, user2]
+			guestsInvited: [user02, user03]
 			).save(failOnError: true)
-		party3.sendInvitations()
 		
 		Party party4 = new Party(host: userf,
 			place: place1,
@@ -248,9 +245,8 @@ class BootStrap {
 			description: "...",
 			startDateTime: new Date(1429066800000L),
 			finsishDateTime: new Date(1429066900000L),
-			guests: [user1, user2, user0]
+			guestsInvited: [user02, user03, user01]
 			).save(failOnError: true)
-		party4.sendInvitations()
 	}
 
 	def destroy = {
