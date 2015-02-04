@@ -23,7 +23,10 @@ class HomeController {
 			return
 		}
 	}
-	
+
+	def forbidden() {
+	}
+
 	def loginError() {
 	}
 	
