@@ -57,7 +57,7 @@
 	<div id="footer">
 
 		<div class="copyright">
-			<p>&copy; 2014 Mariano&Fabricio. All rights reserved.</p>
+			<p>&copy; Open source.</p>
 			<ul class="menu">
 				<li>PARTY TIME, ENJOY IT!</li>
 			</ul>
