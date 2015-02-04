@@ -26,9 +26,8 @@ User myself = User.getMyUser()
 		<table>
 			<thead>
 				<tr>
-					<g:sortableColumn property="host" title="${message(code: 'party.host.label', default: 'Host')}" />
-					<th><g:message code="party.place.label" default="Place"/></th>
 					<g:sortableColumn property="title" title="${message(code: 'party.title.label', default: 'Title')}" />
+					<th><g:message code="party.place.label" default="Place"/></th>
 					<g:sortableColumn property="startDateTime" title="${message(code: 'party.startDateTime.label', default: 'When')}" />
 					<th><g:message code="party.status.label" default="Status"/></th>
 					<th></th>
@@ -38,13 +37,12 @@ User myself = User.getMyUser()
 				<g:each in="${partyInstanceList}" status="i" var="partyInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 						<td>
-							${fieldValue(bean: partyInstance, field: "host")}
-						</td>
-						<td>
-							${fieldValue(bean: partyInstance, field: "place")}
-						</td>
-						<td>
 							${fieldValue(bean: partyInstance, field: "title")}
+						</td>
+						<td>
+							<g:link controller="bar" action="details" id="${partyInstance?.place?.id}">
+                              ${partyInstance?.place?.encodeAsHTML()}
+                            </g:link>
 						</td>
 						<td>
 							<g:formatDate format="yyyy-MM-dd" date="${partyInstance.startDateTime}" />
