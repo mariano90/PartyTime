@@ -35,11 +35,10 @@ class Party {
 		return this.guestsInvited.contains(user)
 	}
 	
-	String getStatus() {
-		User myself = User.getMyUser();
-		if (this.guestsConfirmed.contains(myself)) {
+	String getStatus(User user) {
+		if (this.guestsConfirmed.contains(user)) {
 			return "Going"
-		} else if (this.guestsNotGoing.contains(myself)) {
+		} else if (this.guestsNotGoing.contains(user)) {
 			return "Not going"
 		} else {
 			return "Pending reply"

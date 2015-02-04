@@ -81,17 +81,23 @@
 			</g:if>
 
 			<g:if test="${partyInstance?.guestsInvited}">
-				<li class="fieldcontain">
-				<span id="guestsInvited-label" class="property-label">
-					<g:message code="party.guestsInvited.label" default="Guests" />
-				</span>
-				<g:each in="${partyInstance.guestsInvited}" var="g">
-						<span class="property-value" aria-labelledby="guestsInvited-label">
-						<g:link controller="user" action="details" id="${g.id}">
-								${g?.encodeAsHTML()}
-						</g:link></span>
-				</g:each>
-				</li>
+				<g:message code="party.guestsInvited.label" default="Guests" />
+				<table>
+				<tbody>
+					<g:each in="${partyInstance.guestsInvited}" var="guest">
+						<tr>
+							<td>
+								<g:link controller="user" action="details" id="${guest.id}">
+								${guest?.encodeAsHTML()}
+								</g:link>
+							</td>
+							<td>
+								${partyInstance.getStatus(guest)}
+							</td>
+						</tr>
+					</g:each>
+				</tbody>
+				</table>
 			</g:if>
 		</ol>
 	</div>
