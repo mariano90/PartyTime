@@ -11,11 +11,15 @@
     <g:message code="default.list.label" args="[entityName]" />
   </title>
   </head>
+
   <body>
 	<div id="list-bar" class="content scaffold-list" role="main">
       <h1>
         <g:message code="default.barsearch.label" default="Bar search" />
       </h1>
+      <g:link action="allMusicStyles">
+        By music style
+      </g:link>
       <g:if test="${flash.message}">
         <div class="message" role="status">
           ${flash.message}

@@ -2,6 +2,8 @@ package com.partytime
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import com.partytime.User
+import com.partytime.MusicStyle
 
 @Transactional(readOnly = true)
 class BarController {
@@ -34,6 +36,20 @@ class BarController {
 		User.sync(authenticationService.getUserPrincipal())
 		respond barInstance
 	}
+
+	def allMusicStyles() {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
+	}
+	
+	def musicStyle(MusicStyle musicStyleInstance) {
+		respond musicStyleInstance
+	}
+	
+	
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	/* * *                  Methods used for maintenance                 * * */

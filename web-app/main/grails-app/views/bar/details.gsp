@@ -129,7 +129,7 @@
               </span>
               <g:each in="${barInstance.musicStyles}" var="m">
                 <span class="property-value" aria-labelledby="musicStyles-label">
-                  <g:link controller="musicStyle" action="details" id="${m.id}">
+                  <g:link action="musicStyle" id="${m.id}">
                     ${m?.encodeAsHTML()}
                   </g:link>
                 </span>
