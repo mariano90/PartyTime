@@ -1,6 +1,7 @@
 
 <%@ page import="com.partytime.Party"%>
 <%@ page import="com.partytime.User"%>
+
 <!DOCTYPE html>
 <html>
 <head>
