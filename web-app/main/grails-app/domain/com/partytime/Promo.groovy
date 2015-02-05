@@ -16,6 +16,6 @@ class Promo {
     }
 	
 	String toString(){
-		return "${title} (${description})"
+		return "${title}"
 	}
 }

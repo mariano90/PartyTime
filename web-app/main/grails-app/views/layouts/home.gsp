@@ -34,12 +34,8 @@
 <g:layoutHead />
 </head>
 <body>
-	<!-- Header -->
 	<div id="header" class="skel-panels-fixed">
-
 		<div class="top">
-
-			<!-- Logo -->
 			<div id="logo">
 				<span class="image avatar48">
 					<img src="images/${User.getMyUser().toString()}.jpg"
@@ -59,7 +55,6 @@
 			</form>
 			</div>
 
-			<!-- Nav -->
 			<nav id="nav">
 				<ul>
 					<li><a href="http://localhost:8080/main/home/index"
@@ -96,23 +91,18 @@
 
 	</div>
 
-	<!-- Main -->
 	<div id="main" style="background-color: #f7f7f7;">
 
 		<g:layoutBody />
-
 	</div>
 
-	<!--  Footer -->
 	<div id="footer">
-
 		<div class="copyright">
 			<p>&copy; Open source.</p>
 			<ul class="menu">
 				<li>PARTY TIME, ENJOY IT!</li>
 			</ul>
 		</div>
-
 	</div>
 </body>
 </html>

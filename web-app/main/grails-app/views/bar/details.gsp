@@ -114,7 +114,7 @@
           <g:if test="${barInstance?.minimumAge}">
             <li class="fieldcontain">
               <span id="minimumAge-label" class="property-label">
-                <g:message code="bar.minimumAge.label" default="Minimum Age" />
+                <g:message code="bar.minimumAge.label" default="Minimum age" />
               </span>
               <span class="property-value" aria-labelledby="minimumAge-label">
                 <g:fieldValue bean="${barInstance}" field="minimumAge"/>
@@ -125,12 +125,12 @@
           <g:if test="${barInstance?.musicStyles}">
             <li class="fieldcontain">
               <span id="musicStyles-label" class="property-label">
-                <g:message code="bar.musicStyles.label" default="Music Styles" />
+                <g:message code="bar.musicStyles.label" default="Music styles" />
               </span>
               <g:each in="${barInstance.musicStyles}" var="m">
                 <span class="property-value" aria-labelledby="musicStyles-label">
                   <g:link action="musicStyle" id="${m.id}">
-                    ${m?.encodeAsHTML()}
+                    ${m?.encodeAsHTML()}&nbsp;&nbsp;
                   </g:link>
                 </span>
               </g:each>
@@ -145,7 +145,7 @@
               <g:each in="${barInstance.promos}" var="p">
                 <span class="property-value" aria-labelledby="promos-label">
                   <g:link controller="promo" action="details" id="${p.id}">
-                    ${p?.encodeAsHTML()}
+                    ${p?.encodeAsHTML()}&nbsp;&nbsp;
                   </g:link>
                 </span>
               </g:each>
@@ -160,7 +160,7 @@
               <g:each in="${barInstance.reviews}" var="r">
                 <span class="property-value" aria-labelledby="reviews-label">
                   <g:link controller="review" action="details" id="${r.id}">
-                    ${r?.encodeAsHTML()}
+                    ${r?.encodeAsHTML()}&nbsp;
                   </g:link>
                 </span>
               </g:each>

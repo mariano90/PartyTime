@@ -29,9 +29,6 @@
         <ol class="property-list review">
           <g:if test="${reviewInstance?.body}">
             <li class="fieldcontain">
-              <span id="body-label" class="property-label">
-                <g:message code="review.body.label" default="Body" />
-              </span>
               <span class="property-value" aria-labelledby="body-label">
                 <g:fieldValue bean="${reviewInstance}" field="body"/>
               </span>
