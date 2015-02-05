@@ -38,7 +38,7 @@
           <g:if test="${reviewInstance?.author}">
             <li class="fieldcontain">
               <span id="author-label" class="property-label">
-                <g:message code="review.author.label" default="Author" />
+                <g:message code="review.author.label" default="By" />
               </span>
               <span class="property-value" aria-labelledby="author-label">
                 <g:link controller="user" action="details" id="${reviewInstance?.author?.id}">

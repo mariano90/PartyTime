@@ -16,7 +16,7 @@
 <body>
 	<div id="show-promo" class="content scaffold-show" role="main">
 		<h1>
-			<g:message code="default.promo.details" default="Public Event" />
+			<g:message code="default.promo.details" default="Promo" />
 		</h1>
 		<ol class="property-list promo">
 			<g:if test="${promoInstance?.title}">
