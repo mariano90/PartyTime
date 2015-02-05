@@ -1,9 +1,8 @@
 package com.partytime
 
-
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+
 import com.partytime.User
 
 @Transactional(readOnly = true)
@@ -11,6 +10,30 @@ class PartyController {
 
 	def authenticationService
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	
+	/**
+	 * Shows all parties the logged user is invited, this view is prepared for been
+	 * displayed as an iframe.
+	 */
+	def embed(Integer max) {
+		if (!authenticationService.isLoggedIn(request)) {
+			render "Not logged in"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
+
+		// TODO: only show future parties.
+		User myself = User.getMyUser()
+		def allParties = Party.list()
+		def partiesImInvitedTo = []
+		for (Party p in allParties) {
+			def guests = p.getGuestsInvited()
+			if (guests.contains(myself)) {
+				partiesImInvitedTo.add(p)
+			}
+		}
+		respond partiesImInvitedTo 
+	}
 
 	/**
 	 * Shows the list of the parties where the logged user is host.
@@ -21,6 +44,8 @@ class PartyController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
+
+		// TODO: only show future parties.
 		params.max = Math.min(max ?: 10, 100)
 		User myself = User.getMyUser()
 		def content = Party.findAllByHost(myself)
@@ -37,6 +62,7 @@ class PartyController {
 		}
 		User.sync(authenticationService.getUserPrincipal())
 
+		// TODO: only show future parties.
 		User myself = User.getMyUser()
 		def allParties = Party.list()
 		def partiesImInvitedTo = []
