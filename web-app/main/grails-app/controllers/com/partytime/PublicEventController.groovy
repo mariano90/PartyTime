@@ -17,7 +17,7 @@ class PublicEventController {
 	 */
 	def embed(Integer max) {
 		if (!authenticationService.isLoggedIn(request)) {
-			redirect "Not logged in"
+			render "Not logged in"
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
