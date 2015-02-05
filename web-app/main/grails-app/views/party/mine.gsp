@@ -39,7 +39,9 @@
             <g:each in="${partyInstanceList}" status="i" var="partyInstance">
               <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                 <td>
-                  ${fieldValue(bean: partyInstance, field: "place")}
+                  <g:link controller="bar" action="details" id="${partyInstance?.place?.id}">
+                    ${partyInstance?.place?.encodeAsHTML()}
+                  </g:link>
                 </td>
                 <td>
                   ${fieldValue(bean: partyInstance, field: "title")}
