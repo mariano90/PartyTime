@@ -51,7 +51,7 @@
 		</div>
 	</div>
 
-	<div id="main" style="background-color: #f7f7f7;">
+	<div id="main" style="background-color: #f7f7f7; min-height: 450px;">
 		<g:layoutBody />
 	</div>
 

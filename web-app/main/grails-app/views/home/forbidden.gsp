@@ -11,7 +11,6 @@
 
 #page-body {
 	margin: 2% 2% 150px 150px;
-	min-height: 450px;
 }
 
 </style>
