@@ -13,6 +13,30 @@
     </g:if>
   </title>
   
+  <style type="text/css" media="screen">
+    .gsc-control {
+      background-color: #eee;
+      width: 700px!important;
+    }
+
+    .gs-image {
+      width: 200px;
+      height: 150px;
+    }
+    
+    .gs-title {
+      margin-left: 50px;
+    }
+    
+    .gs-snippet {
+      margin-left: 100px!important;
+    }
+    
+    .gs-publishedDate {
+      color: #eee!important;
+    }
+  </style>
+  
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   
   <script type="text/javascript">
@@ -28,7 +52,7 @@
     // TODO: filter by language.
     
     searchControl.draw(document.getElementById("searchcontrol"));
-    searchControl.execute("how to prepare a martini");
+    searchControl.execute("how to prepare a ${drinkInstance?.name}");
   }
   google.setOnLoadCallback(initialize);
   </script>
