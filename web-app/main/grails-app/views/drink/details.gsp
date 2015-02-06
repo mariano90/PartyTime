@@ -1,0 +1,60 @@
+
+<%@ page import="com.partytime.Drink"%>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="layout" content="home">
+    <g:set var="entityName"
+	  value="${message(code: 'drink.label', default: 'Drink')}" />
+  <title>
+    <g:if test="${drinkInstance?.name}">
+      <g:fieldValue bean="${drinkInstance}" field="name" />
+    </g:if>
+  </title>
+  </head>
+  <body>
+  <div id="show-drink" class="content scaffold-show" role="main">
+    <h1>
+      <g:if test="${drinkInstance?.name}">
+        <g:fieldValue bean="${drinkInstance}" field="name" />
+      </g:if>
+    </h1>
+    <g:if test="${flash.message}">
+      <div class="message" role="status">
+        ${flash.message}
+      </div>
+    </g:if>
+    <ol class="property-list drink">
+
+      <g:if test="${drinkInstance?.components}">
+          <span id="components-label"
+            class="property-label">
+          <g:message code="drink.listelements.label" default="You need:" />
+          <ul>
+          <g:each in="${drinkInstance.components}" var="c">
+             <li>${c?.toStringAsIngredientList().encodeAsHTML()}</li>
+          </g:each>
+          </ul>
+      </g:if>
+
+      <g:if test="${drinkInstance?.preparation}">
+        <li class="fieldcontain">
+          <span id="preparation-label"
+          class="property-label">
+            <g:message
+            code="drink.preparation.label" default="Preparation: " />
+          </span>
+
+          <span
+            class="property-value" aria-labelledby="preparation-label">
+            <g:fieldValue
+            bean="${drinkInstance}" field="preparation" />
+          </span>
+        </li>
+      </g:if>
+    </ol>
+  </div>
+  <div id="searchcontrol" style="width:551px;">Loading</div>
+  </body>
+</html>

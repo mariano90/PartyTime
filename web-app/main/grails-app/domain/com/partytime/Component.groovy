@@ -12,4 +12,8 @@ class Component {
 	String toString(){
 		return "${ingredient} (${amount})"
 	}
+	
+	String toStringAsIngredientList() {
+		return "${this.ingredient.toStringAsIngredientList()}, ${this.amount}"
+	}
 }

@@ -25,6 +25,14 @@ class DrinkController {
 		[myDrinks:myDrinks]
 	}
 	
+	/**
+	 * Shows the details of a drink, in order for users to learn how to prepare it.
+	 */
+	def details(Drink drinkInstance) {
+		// TODO: maybe look in youtube and embed a video related to it?
+		respond drinkInstance
+	}
+	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	/* * *                  Methods used for maintenance                 * * */
 
