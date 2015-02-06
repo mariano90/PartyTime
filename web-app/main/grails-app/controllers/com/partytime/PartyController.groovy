@@ -24,6 +24,7 @@ class PartyController {
 
 		// TODO: only show future parties.
 		User myself = User.getMyUser()
+		// TODO: there is a functional programming way to do this.
 		def allParties = Party.list()
 		def partiesImInvitedTo = []
 		for (Party p in allParties) {
@@ -64,6 +65,7 @@ class PartyController {
 
 		// TODO: only show future parties.
 		User myself = User.getMyUser()
+		// TODO: there is a functional programming way to do this.
 		def allParties = Party.list()
 		def partiesImInvitedTo = []
 		for (Party p in allParties) {
