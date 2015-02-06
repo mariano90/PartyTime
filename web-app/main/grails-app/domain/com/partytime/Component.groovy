@@ -9,7 +9,7 @@ class Component {
         amount blank: false, nullable: false
     }
 	
-	String toString(){
+	String toString() {
 		return "${ingredient} (${amount})"
 	}
 	

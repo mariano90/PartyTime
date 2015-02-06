@@ -98,9 +98,9 @@
         </div>
         <div class="right-side">
           <h2>
-            Experiencia acumulada
+            User lvl
           </h2>
-          Nivel de usuario, puntos...
+          points, experience
           <br />
           <iframe src="">
           </iframe>
@@ -119,7 +119,7 @@
         </div>
         <div class="right-side">
           <h2>
-            Publicidad
+            Ads
           </h2>
           <iframe src="">
           </iframe>

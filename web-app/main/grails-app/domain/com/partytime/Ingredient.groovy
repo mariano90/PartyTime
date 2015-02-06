@@ -8,7 +8,7 @@ class Ingredient {
 		name unique: true
     }
 	
-	String toString(){
+	String toString() {
 		return "${name} (\$${price})" // TODO: format price like XXX.XX
 	}
 	
