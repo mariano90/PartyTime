@@ -12,6 +12,27 @@
       <g:fieldValue bean="${drinkInstance}" field="name" />
     </g:if>
   </title>
+  
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  
+  <script type="text/javascript">
+  google.load("search", "1");
+  function initialize() {
+    var searchControl = new google.search.SearchControl();
+
+    var options = new google.search.SearcherOptions();
+    options.setExpandMode(google.search.SearchControl.EXPAND_MODE_OPEN);
+    
+    searchControl.addSearcher(new google.search.VideoSearch(), options);
+
+    // TODO: filter by language.
+    
+    searchControl.draw(document.getElementById("searchcontrol"));
+    searchControl.execute("how to prepare a martini");
+  }
+  google.setOnLoadCallback(initialize);
+  </script>
+  
   </head>
   <body>
   <div id="show-drink" class="content scaffold-show" role="main">
