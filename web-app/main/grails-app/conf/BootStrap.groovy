@@ -16,15 +16,15 @@ import com.partytime.User
 class BootStrap {
 
 	def init = { servletContext ->
-		Ingredient botellaGancia = new Ingredient(name: "Botella de Gancia", price: 40.0).save(failOnError: true)
-		Ingredient botellaSprite = new Ingredient(name: "Botella de Sprite", price: 10.0).save(failOnError: true)
-		Ingredient botellaCoca = new Ingredient(name: "Botella de Coca Cola", price: 10.0).save(failOnError: true)
-		Ingredient botellaFernet = new Ingredient(name: "Botella de Fernet", price: 60.0).save(failOnError: true)
-		Ingredient botellaCerveza = new Ingredient(name: "Botella de Cerveza", price: 25.0).save(failOnError: true)
-		Ingredient botellaVodka = new Ingredient(name: "Botella de Vodka", price: 80.0).save(failOnError: true)
-		Ingredient lataEnergizante = new Ingredient(name: "Lata de energizante", price: 5.0).save(failOnError: true)
-		Ingredient botellaJugo = new Ingredient(name: "Botella de Jugo", price: 8.0).save(failOnError: true)
-		Ingredient botellaChampagne = new Ingredient(name: "Botella de Champagne", price: 120.0).save(failOnError: true)
+		Ingredient botellaGancia = new Ingredient(name: "Gancia", price: 40.0).save(failOnError: true)
+		Ingredient botellaSprite = new Ingredient(name: "Sprite", price: 10.0).save(failOnError: true)
+		Ingredient botellaCoca = new Ingredient(name: "Coca Cola", price: 10.0).save(failOnError: true)
+		Ingredient botellaFernet = new Ingredient(name: "Fernet", price: 60.0).save(failOnError: true)
+		Ingredient botellaCerveza = new Ingredient(name: "Cerveza", price: 25.0).save(failOnError: true)
+		Ingredient botellaVodka = new Ingredient(name: "Vodka", price: 80.0).save(failOnError: true)
+		Ingredient lataEnergizante = new Ingredient(name: "Energizante", price: 5.0).save(failOnError: true)
+		Ingredient botellaJugo = new Ingredient(name: "Jugo de naranja", price: 8.0).save(failOnError: true)
+		Ingredient botellaChampagne = new Ingredient(name: "Champagne", price: 120.0).save(failOnError: true)
 
 		Component fernetAl20 = new Component(ingredient: botellaFernet, amount: "20% del vaso").save(failOnError: true)
 		Component ganciaAl50 = new Component(ingredient: botellaGancia, amount: "50% del vaso").save(failOnError: true)
