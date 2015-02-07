@@ -195,7 +195,6 @@ class BootStrap {
 			externalUrl:"http://www.creamfields.com/",
 			address:"Puerto Madero, CABA"
 			).save(failOnError: true)
-
 		new PublicEvent(
 			title:"Ultramusic Festival",
 			description:"",
@@ -205,7 +204,6 @@ class BootStrap {
 			externalUrl:"",
 			address:"Autodromo, CABA"
 			).save(failOnError: true)
-
 		new PublicEvent(
 			title:"Tomorrowland",
 			description:"DJs lideres",
@@ -215,17 +213,15 @@ class BootStrap {
 			externalUrl:"http://www.tomorrowland.com/global-splash/",
 			address:"Belgium"
 			).save(failOnError: true)
-
 		new PublicEvent(
 			title:"Cirque du Soleil",
 			description:"Veni a ver Ka, el show mas espectacular de circo a nivel mundial.",
 			lineup:"",
 			minimumAge:0,
-			startDateTime: new Date(1429066890000L),
+			startDateTime: new Date(1420081200000L),
 			externalUrl:"http://www.cirquedusoleil.com",
 			address:"Teatro Colon, CABA"
 			).save(failOnError: true)
-
 		new PublicEvent(
 			title:"David Copperfield",
 			description:"¿Te gusta la magia?",
@@ -236,7 +232,6 @@ class BootStrap {
 			address:"Las Vegas, NV, USA"
 			).save(failOnError: true)
 
-
 		Party party1 = new Party(host: userf,
 			place: place1,
 			title: "Fiesta1",
@@ -245,7 +240,6 @@ class BootStrap {
 			finsishDateTime: new Date(1429066900000L),
 			guestsInvited: [user02, user03, user06]
 			).save(failOnError: true)
-
 		Party party2 = new Party(host: user01,
 			place: place1,
 			title: "Fiesta2",
@@ -254,7 +248,6 @@ class BootStrap {
 			finsishDateTime: new Date(1429066900000L),
 			guestsInvited: [user02, user03, userf]
 			).save(failOnError: true)
-
 		Party party3 = new Party(host: userf,
 			place: place1,
 			title: "Fiesta3",
@@ -263,13 +256,12 @@ class BootStrap {
 			finsishDateTime: new Date(1429076900000L),
 			guestsInvited: [user02, user03, user04, user05]
 			).save(failOnError: true)
-		
 		Party party4 = new Party(host: userf,
 			place: place1,
 			title: "Fiesta4",
 			description: "...",
-			startDateTime: new Date(1429066800000L),
-			finsishDateTime: new Date(1429066900000L),
+			startDateTime: new Date(1420081200000L),
+			finsishDateTime: new Date(1420082200000L),
 			guestsInvited: [user01, user02, user03]
 			).save(failOnError: true)
 	}
