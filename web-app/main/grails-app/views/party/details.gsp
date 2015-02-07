@@ -133,6 +133,13 @@
               </tbody>
             </table>
           </g:if>
+          
+          <g:if test="${hostingThisParty}">
+          Suggested drinks:
+            <g:each in="${partyInstance.getSuggestedDrinks()}" var="drink">
+              ${drink.toString()}&nbsp;&nbsp;
+            </g:each>
+          </g:if>
         </ol>
       </div>
     </body>

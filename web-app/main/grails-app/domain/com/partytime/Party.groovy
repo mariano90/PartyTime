@@ -70,6 +70,41 @@ class Party {
 		}
 		this.guestsNotGoing.add(user)
 	}
+	
+	def getSuggestedDrinks() {
+		def allDrinks = [:]
+		for (User u in this.guestsInvited) {
+			for (Drink d in u.preferedDrinks) {
+				if (allDrinks[d]) {
+					allDrinks[d] += 1
+				} else {
+					allDrinks[d] = 1
+				}
+			}
+		}
+		// Guests that are going have more priority for selecting drinks.
+		for (User u in this.guestsConfirmed) {
+			for (Drink d in u.preferedDrinks) {
+				if (allDrinks[d]) {
+					allDrinks[d] += 2
+				} else {
+					allDrinks[d] = 2
+				}
+			}
+		}
+		def sorted = allDrinks.sort {it.value}
+		def keys = sorted.keySet()
+		def size = keys.size()
+		if (size == 0) {
+			return []
+		}
+
+		def selected = []
+		while (selected.size() * 4 <= size) {
+			selected.add(keys[size - 1 - selected.size()])
+		}
+		return selected
+	}
 
 	void sendInvitations() {
 //		for (User x in this.guestsInvited) {
