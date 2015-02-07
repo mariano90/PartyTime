@@ -102,7 +102,7 @@
               </span>
             </li>
           </g:if>
-          
+
           <g:if test="${partyInstance?.description}">
             <li class="fieldcontain">
               <span id="description-label" class="property-label">
@@ -113,7 +113,7 @@
               </span>
             </li>
           </g:if>
-          
+
           <g:if test="${partyInstance?.guestsInvited}">
             <g:message code="party.guestsInvited.label" default="Guests" />
             <table>
@@ -133,7 +133,7 @@
               </tbody>
             </table>
           </g:if>
-          
+
           <g:if test="${hostingThisParty}">
           Suggested drinks:
             <g:each in="${partyInstance.getSuggestedDrinks()}" var="drink">
