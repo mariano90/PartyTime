@@ -35,9 +35,11 @@
 					<span id="preferedDrinks-label" class="property-label">
 						<g:message code="user.preferedDrinks.label" default="Prefered Drinks" />
 					</span>
-					<g:each in="${userInstance.preferedDrinks}" var="p">
+					<g:each in="${userInstance.preferedDrinks}" var="d">
 						<span class="property-value" aria-labelledby="preferedDrinks-label">
-							${p?.encodeAsHTML()}
+						<g:link controller="drink" action="details" id="${d.id}">
+							${d?.encodeAsHTML()}
+						</g:link>&nbsp;&nbsp;
 						</span>
 					</g:each>
 				</li>
@@ -47,9 +49,11 @@
 					<span id="preferedMusicStyles-label" class="property-label">
 						<g:message code="user.preferedMusicStyles.label" default="Prefered Music Styles" />
 					</span>
-					<g:each in="${userInstance.preferedMusicStyles}" var="p">
+					<g:each in="${userInstance.preferedMusicStyles}" var="ms">
 						<span class="property-value" aria-labelledby="preferedMusicStyles-label">
-						${p?.encodeAsHTML()}
+						<g:link controller="bar" action="musicStyle" id="${ms.id}">
+							${ms.encodeAsHTML()}
+						</g:link>&nbsp;&nbsp;
 						</span>
 					</g:each>
 				</li>
