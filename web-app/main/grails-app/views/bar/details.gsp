@@ -55,17 +55,9 @@
               </span>
               <span class="property-value" aria-labelledby="street-label">
                 <g:fieldValue bean="${barInstance}" field="street"/>
-              </span>
-            </li>
-          </g:if>
-          
-          <g:if test="${barInstance?.number}">
-            <li class="fieldcontain">
-              <span id="number-label" class="property-label">
-                <g:message code="bar.number.label" default="Number" />
-              </span>
-              <span class="property-value" aria-labelledby="number-label">
-                <g:fieldValue bean="${barInstance}" field="number"/>
+                <g:if test="${barInstance?.number}">
+                  <g:fieldValue bean="${barInstance}" field="number"/>
+                </g:if>
               </span>
             </li>
           </g:if>
