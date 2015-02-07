@@ -63,6 +63,8 @@ class BootStrap {
 			).save(failOnError: true)
 		userf.preferedDrinks.add(tropicalEnergy)
 		userf.preferedDrinks.add(acidPsycho)
+		userf.preferedMusicStyles.add(musicStyleRock)
+		userf.preferedMusicStyles.add(musicStyleElectro)
 		userf.save()
 //		assert new AuthenticationUser( login:'fabricio',
 //			password:'123456'.encodeAsMD5(),
@@ -85,10 +87,12 @@ class BootStrap {
 
 		user01.preferedDrinks.add(fernetConCoca)
 		user01.preferedDrinks.add(ganciaConSprite)
+		user01.preferedMusicStyles.add(musicStyle80)
 		user01.save()
 		
 		user02.preferedDrinks.add(fernetConCoca)
 		user02.preferedDrinks.add(fuegoSagrado)
+		user02.preferedMusicStyles.add(musicStyleUnder)
 		user02.save()
 		
 		user03.preferedDrinks.add(fuegoSagrado)
@@ -166,6 +170,9 @@ class BootStrap {
 			musicStyles: [musicStyleRock, musicStyleUnder],
 			reviews: [],
 			promos: []).save(failOnError: true)
+			
+			userf.favoriteBars.add(place1)
+			userf.save()
 
 		new News(title:"Lanzamos Party Time!",
 			description: "Lorem ipsum dolor sit amet, vim ad affert putant verear. Accusata iracundia pro id.",
