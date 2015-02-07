@@ -21,10 +21,19 @@ class PublicEventController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
+
 		params.max = Math.min(max ?: 10, 100)
-		// TODO only show events that are in the future
-		// TODO show more events of the preference of the user.
-		respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]
+		Date today = new Date();
+		def allPublicEvents = PublicEvent.list(params)
+		def upcomingPublicEvents = []
+		for (PublicEvent e in allPublicEvents) {
+			if (e.getStartDateTime().getTime() < today.getTime()){
+				continue
+			}
+			// TODO show more events of the preference of the user.
+			upcomingPublicEvents.add(e)
+		}
+		respond upcomingPublicEvents
 	}
 	
 	/**
@@ -36,9 +45,18 @@ class PublicEventController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
+
 		params.max = Math.min(max ?: 10, 100)
-		// TODO only show events that are in the future
-		respond PublicEvent.list(params), model:[publicEventInstanceCount: PublicEvent.count()]
+		Date today = new Date();
+		def allPublicEvents = PublicEvent.list(params)
+		def upcomingPublicEvents = []
+		for (PublicEvent e in allPublicEvents) {
+			if (e.getStartDateTime().getTime() < today.getTime()){
+				continue
+			}
+			upcomingPublicEvents.add(e)
+		}
+		respond upcomingPublicEvents
 	}
 	
 	/**
