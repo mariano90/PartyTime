@@ -32,10 +32,10 @@
         <%
 		  User host = partyInstance.getHost()
 		  User myself = User.getMyUser()
-		  boolean notHostingThisParty =  host != myself
+		  boolean hostingThisParty =  host == myself
 		%>
 		
-		<g:if test="${notHostingThisParty}">
+		<g:if test="${!hostingThisParty}">
 		Mark as: 
 			<g:if test="${!partyInstance.isAccepted(myself)}">
 				<g:link controller="party" action="accept" id="${partyInstance?.id}">
