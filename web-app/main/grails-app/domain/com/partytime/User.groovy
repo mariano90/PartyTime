@@ -8,9 +8,11 @@ class User {
 	Set preferedMusicStyles = []
 	Set preferedDrinks = []
 	String mail
+	Set favoriteBars = []
 
 	static hasMany = [preferedMusicStyles: MusicStyle,
-		preferedDrinks: Drink]
+		preferedDrinks: Drink,
+		favoriteBars: Bar]
 
 	static constraints = {
 		name blank: false, nullable: false, unique: true
