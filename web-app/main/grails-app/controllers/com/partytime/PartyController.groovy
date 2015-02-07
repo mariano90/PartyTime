@@ -142,6 +142,9 @@ class PartyController {
 		}
 	}
 
+	/**
+	 * Action of a user saying that is going to the party.
+	 */
 	def accept(Party partyInstance) {
 		if (!authenticationService.isLoggedIn(request)) {
 			redirect controller:"home", action:"login"
@@ -154,6 +157,9 @@ class PartyController {
 		redirect controller:"party", action:"details", id: partyInstance.id
 	}
 	
+	/**
+	 * Action of a user saying that is not going to the party.
+	 */
 	def reject(Party partyInstance) {
 		if (!authenticationService.isLoggedIn(request)) {
 			redirect controller:"home", action:"login"
