@@ -49,7 +49,23 @@ class BarController {
 		respond musicStyleInstance
 	}
 	
+	def removeFromFavorites(Bar barInstance) {
+		User myself = User.getMyUser()
+		if (myself.hasFavoritedBar(barInstance)) {
+			myself.favoriteBars.remove(barInstance)
+			myself.save flush:true
+		}
+		redirect controller:"bar", action:"details", id:barInstance.id
+	}
 	
+	def addToFavorites(Bar barInstance) {
+		User myself = User.getMyUser()
+		if (!myself.hasFavoritedBar(barInstance)) {
+			myself.favoriteBars.add(barInstance)
+			myself.save flush:true
+		}
+		redirect controller:"bar", action:"details", id:barInstance.id
+	}
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	/* * *                  Methods used for maintenance                 * * */

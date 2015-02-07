@@ -47,4 +47,8 @@ class User {
 	static getMyUser() {
 		return User.findByName(activeLogin)
 	}
+	
+	boolean hasFavoritedBar(Bar bar) {
+		return this.favoriteBars.contains(bar);
+	}
 }

@@ -1,5 +1,6 @@
 
 <%@ page import="com.partytime.Bar" %>
+<%@ page import="com.partytime.User" %>
 
 <!DOCTYPE html>
 <html>
@@ -12,9 +13,22 @@
   </head>
     <body>
       <div id="show-bar" class="content scaffold-show" role="main">
+      <% User user = User.getMyUser() %>
         <h1>
           <g:if test="${barInstance?.name}">
             <g:fieldValue bean="${barInstance}" field="name"/>
+            <g:if test="${user.hasFavoritedBar(barInstance)}">
+              <g:link action="removeFromFavorites" id="${barInstance.id}">
+                <img src="${resource(dir: 'images', file: 'favorite-on.png')}"
+                  alt="Favorited" />
+              </g:link>
+            </g:if>
+            <g:else>
+              <g:link action="addToFavorites" id="${barInstance.id}">
+                <img src="${resource(dir: 'images', file: 'favorite-off.png')}"
+                  alt="Not in favorite" />
+              </g:link>
+            </g:else>
           </g:if>
         </h1>
         <g:if test="${flash.message}">
