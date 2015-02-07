@@ -58,6 +58,18 @@
 					</g:each>
 				</li>
 				</g:if>
+				<g:if test="${userInstance?.favoriteBars}">
+				<li class="fieldcontain">
+					Favorite bars:
+					<g:each in="${userInstance.favoriteBars}" var="b">
+						<span class="property-value">
+						<g:link controller="bar" action="details" id="${b.id}">
+							${b.encodeAsHTML()}
+						</g:link>&nbsp;&nbsp;
+						</span>
+					</g:each>
+				</li>
+				</g:if>
 			</ol>
 		</div>
 	</body>
