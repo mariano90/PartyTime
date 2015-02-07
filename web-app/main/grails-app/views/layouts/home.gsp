@@ -43,12 +43,15 @@
       <div id="header" class="skel-panels-fixed">
         <div class="top">
           <div id="logo">
+            <% def myself = User.getMyUser()%>
             <span class="image avatar48">
-              <img src="images/${User.getMyUser().toString()}.jpg"
+              <img src="images/${myself.toString()}.jpg"
               alt=""/>
             </span>
             <h1 id="title">
-              ${User.getMyUser().toString()}
+              <g:link controller="user" action="details" id="${myself.id}">
+                ${myself.toString()}
+              </g:link>
             </h1>
             <form action="/main/authentication/logout" method="post">
               <input type="hidden" name="success_controller"
