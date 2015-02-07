@@ -22,18 +22,21 @@ class PartyController {
 		}
 		User.sync(authenticationService.getUserPrincipal())
 
-		// TODO: only show future parties.
 		User myself = User.getMyUser()
+		Date today = new Date();
 		// TODO: there is a functional programming way to do this.
 		def allParties = Party.list()
 		def partiesImInvitedTo = []
 		for (Party p in allParties) {
+			if (p.getStartDateTime().getTime() < today.getTime()){
+				continue
+			}
 			def guests = p.getGuestsInvited()
 			if (guests.contains(myself)) {
 				partiesImInvitedTo.add(p)
 			}
 		}
-		respond partiesImInvitedTo 
+		respond partiesImInvitedTo
 	}
 
 	/**
@@ -46,11 +49,18 @@ class PartyController {
 		}
 		User.sync(authenticationService.getUserPrincipal())
 
-		// TODO: only show future parties.
 		params.max = Math.min(max ?: 10, 100)
 		User myself = User.getMyUser()
-		def content = Party.findAllByHost(myself)
-		respond content
+		Date today = new Date();
+		def allParties = Party.findAllByHost(myself)
+		def upcomingParties = []
+		for (Party p in allParties) {
+			if (p.getStartDateTime().getTime() < today.getTime()){
+				continue
+			}
+			upcomingParties.add(p)
+		}
+		respond upcomingParties
 	}
 	
 	/**
@@ -63,12 +73,15 @@ class PartyController {
 		}
 		User.sync(authenticationService.getUserPrincipal())
 
-		// TODO: only show future parties.
 		User myself = User.getMyUser()
+		Date today = new Date();
 		// TODO: there is a functional programming way to do this.
 		def allParties = Party.list()
 		def partiesImInvitedTo = []
 		for (Party p in allParties) {
+			if (p.getStartDateTime().getTime() < today.getTime()){
+				continue
+			}
 			def guests = p.getGuestsInvited()
 			if (guests.contains(myself)) {
 				partiesImInvitedTo.add(p)
