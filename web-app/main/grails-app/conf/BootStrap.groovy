@@ -84,8 +84,28 @@ class BootStrap {
 			bornDate: new Date(), mail: "user06@gmail.com").save(failOnError: true)
 
 		user01.preferedDrinks.add(fernetConCoca)
-		user01.preferedDrinks.add(cerveza)
+		user01.preferedDrinks.add(ganciaConSprite)
 		user01.save()
+		
+		user02.preferedDrinks.add(fernetConCoca)
+		user02.preferedDrinks.add(fuegoSagrado)
+		user02.save()
+		
+		user03.preferedDrinks.add(fuegoSagrado)
+		user03.preferedDrinks.add(cerveza)
+		user03.save()
+		
+		user04.preferedDrinks.add(ganciaConSprite)
+		user04.preferedDrinks.add(fuegoSagrado)
+		user04.save()
+		
+		user05.preferedDrinks.add(fuegoSagrado)
+		user05.preferedDrinks.add(ganciaConSprite)
+		user05.save()
+		
+		user06.preferedDrinks.add(fernetConCoca)
+		user06.preferedDrinks.add(ganciaConSprite)
+		user06.save()
 
 		Review review1 = new Review(title:"Bueno en pareja",
 			body:"Fue una increible salida conmi novia, y eso que soy informatico.",
@@ -217,13 +237,13 @@ class BootStrap {
 			).save(failOnError: true)
 
 
-		Party party1 = new Party(host: user01,
+		Party party1 = new Party(host: userf,
 			place: place1,
 			title: "Fiesta1",
 			description: "...",
 			startDateTime: new Date(1429066800000L),
 			finsishDateTime: new Date(1429066900000L),
-			guestsInvited: [user02, user03]
+			guestsInvited: [user02, user03, user06]
 			).save(failOnError: true)
 
 		Party party2 = new Party(host: user01,
@@ -241,7 +261,7 @@ class BootStrap {
 			description: "...",
 			startDateTime: new Date(1429076800000L),
 			finsishDateTime: new Date(1429076900000L),
-			guestsInvited: [user02, user03]
+			guestsInvited: [user02, user03, user04, user05]
 			).save(failOnError: true)
 		
 		Party party4 = new Party(host: userf,
@@ -250,7 +270,7 @@ class BootStrap {
 			description: "...",
 			startDateTime: new Date(1429066800000L),
 			finsishDateTime: new Date(1429066900000L),
-			guestsInvited: [user02, user03, user01]
+			guestsInvited: [user01, user02, user03]
 			).save(failOnError: true)
 	}
 
