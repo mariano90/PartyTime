@@ -21,7 +21,8 @@
         <h1>
           <g:if test="${reviewInstance?.score}">
             <span class="property-value" aria-labelledby="score-label">
-              <g:fieldValue bean="${reviewInstance}" field="score"/>
+              <img src="${resource(dir: 'images', file:reviewInstance.getImg())}"
+                alt="Score" />
             </span>
           </g:if>
         </h1>

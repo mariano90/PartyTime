@@ -16,4 +16,8 @@ class Review {
 	String toString(){
 		return "${title}(${score}/5)"
 	}
+	
+	String getImg() {
+		return "" + this.score + "0stars.png"
+	}
 }

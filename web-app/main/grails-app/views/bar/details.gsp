@@ -171,12 +171,17 @@
               <span id="reviews-label" class="property-label">
                 <g:message code="bar.reviews.label" default="Reviews" />
               </span>
+              <br/>
               <g:each in="${barInstance.reviews}" var="r">
                 <span class="property-value" aria-labelledby="reviews-label">
                   <g:link controller="review" action="details" id="${r.id}">
-                    ${r?.encodeAsHTML()}&nbsp;
+                    ${r?.getTitle().encodeAsHTML()}&nbsp;
+                    <img src="${resource(dir: 'images', file:r.getImg())}"
+                      alt="Score" />
                   </g:link>
                 </span>
+                <!-- TODO: show first 50 chars of the review -->
+                <br/>
               </g:each>
             </li>
           </g:if>
