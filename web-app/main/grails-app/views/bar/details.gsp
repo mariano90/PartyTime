@@ -162,6 +162,8 @@
             <li class="fieldcontain">
               <span id="reviews-label" class="property-label">
                 <g:message code="bar.reviews.label" default="Reviews" />
+                <img src="${resource(dir: 'images', file:barInstance.getScoreAsImg())}"
+                  alt="Score" />
               </span>
               <br/>
               <g:each in="${barInstance.reviews}" var="r">
