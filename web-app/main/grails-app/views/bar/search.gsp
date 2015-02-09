@@ -28,14 +28,9 @@
       <table>
         <thead>
           <tr>
-            <g:sortableColumn property="name"
-            title="${message(code: 'bar.name.label', default: 'Name')}" />
-            <g:sortableColumn property="street"
-            title="${message(code: 'bar.address.label', default: 'Address')}" />
-            <g:sortableColumn property="openHours"
-            title="${message(code: 'bar.openHours.label', default: 'Open Hours')}" />
-            <g:sortableColumn property="reviewsCount"
-            title="${message(code: 'bar.reviews.label', default: 'Reviews')}" />
+            <td>Name</td>
+            <td>Address</td>
+            <td>Score</td>
           </tr>
         </thead>
         <tbody>
@@ -50,10 +45,8 @@
                 ${fieldValue(bean: barInstance, field: "street")} ${fieldValue(bean: barInstance, field: "number")}
               </td>
               <td>
-                ${fieldValue(bean: barInstance, field: "openHours")}
-              </td>
-              <td>
-                TO DO
+                <img src="${resource(dir: 'images', file:barInstance.getScoreAsImg())}"
+                  alt="Score" />
               </td>
             </tr>
           </g:each>
