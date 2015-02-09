@@ -48,6 +48,7 @@
               </td>
               <td>
                 ${fieldValue(bean: barInstance, field: "street")} ${fieldValue(bean: barInstance, field: "number")}
+                <!-- TODO: Use Google Maps API to show the distance from the user current location -->
               </td>
               <td>
                 <img src="${resource(dir: 'images', file:barInstance.getScoreAsImg())}"
