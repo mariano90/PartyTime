@@ -10,6 +10,11 @@
   <title>
     <g:message code="default.list.label" args="[entityName]" />
   </title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
   </head>
 
   <body>
@@ -28,9 +33,9 @@
       <table>
         <thead>
           <tr>
-            <td>Name</td>
-            <td>Address</td>
-            <td>Score</td>
+            <td><font color="black">Name</font></td>
+            <td><font color="black">Address</font></td>
+            <td><font color="black">Score</font></td>
           </tr>
         </thead>
         <tbody>

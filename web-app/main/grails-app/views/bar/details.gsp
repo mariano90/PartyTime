@@ -161,7 +161,9 @@
           <g:if test="${barInstance?.reviews}">
             <li class="fieldcontain">
               <span id="reviews-label" class="property-label">
+              <font color="black">
                 <g:message code="bar.reviews.label" default="Reviews" />
+              </font>
                 <img src="${resource(dir: 'images', file:barInstance.getScoreAsImg())}"
                   alt="Score" />
               </span>
