@@ -19,5 +19,6 @@
         ${item['product']}:&nbsp;&nbsp;${item['ammount']} ${item['type']}<br/>
       </g:each>
     </div>
+    <div>Order online now and receive your drinks directly at home for only: $ ${partyInstance.getPriceForDelivery()}</div>
   </body>
 </html>

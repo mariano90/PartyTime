@@ -142,6 +142,15 @@ class Party {
 		return groceryList
 	}
 	
+	def getPriceForDelivery() {
+		double total = 0
+		def groceryMap = groupComponents()
+		for (Component component in groceryMap.keySet()) {
+			int ammount = calculateAmountOfBottles(groceryMap, component)
+			total += ammount * component.getIngredient().getPrice()
+		}
+		return total
+	}
 
 	void sendInvitations() {
 //		for (User x in this.guestsInvited) {
