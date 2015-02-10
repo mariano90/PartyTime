@@ -135,8 +135,8 @@ class PartyController {
 		newParty.setStartDateTime(startDate)
 		newParty.setFinsishDateTime(finishDate)
 		newParty.setHost(host)
-
 		newParty.save flush:true
+		
 		redirect(controller:"party",action:"mine")
 	}
 	
