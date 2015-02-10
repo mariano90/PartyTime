@@ -136,9 +136,9 @@
 
           <g:if test="${hostingThisParty}">
           <h1>Suggested drinks 
-              <g:link action="grocery" id="${partyInstance.id}">
-                        [grocery list]
-              </g:link>
+            [<g:link action="grocery" id="${partyInstance.id}">
+              grocery list
+            </g:link>]
           </h1>
           <ul style="list-style-type:disc">
             <g:each in="${partyInstance.getSuggestedDrinks()}" var="drink">
