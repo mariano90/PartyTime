@@ -14,7 +14,7 @@
           <g:select style="margin-left:30px;width:500px;margin-top:20px"
             name="drinkSelected"
             from="${com.partytime.Drink.list()}"
-            optionKey="name"/>
+            optionKey="id"/>
           <g:submitButton name="AddDrink"
             class="button"
             style="float: right;" 

@@ -36,6 +36,14 @@ class UserController {
 		respond userInstance
 	}
 	
+	def addDrink() {
+		User myself = User.getMyUser()
+		Drink drink = Drink.get(params.drinkSelected)
+		myself.preferedDrinks.add(drink)
+		myself.save flush:true
+		redirect(controller:"drink",action:"mine")
+	}
+	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	/* * *                  Methods used for maintenance                 * * */
 
@@ -50,14 +58,6 @@ class UserController {
 
 	def create() {
 		respond new User(params)
-	}
-	
-	def addDrink() {
-		User host = User.getMyUser()
-		Drink drink = Drink.findByName(params.drinkSelected)
-		host.preferedDrinks.add(drink)
-		host.save flush:true
-		redirect(controller:"drink",action:"mine")
 	}
 
 	@Transactional
