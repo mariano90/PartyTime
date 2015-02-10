@@ -114,17 +114,20 @@ class PartyController {
 		// TODO not empty
 		String title = params.partyTitle
 		String description = params.partyDescription
-		// TODO render Bars in textfield and autocmolpete feature
-		// TODO Doublecheckear que Bar exista
-		Bar bar = Bar.findByName("Groove")
-		Date startDate = new Date()
-		// TODO Checkear Start < Finish
-		Date finishDate = new Date()
-		// TODO Checkear que no tenga otras fiestas en esos dias, mostrar warning.
+		Bar bar = Bar.get(params.partyPlace)
+
+		def startDate = new GregorianCalendar(params.partyStart_year.toInteger(),
+			params.partyStart_month.toInteger() - 1,
+			params.partyStart_day.toInteger(),
+			1, 23, 45).time
+		Date finishDate = new GregorianCalendar(params.partyEnd_year.toInteger(),
+			params.partyEnd_month.toInteger() - 1,
+			params.partyEnd_day.toInteger(),
+			1, 23, 45).time
+
 		User host = User.getMyUser()
-		
 		// TODO check errors
-		
+
 		Party newParty = new Party()
 		newParty.setTitle(title)
 		newParty.setDescription(description)
