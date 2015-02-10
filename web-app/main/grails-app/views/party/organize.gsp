@@ -37,15 +37,18 @@
       <g:form controller="party" action="organizeNew">
 
       <fieldset class="form">
-        <label>Title:</label>
-        <g:textField name="partyTitle" />
-        <br/>
-      
-        <label>Description:</label>
-        <g:textField name="partyDescription" />
-        <br/>
-      
-        <label>Place:</label>
+        <table>
+          <tr>
+            <td style="width: 60px;">Title:</td>
+            <td><g:textField name="partyTitle" /></td>
+          </tr>
+          <tr>
+            <td style="width: 60px;">Description:</td>
+            <td><g:textField name="partyDescription" /></td>
+          </tr>
+        </table>
+
+        Place:
         <g:select
           name="partyPlace"
           from="${com.partytime.Bar.list()}"
