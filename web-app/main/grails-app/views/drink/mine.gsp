@@ -15,10 +15,10 @@
             name="drinkSelected"
             from="${com.partytime.Drink.list()}"
             optionKey="name"/>
-            <g:submitButton name="AddDrink"
-              class="button"
-              style="float: right;" 
-              value="${message(code: 'drink.button.add', default: 'Add Drink')}"/>
+          <g:submitButton name="AddDrink"
+            class="button"
+            style="float: right;" 
+            value="${message(code: 'drink.button.add', default: 'Add Drink')}"/>
         </g:form>
       </div>
 
