@@ -31,6 +31,10 @@
               <g:link controller="drink" action="details" id="${drinkInstance?.id}">
                 ${fieldValue(bean: drinkInstance, field: "name")}
               </g:link>
+              &nbsp;&nbsp;
+              [<g:link controller="drink" action="remove" id="${drinkInstance?.id}">
+                X
+              </g:link>]
             </td>
           </tr>
         </g:each>

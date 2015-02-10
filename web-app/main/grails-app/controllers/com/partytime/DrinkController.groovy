@@ -20,9 +20,25 @@ class DrinkController {
 			redirect controller:"home", action:"login"
 			return
 		}
+		// TODO: Remove drinks I already like from the selector.
 		User.sync(authenticationService.getUserPrincipal())
 		def myDrinks = User.getMyUser().getPreferedDrinks().sort{it.getName()}
 		[myDrinks: myDrinks]
+	}
+	
+	/**
+	 * Removes a drink from the favorites of the user.
+	 */
+	def remove(Drink drinkInstance) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
+		User myself = User.getMyUser()
+		myself.preferedDrinks.remove(drinkInstance)
+		myself.save flush:true
+		redirect controller: "drink", action: "mine"
 	}
 	
 	/**
