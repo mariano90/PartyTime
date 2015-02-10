@@ -145,6 +145,8 @@ class PartyController {
 			redirect controller:"home", action:"login"
 			return
 		}
+		// TODO Checkear que no tenga otras fiestas en esos dias, mostrar warning.
+		// TODO mostrar link para action de invitar gente
 		User myself = User.getMyUser()
 		if (partyInstance.getHost() == myself) {
 			respond partyInstance
