@@ -105,6 +105,43 @@ class Party {
 		}
 		return selected
 	}
+	
+	def groupComponents() {
+		def groceryMap = [:]
+		def drinks = this.getSuggestedDrinks()
+		for (Drink drink in drinks) {
+			for (Component component : drink.getComponents()) {
+				if (groceryMap[component]) {
+					groceryMap[component] += component.getAmount()
+				} else {
+					groceryMap[component] = component.getAmount()
+				}
+			}
+		}
+		return groceryMap
+	}
+	
+	def calculateAmountOfBottles(groceryMap, Component component) {
+		Math.ceil(groceryMap[component]
+          * (this.guestsConfirmed.size() + this.guestsInvited.size())
+		  / 100
+		  / component.getIngredient().getSize())
+	}
+
+	def getSuggestedGroceryList() {
+		def groceryList = []
+		def groceryMap = groupComponents()
+		for (Component component in groceryMap.keySet()) {
+			int ammount = calculateAmountOfBottles(groceryMap, component)
+			groceryList.add([
+				product: component.getIngredient().getName().toString(),
+				ammount: ammount,
+				type: component.getIngredient().getType()
+				])
+		}
+		return groceryList
+	}
+	
 
 	void sendInvitations() {
 //		for (User x in this.guestsInvited) {

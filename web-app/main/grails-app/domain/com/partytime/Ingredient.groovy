@@ -3,6 +3,8 @@ package com.partytime
 class Ingredient {
     String name
     Float price
+	String type
+	Float size
 
     static constraints = {
 		name unique: true

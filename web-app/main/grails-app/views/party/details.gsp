@@ -135,10 +135,18 @@
           </g:if>
 
           <g:if test="${hostingThisParty}">
-          Suggested drinks:
+          <h1>Suggested drinks 
+              <g:link action="grocery" id="${partyInstance.id}">
+                        [grocery list]
+              </g:link>
+          </h1>
+          <ul style="list-style-type:disc">
             <g:each in="${partyInstance.getSuggestedDrinks()}" var="drink">
-              ${drink.toString()}&nbsp;&nbsp;
+            <li>
+              ${drink.toString()}
+            </li>
             </g:each>
+          </ul>
           </g:if>
         </ol>
       </div>

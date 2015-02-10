@@ -185,6 +185,22 @@ class PartyController {
 		redirect controller:"party", action:"details", id: partyInstance.id
 	}
 	
+	/**
+	 * Shows a list of what to buy for the suggested drinks.
+	 */
+	def grocery(Party partyInstance) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"login"
+			return
+		}
+		User myself = User.getMyUser()
+		if (partyInstance.getHost() == myself) {
+			respond partyInstance
+		} else {
+			redirect controller:"home", action:"forbidden"
+		}
+	}
+	
 	def debug(Party partyInstance) {
 		render partyInstance.guestsInvited
 		render "<br/>"
