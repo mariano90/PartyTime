@@ -61,7 +61,7 @@
 		<g:message code="party.guestsInvited.label" default="Guests" />
 		
 	</label>
-	<g:select name="guestsInvited" from="${com.partytime.User.list()}" multiple="multiple" optionKey="id" size="5" value="${partyInstance?.guests*.id}" class="many-to-many"/>
+	<g:select name="guestsInvited" from="${com.partytime.User.list()}" multiple="multiple" optionKey="id" size="5" value="${partyInstance?.guestsInvited*.id}" class="many-to-many"/>
 
 </div>
 
