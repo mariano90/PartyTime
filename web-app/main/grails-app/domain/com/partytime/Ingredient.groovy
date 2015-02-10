@@ -11,7 +11,7 @@ class Ingredient {
     }
 	
 	String toString() {
-		return "${name} (\$${price})" // TODO: format price like XXX.XX
+		return "${name} (\$${price})"
 	}
 	
 	String toStringAsIngredientList() {
