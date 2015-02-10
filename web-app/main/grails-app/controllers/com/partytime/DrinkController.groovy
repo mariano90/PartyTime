@@ -21,8 +21,8 @@ class DrinkController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
-		def myDrinks = User.find{ name == User.getMyUser().name}.getPreferedDrinks()
-		[myDrinks:myDrinks]
+		def myDrinks = User.getMyUser().getPreferedDrinks().sort{it.getName()}
+		[myDrinks: myDrinks]
 	}
 	
 	/**
