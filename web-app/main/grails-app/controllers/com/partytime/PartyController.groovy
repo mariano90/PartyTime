@@ -119,11 +119,11 @@ class PartyController {
 		def startDate = new GregorianCalendar(params.partyStart_year.toInteger(),
 			params.partyStart_month.toInteger() - 1,
 			params.partyStart_day.toInteger(),
-			1, 23, 45).time
+			0, 0, 0).time
 		Date finishDate = new GregorianCalendar(params.partyEnd_year.toInteger(),
 			params.partyEnd_month.toInteger() - 1,
 			params.partyEnd_day.toInteger(),
-			1, 23, 45).time
+			0, 0, 0).time
 
 		User host = User.getMyUser()
 		// TODO check errors
