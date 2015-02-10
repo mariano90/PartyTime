@@ -78,29 +78,12 @@
           </g:if>
           
           <g:if test="${partyInstance?.startDateTime}">
-            <li class="fieldcontain">
-              <span id="startDateTime-label"
-              class="property-label">
-                <g:message
-                code="party.startDateTime.label" default="Starts" />
-              </span>
-              
-              <span
-              class="property-value" aria-labelledby="startDateTime-label">
-                <g:formatDate format="yyyy-MM-dd" date="${partyInstance?.startDateTime}" />
-              </span>
-            </li>
+            <g:message code="party.startDateTime.label" default="Starts" />
+            <g:formatDate format="yyyy-MM-dd" date="${partyInstance?.startDateTime}" />
           </g:if>
-          
           <g:if test="${partyInstance?.finsishDateTime}">
-            <li class="fieldcontain">
-              <span id="finsishDateTime-label" class="property-label">
-                <g:message code="party.finsishDateTime.label" default="Finishes" />
-              </span>
-              <span class="property-value" aria-labelledby="finsishDateTime-label">
-                <g:formatDate format="yyyy-MM-dd" date="${partyInstance?.finsishDateTime}" />
-              </span>
-            </li>
+            until
+            <g:formatDate format="yyyy-MM-dd" date="${partyInstance?.finsishDateTime}" />
           </g:if>
 
           <g:if test="${partyInstance?.description}">
