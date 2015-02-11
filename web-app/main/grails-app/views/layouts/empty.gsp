@@ -11,15 +11,15 @@
   <meta name="keywords" content="" />
   
   <link
-  href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600"
-  rel="stylesheet" type="text/css" />
+    href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600"
+    rel="stylesheet" type="text/css" />
   <link rel="stylesheet"
   href="${resource(dir: 'css', file: 'skel-noscript.css')}"
-  type="text/css" />
+    type="text/css" />
   <link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}"
-  type="text/css" />
+    type="text/css" />
   <link rel="stylesheet"
-  href="${resource(dir: 'css', file: 'style-wide.css')}" type="text/css" />
+    href="${resource(dir: 'css', file: 'style-wide.css')}" type="text/css" />
   <g:layoutHead />
   </head>
   

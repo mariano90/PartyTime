@@ -58,15 +58,14 @@
             </g:if>
             <form action="/main/authentication/logout" method="post">
               <input type="hidden" name="success_controller"
-              value="home" id="success_controller">
+                value="home" id="success_controller">
               <input type="hidden" name="success_action"
-              value="index" id="success_action">
+                value="index" id="success_action">
               <input type="hidden" name="error_controller"
-              value="home" id="error_controller">
+                value="home" id="error_controller">
               <input type="hidden" name="error_action"
-              value="error" id="error_action">
-              <input type="submit" name="_action_Log out" value="Log out">
-              
+                value="error" id="error_action">
+              <input type="submit" name="_action_Log out" value="Log out" class="buttonsmall">
             </form>
           </div>
             
@@ -74,18 +73,16 @@
               <ul>
                 <li>
                   <a href="http://localhost:8080/main/home/index"
-                  id="home-link" class="skel-panels-ignoreHref">
-                    <span
-                    class="fa fa-home">
+                      id="home-link" class="skel-panels-ignoreHref">
+                    <span class="fa fa-home">
                       Home
                     </span>
                   </a>
                 </li>
                 <li>
                   <a href="http://localhost:8080/main/party/organize"
-                  id="my-parties-link" class="skel-panels-ignoreHref">
-                    <span
-                    class="fa fa-create">
+                      id="my-parties-link" class="skel-panels-ignoreHref">
+                    <span class="fa fa-create">
                       New party
                     </span>
                   </a>
@@ -93,8 +90,7 @@
                 <li>
                   <a href="http://localhost:8080/main/party/mine"
                   id="my-parties-link" class="skel-panels-ignoreHref">
-                    <span
-                    class="fa fa-music">
+                    <span class="fa fa-music">
                       My parties
                     </span>
                   </a>

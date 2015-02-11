@@ -42,9 +42,11 @@
                   </g:link>
                 </td>
                 <td>
-                  [<g:link controller="party" action="doInvite" params="${[party:partyInstance.id,user:guest.id]}">
-                  add
-                  </g:link>]
+                  <g:link controller="party" action="doInvite"
+                      params="${[party:partyInstance.id,user:guest.id]}"
+                      class="button">
+                    add
+                  </g:link>
                 </td>
               </tr>
             </g:each>
@@ -65,9 +67,11 @@
                       </g:link>
                     </td>
                     <td>
-                    [<g:link controller="party" action="doRemove" params="${[party:partyInstance.id,user:guest.id]}">
-                    remove
-                    </g:link>]
+                    <g:link controller="party" action="doRemove"
+                        params="${[party:partyInstance.id,user:guest.id]}"
+                        class="button">
+                      remove
+                    </g:link>
                     </td>
                   </tr>
                 </g:each>
