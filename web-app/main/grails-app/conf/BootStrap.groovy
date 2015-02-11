@@ -59,7 +59,7 @@ class BootStrap {
 		MusicStyle musicStyle80 = new MusicStyle(name: "80's").save(failOnError: true)
 
 		User userf = new User(name: "qweqwe",
-			bornDate: new Date(), mail: "qwe@qwe.com"
+			bornDate: new Date(), mail: "qwe@qwe.com", displayName: "Fabricio PH"
 			).save(failOnError: true)
 		userf.preferedDrinks.add(tropicalEnergy)
 		userf.preferedDrinks.add(acidPsycho)
@@ -72,18 +72,18 @@ class BootStrap {
 //			status:AuthenticationService.STATUS_VALID).save()
 		
 		
-		User user01 = new User(name: "asdasd",
-			bornDate: new Date(), mail: "asd@asd.com").save(failOnError: true)
-		User user02 = new User(name: "zxczxc",
-			bornDate: new Date(), mail: "zxc@zxc.com").save(failOnError: true)
-		User user03 = new User(name: "user03",
-			bornDate: new Date(), mail: "user03@gmail.com").save(failOnError: true)
-		User user04 = new User(name: "user04",
-			bornDate: new Date(), mail: "user04@gmail.com").save(failOnError: true)
-		User user05 = new User(name: "user05",
-			bornDate: new Date(), mail: "user05@gmail.com").save(failOnError: true)
-		User user06 = new User(name: "user06",
-			bornDate: new Date(), mail: "user06@gmail.com").save(failOnError: true)
+		User user01 = new User(name: "asdasd", bornDate: new Date(),
+			mail: "asd@asd.com", displayName: "Chino Barrios").save(failOnError: true)
+		User user02 = new User(name: "zxczxc", bornDate: new Date(),
+			mail: "zxc@zxc.com", displayName: "Vale M").save(failOnError: true)
+		User user03 = new User(name: "user03", bornDate: new Date(),
+			mail: "user03@gmail.com", displayName: "Fabri Fiesta").save(failOnError: true)
+		User user04 = new User(name: "user04", bornDate: new Date(),
+			mail: "user04@gmail.com", displayName: "Fabri Santos").save(failOnError: true)
+		User user05 = new User(name: "user05", bornDate: new Date(),
+			mail: "user05@gmail.com", displayName: "Carola PH").save(failOnError: true)
+		User user06 = new User(name: "user06", bornDate: new Date(),
+			mail: "user06@gmail.com", displayName: "Fabri Malo").save(failOnError: true)
 
 		user01.preferedDrinks.add(fernetConCoca)
 		user01.preferedDrinks.add(ganciaConSprite)

@@ -4,6 +4,7 @@ import com.grailsrocks.authentication.AuthenticationUser
 
 class User {
 	String name
+	String displayName
 	Date bornDate
 	Set preferedMusicStyles = []
 	Set preferedDrinks = []
@@ -16,6 +17,7 @@ class User {
 
 	static constraints = {
 		name blank: false, nullable: false, unique: true
+		displayName blank: true, nullable: true
 		mail blank: false, nullable: false, email: true
 	}
 
