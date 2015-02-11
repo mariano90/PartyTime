@@ -22,7 +22,7 @@ class User {
 	}
 
 	String toString(){
-		return "${name}"
+		return displayName ? displayName : name
 	}
 	
 	static sync(AuthenticationUser authUser) {

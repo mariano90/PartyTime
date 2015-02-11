@@ -53,6 +53,9 @@
                 ${myself.toString()}
               </g:link>
             </h1>
+            <g:if test="${myself?.displayName}">
+              ${myself.displayName}
+            </g:if>
             <form action="/main/authentication/logout" method="post">
               <input type="hidden" name="success_controller"
               value="home" id="success_controller">

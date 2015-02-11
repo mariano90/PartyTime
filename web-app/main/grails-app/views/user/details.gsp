@@ -12,9 +12,7 @@
   <body>
     <div id="show-user" class="content scaffold-show" role="main">
       <h1>
-        <g:if test="${userInstance?.name}">
-          <g:fieldValue bean="${userInstance}" field="name"/>
-        </g:if>
+        ${userInstance?.encodeAsHTML()}
       </h1>
       <h1>
         <img src="${resource(dir: 'images/profile/big', file: userInstance?.getProfilePicture())}"
