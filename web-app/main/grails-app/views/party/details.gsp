@@ -106,7 +106,7 @@
           <g:if test="${partyInstance?.guestsInvited}">
             <table>
               <tbody>
-                <g:each in="${partyInstance.guestsInvited}" var="guest">
+                <g:each in="${partyInstance.guestsInvited.sort {it.name} }" var="guest">
                   <tr>
                     <td>
                       <g:link controller="user" action="details" id="${guest.id}">

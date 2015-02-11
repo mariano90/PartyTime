@@ -6,7 +6,7 @@
     <meta name="layout" content="home">
     <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
     <title>
-      <g:message code="default.show.label" args="[entityName]" />
+      <g:fieldValue bean="${userInstance}" field="name"/>
     </title>
   </head>
   <body>
@@ -41,12 +41,12 @@
             <span id="preferedDrinks-label" class="property-label">
               <g:message code="user.preferedDrinks.label" default="Prefered Drinks" />
             </span>
-            <g:each in="${userInstance.preferedDrinks}" var="d">
+            <g:each in="${userInstance.preferedDrinks.sort {it.name} }" var="d">
               <span class="property-value" aria-labelledby="preferedDrinks-label">
                 <g:link controller="drink" action="details" id="${d.id}">
                   ${d?.encodeAsHTML()}
                 </g:link>
-                &nbsp;&nbsp;
+                &nbsp;
               </span>
             </g:each>
           </li>
@@ -56,17 +56,17 @@
             <span id="preferedMusicStyles-label" class="property-label">
               <g:message code="user.preferedMusicStyles.label" default="Prefered Music Styles" />
             </span>
-            <g:each in="${userInstance.preferedMusicStyles}" var="ms">
+            <g:each in="${userInstance.preferedMusicStyles.sort {it.name} }" var="ms">
               <span class="property-value" aria-labelledby="preferedMusicStyles-label">
                 <g:link controller="bar" action="musicStyle" id="${ms.id}">
                   ${ms.encodeAsHTML()}
                 </g:link>
-                &nbsp;&nbsp;
+                &nbsp;
               </span>
             </g:each>
           </li>
         </g:if>
-        <g:if test="${userInstance?.favoriteBars}">
+        <g:if test="${userInstance?.favoriteBars.sort {it.name} }">
           <li class="fieldcontain">
             Favorite bars:
             <g:each in="${userInstance.favoriteBars}" var="b">
@@ -74,7 +74,7 @@
                 <g:link controller="bar" action="details" id="${b.id}">
                   ${b.encodeAsHTML()}
                 </g:link>
-                &nbsp;&nbsp;
+                &nbsp;
               </span>
             </g:each>
           </li>
