@@ -8,16 +8,17 @@
   </head>
   <body>
     <div id="list-drink" role="main" style="height: 800px">
-      <h1>My favorite drinks</h1>
+      <h1>Favorite drinks</h1>
+      This list will be used as a suggestion for drinks for the parties you'll attend.
       <div id="add_drink" style="margin-top:25px;">
         <g:form controller="user" action="addDrink">
           <g:select style="margin-left:30px;width:500px;margin-top:20px"
             name="drinkSelected"
-            from="${com.partytime.Drink.list()}"
+            from="${ com.partytime.Drink.listMissingFavoriteDrinks() }"
             optionKey="id"/>
           <g:submitButton name="AddDrink"
             class="button"
-            style="float: right;" 
+            style="margin-left: 400px;" 
             value="${message(code: 'drink.button.add', default: 'Add Drink')}"/>
         </g:form>
       </div>
