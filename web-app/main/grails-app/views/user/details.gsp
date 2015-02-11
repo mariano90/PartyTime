@@ -27,7 +27,7 @@
         <g:if test="${userInstance?.bornDate}">
           <li class="fieldcontain">
             <span id="bornDate-label" class="property-label">
-              <g:message code="user.bornDate.label" default="Born Date" />
+              <g:message code="user.bornDate.label" default="Birth date:" />
             </span>
             <span class="property-value" aria-labelledby="bornDate-label">
               <g:formatDate format="yyyy-MM-dd" date="${userInstance?.bornDate}" />
@@ -37,7 +37,7 @@
         <g:if test="${userInstance?.preferedDrinks}">
           <li class="fieldcontain">
             <span id="preferedDrinks-label" class="property-label">
-              <g:message code="user.preferedDrinks.label" default="Prefered Drinks" />
+              <g:message code="user.preferedDrinks.label" default="Prefered Drinks:" />
             </span>
             <g:each in="${userInstance.preferedDrinks.sort {it.name} }" var="d">
               <span class="property-value" aria-labelledby="preferedDrinks-label">
@@ -52,7 +52,7 @@
         <g:if test="${userInstance?.preferedMusicStyles}">
           <li class="fieldcontain">
             <span id="preferedMusicStyles-label" class="property-label">
-              <g:message code="user.preferedMusicStyles.label" default="Prefered Music Styles" />
+              <g:message code="user.preferedMusicStyles.label" default="Prefered Music Styles:" />
             </span>
             <g:each in="${userInstance.preferedMusicStyles.sort {it.name} }" var="ms">
               <span class="property-value" aria-labelledby="preferedMusicStyles-label">
