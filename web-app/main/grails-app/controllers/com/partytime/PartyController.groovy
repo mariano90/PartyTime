@@ -1,6 +1,9 @@
 package com.partytime
 
 import static org.springframework.http.HttpStatus.*
+
+import java.util.Set;
+
 import grails.transaction.Transactional
 
 import com.partytime.User
@@ -139,7 +142,42 @@ class PartyController {
 		
 		redirect(controller:"party",action:"mine")
 	}
+
+	def invite(Party partyInstance) {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
+
+		respond partyInstance
+	}
+
+	def doInvite() {
+		Party partyInstance = Party.get(params.party)
+		User guest = User.get(params.user)
+		// TODO: check that the entities are not null.
+		// TODO: check that user is not the currently logged user.
+		// TODO: check that logged user is the host of the party.
+		partyInstance.guestsInvited.add(guest)
+		partyInstance.save flush: true
+		// TODO: send notification to Google App Engine
+		redirect(controller:"party", action:"invite", id:partyInstance.id)
+	}
 	
+	def doRemove() {
+		Party partyInstance = Party.get(params.party)
+		User guest = User.get(params.user)
+		// TODO: check that the entities are not null.
+		// TODO: check that user is not the currently logged user.
+		// TODO: check that logged user is the host of the party.
+		partyInstance.guestsInvited.remove(guest)
+		partyInstance.guestsConfirmed.remove(guest)
+		partyInstance.guestsNotGoing.remove(guest)
+		partyInstance.save flush: true
+		redirect(controller:"party", action:"invite", id:partyInstance.id)
+	}
+
 	/**
 	 * Shows details about a party.
 	 */

@@ -97,8 +97,9 @@
             </li>
           </g:if>
 
+          <g:message code="party.guestsInvited.label" default="Guests" />
+          [<g:link action="invite" id="${partyInstance.id}">Invite people</g:link>]
           <g:if test="${partyInstance?.guestsInvited}">
-            <g:message code="party.guestsInvited.label" default="Guests" />
             <table>
               <tbody>
                 <g:each in="${partyInstance.guestsInvited}" var="guest">

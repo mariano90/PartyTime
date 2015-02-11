@@ -151,6 +151,15 @@ class Party {
 		}
 		return total
 	}
+	
+	def getNotInvitedGuests() {
+		def allUsers = User.list()
+		allUsers.remove(User.getMyUser())
+		for (User userInvited : this.guestsInvited) {
+			allUsers.remove(userInvited)
+		}
+		return allUsers
+	}
 
 	void sendInvitations() {
 //		for (User x in this.guestsInvited) {
