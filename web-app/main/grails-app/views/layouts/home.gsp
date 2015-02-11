@@ -45,8 +45,8 @@
           <div id="logo">
             <% def myself = User.getMyUser()%>
             <span class="image avatar48">
-              <img src="images/${myself.toString()}.jpg"
-              alt=""/>
+              <img src="${resource(dir: 'images', file: myself.toString() + '.png')}"
+                alt="Profile" />
             </span>
             <h1 id="title">
               <g:link controller="user" action="details" id="${myself.id}">
