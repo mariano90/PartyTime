@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta name="layout" content="home" />
-<title>This is not the page you are looking for</title>
-
-<link rel="stylesheet" href="${resource(dir: 'css', file: 'home.css')}"
-	type="text/css" />
-
-<style type="text/css" media="screen">
-
-#page-body {
-	margin: 2% 2% 150px 150px;
-}
-
-</style>
-</head>
-<body>
-<h1>Forbidden access</h1>
-	<div id="page-body">
-		<img src="http://cdn.meme.am/instances/500x/58617951.jpg"
-			width="359"
-			height="299"
-			style="margin-left: auto; margin-right: auto;">
-			
-	</div>
-</body>
+  <head>
+    <meta name="layout" content="home" />
+    <title>
+      This is not the page you are looking for
+    </title>
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'home.css')}"
+	  type="text/css" />
+  </head>
+  <body>
+    <h1>
+      Forbidden access
+    </h1>
+	<h1>
+	  <img src="${resource(dir: 'images', file: 'forbidden-jedi.jpg')}"
+        alt="Forbidden access"
+        style="margin-left: auto; margin-right: auto;"/>
+    </h1>
+  </body>
 </html>
