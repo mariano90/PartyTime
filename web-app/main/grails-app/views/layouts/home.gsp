@@ -45,7 +45,7 @@
           <div id="logo">
             <% def myself = User.getMyUser()%>
             <span class="image avatar48">
-              <img src="${resource(dir: 'images', file: myself.toString() + '.png')}"
+              <img src="${resource(dir: 'images/profile', file: myself.getProfilePicture())}"
                 alt="Profile" />
             </span>
             <h1 id="title">

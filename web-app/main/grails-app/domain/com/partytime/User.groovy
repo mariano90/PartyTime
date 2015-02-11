@@ -51,4 +51,8 @@ class User {
 	boolean hasFavoritedBar(Bar bar) {
 		return this.favoriteBars.contains(bar);
 	}
+	
+	String getProfilePicture() {
+		return this.name + ".jpg"
+	}
 }

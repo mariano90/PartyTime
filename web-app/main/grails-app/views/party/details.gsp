@@ -58,6 +58,8 @@
               </span>
               <span class="property-value" aria-labelledby="host-label">
                 <g:link controller="user" action="details" id="${partyInstance?.host?.id}">
+                  <img src="${resource(dir: 'images/profile', file: partyInstance?.host?.getProfilePicture())}"
+                    alt="Profile" />
                   ${partyInstance?.host?.encodeAsHTML()}
                 </g:link>
               </span>
@@ -106,6 +108,8 @@
                   <tr>
                     <td>
                       <g:link controller="user" action="details" id="${guest.id}">
+                        <img src="${resource(dir: 'images/profile', file: guest?.getProfilePicture())}"
+                          alt="Profile" />
                         ${guest?.encodeAsHTML()}
                       </g:link>
                     </td>

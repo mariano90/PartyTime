@@ -16,6 +16,10 @@
           <g:fieldValue bean="${userInstance}" field="name"/>
         </g:if>
       </h1>
+      <h1>
+        <img src="${resource(dir: 'images/profile', file: userInstance?.getProfilePicture())}"
+          alt="Profile" />
+      </h1>
       <g:if test="${flash.message}">
         <div class="message" role="status">
           ${flash.message}

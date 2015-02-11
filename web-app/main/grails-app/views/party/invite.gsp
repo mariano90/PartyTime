@@ -35,7 +35,11 @@
 			  }%>
               <tr>
                 <td>
-                  ${guest?.encodeAsHTML()}
+                  <g:link controller="user" action="details" id="${guest.id}">
+                    <img src="${resource(dir: 'images/profile', file: guest?.getProfilePicture())}"
+                      alt="Profile" />
+                    ${guest?.encodeAsHTML()}
+                  </g:link>
                 </td>
                 <td>
                   [<g:link controller="party" action="doInvite" params="${[party:partyInstance.id,user:guest.id]}">
@@ -54,7 +58,11 @@
                 <g:each in="${partyInstance.guestsInvited.sort{it.name} }" var="guest">
                   <tr>
                     <td>
-                      ${guest?.encodeAsHTML()}
+                      <g:link controller="user" action="details" id="${guest.id}">
+                        <img src="${resource(dir: 'images/profile', file: guest?.getProfilePicture())}"
+                          alt="Profile" />
+                        ${guest?.encodeAsHTML()}
+                      </g:link>
                     </td>
                     <td>
                     [<g:link controller="party" action="doRemove" params="${[party:partyInstance.id,user:guest.id]}">
