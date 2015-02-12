@@ -16,6 +16,15 @@
           <g:if test="${reviewInstance?.title}">
             <g:fieldValue bean="${reviewInstance}" field="title"/>
           </g:if>
+          <g:if test="${params.bar}">
+            &nbsp;
+            [<g:link
+              controller="bar"
+              action="details"
+              id="${params.bar.toInteger()}">
+              << back to Bar
+            </g:link>]
+          </g:if>
         </h1>
 
         <h1>

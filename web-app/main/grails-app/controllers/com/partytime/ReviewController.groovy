@@ -37,7 +37,7 @@ class ReviewController {
 		request.withFormat {
 			form multipartForm {
 				flash.message = message(code: 'default.created.message', args: [message(code: 'review.label', default: 'Review'), reviewInstance.id])
-				redirect controller:"review", action:"details", id:reviewInstance.id
+				redirect controller:"review", action:"details", id:reviewInstance.id, params: [bar: bar.id]
 			}
 			'*' { respond reviewInstance, [status: CREATED] }
 		}

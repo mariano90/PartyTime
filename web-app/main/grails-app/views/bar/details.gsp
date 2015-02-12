@@ -170,16 +170,22 @@
           <g:if test="${barInstance?.reviews}">
             <li class="fieldcontain">
               <span id="reviews-label" class="property-label">
-              <font color="black">
-                <g:message code="bar.reviews.label" default="Reviews" />
-              </font>
+              <font color="black">Score:</font>
                 <img src="${resource(dir: 'images', file:barInstance.getScoreAsImg())}"
                   alt="Score" />
               </span>
               <br/>
+              <font color="black">
+                <g:message code="bar.reviews.label" default="Reviews" />
+              </font>
+              <br/>
               <g:each in="${barInstance.reviews}" var="r">
                 <span class="property-value" aria-labelledby="reviews-label">
-                  <g:link controller="review" action="details" id="${r.id}">
+                  <g:link
+                      controller="review"
+                      action="details"
+                      id="${r.id}"
+                      params="[bar: barInstance.id]">
                     ${r?.getTitle().encodeAsHTML()}&nbsp;
                     <img src="${resource(dir: 'images', file:r.getImg())}"
                       alt="Score" />
