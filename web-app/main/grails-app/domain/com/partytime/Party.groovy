@@ -99,6 +99,7 @@ class Party {
 			return []
 		}
 
+		// Select just a few types of drinks, the 25% most popular.
 		def selected = []
 		while (selected.size() * 4 <= size) {
 			selected.add(keys[size - 1 - selected.size()])
@@ -141,7 +142,7 @@ class Party {
 		}
 		return groceryList
 	}
-	
+
 	def getPriceForDelivery() {
 		double total = 0
 		def groceryMap = groupComponents()
@@ -151,7 +152,7 @@ class Party {
 		}
 		return total
 	}
-	
+
 	def getNotInvitedGuests() {
 		def allUsers = User.list()
 		allUsers.remove(User.getMyUser())
@@ -159,11 +160,5 @@ class Party {
 			allUsers.remove(userInvited)
 		}
 		return allUsers
-	}
-
-	void sendInvitations() {
-//		for (User x in this.guestsInvited) {
-//			x.partiesInvited.add(this)
-//		}
 	}
 }

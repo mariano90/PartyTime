@@ -26,7 +26,11 @@ class User {
 	String toString(){
 		return displayName ? displayName : name
 	}
-	
+
+	/**
+	 * Synchronizes the logged user form the security plug in with the model of
+     * users.
+	 */
 	static sync(AuthenticationUser authUser) {
 		String login = authUser.getLogin()
 		if (!User.existsUser(login)) {
@@ -44,22 +48,31 @@ class User {
 		return User.findByName(login) != null
 	}
 
+	/**
+	 * Used to sync the user for the first time, when the user logs in.
+	 */
 	static activeMyUser(String login) {
 		activeLogin = login
     }
 
+	/**
+	 * Returns the current logged in user.
+	 */
 	static getMyUser() {
 		return User.findByName(activeLogin)
 	}
-	
+
+	/**
+	 * Returns if bar is in favorites.
+	 */
 	boolean hasFavoritedBar(Bar bar) {
 		return this.favoriteBars.contains(bar);
 	}
-	
+
 	String getProfilePicture() {
 		return this.name + ".jpg"
 	}
-	
+
 	int getAge() {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(this.bornDate);

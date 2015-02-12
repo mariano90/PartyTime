@@ -1,7 +1,5 @@
 package com.partytime
 
-
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -12,16 +10,15 @@ class DrinkController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
 	/**
-	 * Used to check the list of favorite drinks of a user.
-	 * @return
+	 * Shows the list of favorite drinks of the current logged in user.
 	 */
 	def mine() {
 		if (!authenticationService.isLoggedIn(request)) {
 			redirect controller:"home", action:"login"
 			return
 		}
-		// TODO: Remove drinks I already like from the selector.
 		User.sync(authenticationService.getUserPrincipal())
+
 		def myDrinks = User.getMyUser().getPreferedDrinks().sort{it.getName()}
 		[myDrinks: myDrinks]
 	}
@@ -35,6 +32,7 @@ class DrinkController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
+
 		User myself = User.getMyUser()
 		myself.preferedDrinks.remove(drinkInstance)
 		myself.save flush:true

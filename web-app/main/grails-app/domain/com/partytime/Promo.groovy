@@ -14,7 +14,7 @@ class Promo {
 		validFrom nullable: true
 		validUntil nullable: true
     }
-	
+
 	String toString(){
 		return "${title}"
 	}

@@ -12,7 +12,7 @@ class BarController {
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	/**
-	 * Feature for searching bars by name.
+	 * Shows the whole list of bars.
 	 * @return
 	 */
 	def byName() {
@@ -21,8 +21,8 @@ class BarController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
-		params.max = 100
-		respond Bar.list(params), model:[barInstanceCount: Bar.count()]
+
+		respond Bar.list(), model:[barInstanceCount: Bar.count()]
 	}
 	
 	/**
@@ -47,7 +47,7 @@ class BarController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
-		
+
 		if (params.stars) {
 			def selectedBars = []
 			for (Bar bar : Bar.list()) {
@@ -70,28 +70,42 @@ class BarController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
+
 		respond barInstance
 	}
 	
+	/**
+	 * Shows the bars related to a music style.
+	 */
 	def musicStyle(MusicStyle musicStyleInstance) {
 		respond musicStyleInstance
 	}
-	
-	def removeFromFavorites(Bar barInstance) {
-		User myself = User.getMyUser()
-		if (myself.hasFavoritedBar(barInstance)) {
-			myself.favoriteBars.remove(barInstance)
-			myself.save flush:true
-		}
-		redirect controller:"bar", action:"details", id:barInstance.id
-	}
-	
+
+	/**
+	 * Ads a bar to favorites of the current logged user.
+	 */
 	def addToFavorites(Bar barInstance) {
 		User myself = User.getMyUser()
 		if (!myself.hasFavoritedBar(barInstance)) {
 			myself.favoriteBars.add(barInstance)
 			myself.save flush:true
 		}
+		User.sync(authenticationService.getUserPrincipal())
+
+		redirect controller:"bar", action:"details", id:barInstance.id
+	}
+
+	/**
+	 * Removes the bar from the list of favorites of the currenct logged user.
+	 */
+	def removeFromFavorites(Bar barInstance) {
+		User myself = User.getMyUser()
+		if (myself.hasFavoritedBar(barInstance)) {
+			myself.favoriteBars.remove(barInstance)
+			myself.save flush:true
+		}
+		User.sync(authenticationService.getUserPrincipal())
+
 		redirect controller:"bar", action:"details", id:barInstance.id
 	}
 

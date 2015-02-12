@@ -10,6 +10,9 @@ class AdController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	/* * *                  Methods used for maintenance                 * * */
+	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Ad.list(params), model:[adInstanceCount: Ad.count()]

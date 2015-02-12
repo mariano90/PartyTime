@@ -15,6 +15,9 @@ class Ad {
 		musicStyleTarget blank: true, nullable: true
     }
 	
+	/**
+	 * Returns a suitable ad for the current logged in user.
+	 */
 	static getSuitableAd() {
 		User myself = User.getMyUser()
 		Ad maxAd = Ad.get(1)
@@ -28,10 +31,10 @@ class Ad {
 		return maxAd
 	}
 	
-	String toString() {
-		return this.imageURL
-	}
-	
+	/**
+	 * Returns the score of an ad for a certain user.
+	 * Criteria is based on age, gender and music style preferences. 
+	 */
 	int calcScore(User user) {
 		int score = 0
 		if (user.gender == this.genderTarget) {
@@ -44,5 +47,9 @@ class Ad {
 		}
 		score += 20 - Math.abs(this.ageTarget - user.getAge())
 		return score
+	}
+	
+	String toString() {
+		return this.imageURL
 	}
 }

@@ -18,6 +18,9 @@ class Drink {
 		return "${name}"
 	}
 	
+	/**
+	 * Returns the list of the favorite drinks of the current logged in user.
+	 */
 	def static listMissingFavoriteDrinks() {
 		User myself = User.getMyUser()
 		def allDrinks = Drink.list()

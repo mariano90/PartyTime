@@ -29,12 +29,10 @@ class Bar {
 	}
 
 	static hasMany = [ musicStyles: MusicStyle, promos: Promo, reviews: Review]
-
-
-	String toString(){
-		return "${name}"
-	}
 	
+	/**
+	 * Returns the score of the bar.
+	 */
 	int getScore() {
 		if (this.reviews.size() == 0) {
 			return 0
@@ -48,6 +46,9 @@ class Bar {
 		return units
 	}
 	
+	/**
+	 * Returns the image name for the score of the bar.
+	 */
 	String getScoreAsImg() {
 		if (this.reviews.size() == 0) {
 			return "undefined-stars.png"
@@ -60,5 +61,9 @@ class Bar {
 		int units = score / 10
 		int decimal = score % 10
 		return "" + units + (decimal < 5 ? "0" : "5") + "stars.png"
+	}
+
+	String toString(){
+		return "${name}"
 	}
 }
