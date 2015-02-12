@@ -1,3 +1,6 @@
+
+<%@ page import="com.partytime.Ad"%>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,7 +12,7 @@
 	  type="text/css" />
   </head>
   <body>
-	<div id="page-body" role="main">
+	<div id="page-body" role="main" style="height: 600px !important;">
       <h1>
         Welcome to Party Time
       </h1>
@@ -26,12 +29,10 @@
         </div>
         <div class="right-side">
           <h2>
-            User lvl
+            Ads
           </h2>
-          points, experience
-          <br />
-          <iframe src="">
-          </iframe>
+          <img src="${resource(dir: 'images/ads', file: Ad.getSuitableAd())}"
+            alt="Profile" />
         </div>
       </div>
       <div class="side-by-side">
@@ -47,13 +48,12 @@
         </div>
         <div class="right-side">
           <h2>
-            Ads
+            User lvl
           </h2>
-          <iframe src="">
-          </iframe>
+          points, experience
+          <br />
         </div>
       </div>
-      
   </div>
   </body>
 </html>

@@ -6,6 +6,7 @@ class User {
 	String name
 	String displayName
 	Date bornDate
+	String gender
 	Set preferedMusicStyles = []
 	Set preferedDrinks = []
 	String mail
@@ -19,6 +20,7 @@ class User {
 		name blank: false, nullable: false, unique: true
 		displayName blank: true, nullable: true
 		mail blank: false, nullable: false, email: true
+		gender blank: true, nullable: true
 	}
 
 	String toString(){
@@ -56,5 +58,14 @@ class User {
 	
 	String getProfilePicture() {
 		return this.name + ".jpg"
+	}
+	
+	int getAge() {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(this.bornDate);
+		int bornYear = cal.get(Calendar.YEAR);
+		cal.setTime(new Date());
+		int currentYear = cal.get(Calendar.YEAR); 
+		return currentYear - bornYear
 	}
 }

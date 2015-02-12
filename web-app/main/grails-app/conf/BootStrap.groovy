@@ -1,5 +1,6 @@
 import com.grailsrocks.authentication.AuthenticationUser
 import com.grailsrocks.authentication.AuthenticationService
+import com.partytime.Ad
 import com.partytime.Bar
 import com.partytime.Component
 import com.partytime.Drink
@@ -16,6 +17,7 @@ import com.partytime.User
 class BootStrap {
 
 	def init = { servletContext ->
+		
 		Ingredient botellaGancia = new Ingredient(name: "Gancia", price: 40.0, type:"Botellas", size: 1.0).save(failOnError: true)
 		Ingredient botellaSprite = new Ingredient(name: "Sprite", price: 10.0, type:"Botellas", size: 1.5).save(failOnError: true)
 		Ingredient botellaCoca = new Ingredient(name: "Coca Cola", price: 10.0, type:"Botellas", size: 1.5).save(failOnError: true)
@@ -57,9 +59,29 @@ class BootStrap {
 		MusicStyle musicStyleCumbia = new MusicStyle(name: "Cumbia").save(failOnError: true)
 		MusicStyle musicStyleUnder = new MusicStyle(name: "Under").save(failOnError: true)
 		MusicStyle musicStyle80 = new MusicStyle(name: "80's").save(failOnError: true)
+		
+		new Ad(ageTarget: 18,
+			genderTarget: "male",
+			imageURL: "dallas.jpg",
+			destinationURL: "www.mcdonalds.com"
+			).save(failOnError: true)
+		new Ad(ageTarget: 18,
+			genderTarget: "female",
+			imageURL: "forever21.jpg",
+			destinationURL: "www.forever21.com"
+			).save(failOnError: true)
+		new Ad(ageTarget: 50,
+			genderTarget: "male",
+			imageURL: "audi.jpg",
+			destinationURL: "www.audi.com"
+			).save(failOnError: true)
 
-		User userf = new User(name: "qweqwe",
-			bornDate: new Date(), mail: "qwe@qwe.com", displayName: "Fabricio PH"
+		User userf = new User(
+			name: "qweqwe",
+			mail: "qwe@qwe.com",
+			displayName: "Fabricio PH",
+			bornDate: new Date (757393200000),
+			gender: "male"
 			).save(failOnError: true)
 		userf.preferedDrinks.add(tropicalEnergy)
 		userf.preferedDrinks.add(acidPsycho)
@@ -70,20 +92,49 @@ class BootStrap {
 //			password:'123456'.encodeAsMD5(),
 //			email:'someone@somewhere.com',
 //			status:AuthenticationService.STATUS_VALID).save()
-		
-		
-		User user01 = new User(name: "asdasd", bornDate: new Date(),
-			mail: "asd@asd.com", displayName: "Chino Barrios").save(failOnError: true)
-		User user02 = new User(name: "zxczxc", bornDate: new Date(),
-			mail: "zxc@zxc.com", displayName: "Vale M").save(failOnError: true)
-		User user03 = new User(name: "user03", bornDate: new Date(),
-			mail: "user03@gmail.com", displayName: "Fabri Fiesta").save(failOnError: true)
-		User user04 = new User(name: "user04", bornDate: new Date(),
-			mail: "user04@gmail.com", displayName: "Fabri Santos").save(failOnError: true)
-		User user05 = new User(name: "user05", bornDate: new Date(),
-			mail: "user05@gmail.com", displayName: "Carola PH").save(failOnError: true)
-		User user06 = new User(name: "user06", bornDate: new Date(),
-			mail: "user06@gmail.com", displayName: "Fabri Malo").save(failOnError: true)
+
+		User user01 = new User(
+			name: "asdasd",
+			mail: "asd@asd.com",
+			displayName: "Chino Barrios",
+			bornDate: new Date (10800000L),
+			gender: "male"
+			).save(failOnError: true)
+		User user02 = new User(
+			name: "zxczxc",
+			mail: "zxc@zxc.com",
+			displayName: "Vale M",
+			bornDate: new Date (757393200000L),
+			gender: "female"
+			).save(failOnError: true)
+		User user03 = new User(
+			displayName: "Fabri Fiesta",
+			name: "user03",
+			mail: "user03@gmail.com",
+			bornDate: new Date (10800000L),
+			gender: "male"
+			).save(failOnError: true)
+		User user04 = new User(
+			name: "user04",
+			displayName: "Fabri Santos",
+			mail: "user04@gmail.com",
+			bornDate: new Date (10800000L),
+			gender: "male"
+			).save(failOnError: true)
+		User user05 = new User(
+			displayName: "Carola PH",
+			name: "user05",
+			mail: "user05@gmail.com",
+			bornDate: new Date (10800000L),
+			gender: "female"
+			).save(failOnError: true)
+		User user06 = new User(
+			name: "user06",
+			mail: "user06@gmail.com",
+			displayName: "Fabri Malo",
+			bornDate: new Date (10800000L),
+			gender: "male"
+			).save(failOnError: true)
 
 		user01.preferedDrinks.add(fernetConCoca)
 		user01.preferedDrinks.add(ganciaConSprite)
