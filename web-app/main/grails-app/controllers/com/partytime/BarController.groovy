@@ -47,6 +47,18 @@ class BarController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
+		
+		if (params.stars) {
+			def selectedBars = []
+			for (Bar bar : Bar.list()) {
+				if (bar.getScore() == params.stars.toInteger()) {
+					selectedBars.add(bar)
+				}
+			}
+			respond selectedBars
+			return
+		}
+		respond Bar.list()
 	}
 	
 	/**

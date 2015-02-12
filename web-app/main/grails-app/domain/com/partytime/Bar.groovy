@@ -35,6 +35,19 @@ class Bar {
 		return "${name}"
 	}
 	
+	int getScore() {
+		if (this.reviews.size() == 0) {
+			return 0
+		}
+		int sum = 0;
+		for (Review r in this.reviews) {
+			sum += r.getScore();
+		}
+		int score = sum * 10 / this.reviews.size();
+		int units = score / 10
+		return units
+	}
+	
 	String getScoreAsImg() {
 		if (this.reviews.size() == 0) {
 			return "undefined-stars.png"
