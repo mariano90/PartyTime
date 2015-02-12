@@ -17,6 +17,7 @@
         <h1>
           <g:if test="${barInstance?.name}">
             <g:fieldValue bean="${barInstance}" field="name"/>
+            &nbsp;
             <g:if test="${user.hasFavoritedBar(barInstance)}">
               <g:link action="removeFromFavorites" id="${barInstance.id}">
                 <img src="${resource(dir: 'images', file: 'favorite-on.png')}"
@@ -30,6 +31,14 @@
               </g:link>
             </g:else>
           </g:if>
+          &nbsp;
+          <g:link
+              class="buttonadd"
+              controller="review"
+              action="add"
+              params="[bar: barInstance.id]">
+              Add review
+          </g:link>
         </h1>
         <g:if test="${flash.message}">
           <div class="message" role="status">

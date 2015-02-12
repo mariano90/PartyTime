@@ -14,6 +14,35 @@ class ReviewController {
 		respond reviewInstance
 	}
 	
+	def add() {
+		if (!params.bar) {
+			redirect controller:"home", action:"index"
+		}
+		[reviewInstance: new Review(params), targetBar: params.bar]
+	}
+	
+	def addGo(Review reviewInstance) {
+		if (reviewInstance == null) {
+			notFound()
+			return
+		}
+		if (reviewInstance.hasErrors()) {
+			respond reviewInstance.errors, view:'create'
+			return
+		}
+		reviewInstance.save flush:true
+		Bar bar = Bar.get(params.targetBar.toInteger())
+		bar.reviews.add(reviewInstance)
+		bar.save flush:true
+		request.withFormat {
+			form multipartForm {
+				flash.message = message(code: 'default.created.message', args: [message(code: 'review.label', default: 'Review'), reviewInstance.id])
+				redirect controller:"review", action:"details", id:reviewInstance.id
+			}
+			'*' { respond reviewInstance, [status: CREATED] }
+		}
+	}
+	
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 	/* * *                  Methods used for maintenance                 * * */
 
