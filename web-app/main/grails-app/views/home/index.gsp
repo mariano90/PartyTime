@@ -31,8 +31,12 @@
           <h2>
             Ads
           </h2>
-          <img src="${resource(dir: 'images/ads', file: Ad.getSuitableAd())}"
-            alt="Profile" />
+          <% Ad ad = Ad.getSuitableAd()%>
+          <a href="${ad.getDestinationURL() }"
+              target="_blank">
+            <img src="${resource(dir: 'images/ads', file: ad.getImageURL())}"
+                alt="ads"/>
+          </a>
         </div>
       </div>
       <div class="side-by-side">

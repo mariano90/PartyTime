@@ -63,17 +63,17 @@ class BootStrap {
 		new Ad(ageTarget: 18,
 			genderTarget: "male",
 			imageURL: "dallas.jpg",
-			destinationURL: "www.mcdonalds.com"
+			destinationURL: "http://www.mcdonalds.com"
 			).save(failOnError: true)
 		new Ad(ageTarget: 18,
 			genderTarget: "female",
 			imageURL: "forever21.jpg",
-			destinationURL: "www.forever21.com"
+			destinationURL: "http://www.forever21.com"
 			).save(failOnError: true)
 		new Ad(ageTarget: 50,
 			genderTarget: "male",
 			imageURL: "audi.jpg",
-			destinationURL: "www.audi.com"
+			destinationURL: "http://www.audi.com"
 			).save(failOnError: true)
 
 		User userf = new User(
