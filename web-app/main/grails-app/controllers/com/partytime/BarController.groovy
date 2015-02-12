@@ -12,10 +12,10 @@ class BarController {
 	static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
 	/**
-	 * Feature for searching bars.
+	 * Feature for searching bars by name.
 	 * @return
 	 */
-	def search() {
+	def byName() {
 		if (!authenticationService.isLoggedIn(request)) {
 			redirect controller:"home", action:"login"
 			return
@@ -23,6 +23,30 @@ class BarController {
 		User.sync(authenticationService.getUserPrincipal())
 		params.max = 100
 		respond Bar.list(params), model:[barInstanceCount: Bar.count()]
+	}
+	
+	/**
+	 * Feature for searching bars by music styles.
+	 * @return
+	 */
+	def byMusicStyles() {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
+	}
+	
+	/**
+	 * Feature for searching bars by ranking.
+	 * @return
+	 */
+	def byRanking() {
+		if (!authenticationService.isLoggedIn(request)) {
+			redirect controller:"home", action:"login"
+			return
+		}
+		User.sync(authenticationService.getUserPrincipal())
 	}
 	
 	/**
@@ -35,14 +59,6 @@ class BarController {
 		}
 		User.sync(authenticationService.getUserPrincipal())
 		respond barInstance
-	}
-
-	def allMusicStyles() {
-		if (!authenticationService.isLoggedIn(request)) {
-			redirect controller:"home", action:"login"
-			return
-		}
-		User.sync(authenticationService.getUserPrincipal())
 	}
 	
 	def musicStyle(MusicStyle musicStyleInstance) {

@@ -114,7 +114,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://localhost:8080/main/bar/search"
+                  <a href="http://localhost:8080/main/bar/byName"
                   id="bar-search-link" class="skel-panels-ignoreHref">
                     <span
                     class="fa fa-search">
@@ -124,7 +124,7 @@
                 </li>
                 <li>
                   <a href="http://localhost:8080/main/news/all"
-                  id="bar-search-link" class="skel-panels-ignoreHref">
+                    id="bar-search-link" class="skel-panels-ignoreHref">
                     <span
                     class="fa fa-list-alt">
                       News

@@ -5,6 +5,8 @@
 <html>
   <head>
     <meta name="layout" content="home">
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'tabs.css')}"
+	  type="text/css" />
   <title>
     Music styles
   </title>
@@ -14,6 +16,9 @@
       <h1>
         Music styles
       </h1>
+      <g:link action="byName" class="tab">Name</g:link>
+      <g:link action="byMusicStyles" class="tab-selected">Music styles</g:link>
+      <g:link action="byRanking" class="tab">Ranking</g:link>
       <g:if test="${flash.message}">
         <div class="message" role="status">
           ${flash.message}
