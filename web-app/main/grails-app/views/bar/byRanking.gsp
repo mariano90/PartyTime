@@ -27,6 +27,36 @@
       <g:link action="byName" class="tab">Name</g:link>
       <g:link action="byMusicStyles" class="tab">Music styles</g:link>
       <g:link action="byRanking" class="tab-selected">Ranking</g:link>
+      <br/>
+      <g:link action="byRanking" params="[stars:0]">
+        <img src="${resource(dir: 'images', file:'00starts.png')}"
+          alt="Score" />
+      </g:link>
+      &nbsp;&nbsp;
+      <g:link action="byRanking" params="[stars:1]">
+      <img src="${resource(dir: 'images', file:'10stars.png')}"
+        alt="Score" />
+      </g:link>
+      &nbsp;&nbsp;
+      <g:link action="byRanking" params="[stars:2]">
+      <img src="${resource(dir: 'images', file:'20stars.png')}"
+        alt="Score" />
+      </g:link>
+      &nbsp;&nbsp;
+      <g:link action="byRanking" params="[stars:3]">
+      <img src="${resource(dir: 'images', file:'30stars.png')}"
+        alt="Score" />
+      </g:link>
+      &nbsp;&nbsp;
+      <g:link action="byRanking" params="[stars:4]">
+      <img src="${resource(dir: 'images', file:'40stars.png')}"
+        alt="Score" />
+      </g:link>
+      &nbsp;&nbsp;
+      <g:link action="byRanking" params="[stars:5]">
+      <img src="${resource(dir: 'images', file:'50stars.png')}"
+        alt="Score" />
+      </g:link>
       <g:if test="${flash.message}">
         <div class="message" role="status">
           ${flash.message}
