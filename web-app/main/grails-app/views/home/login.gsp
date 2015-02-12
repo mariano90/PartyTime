@@ -16,21 +16,28 @@
 	<auth:form authAction="login"
 	      success="[controller:'home', action:'index']"
 	      error="[controller:'home', action:'login']">
-    	User: <g:textField name="login"/>
-    	<g:hasErrors
-			bean="${flash.loginFormErrors}"
-			field="login">
+	    <table>
+	      <tr>
+	        <td width="100px">User:</td>
+	        <td>
+	          <g:textField name="login"/>
+    	      <g:hasErrors
+		        bean="${flash.loginFormErrors}"
+                field="login">
 			Invalid user.
-		</g:hasErrors>
-    	<br/>
-    	Password: <input type="password" name="password"/>
+		</g:hasErrors></td>
+	      </tr>
+	      <tr>
+	        <td width="100px">Password:</td>
+	        <td><input type="password" name="password"/>
     	<g:hasErrors
 			bean="${flash.loginFormErrors}"
 			field="password">
 			Invalid password.
-		</g:hasErrors>
-		<br/>
-		<input type="submit" value="Log in"/>
+		</g:hasErrors></td>
+	      </tr>
+	    </table>
+		<input type="submit" value="Log in" class="button" style="margin-left: 200px;"/>
 	</auth:form>
 	<br/>
 	<br/>
