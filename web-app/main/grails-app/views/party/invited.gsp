@@ -51,7 +51,7 @@
 						  %>
 						</td>
 						<td>
-							<g:link action="details" id="${partyInstance.id}">
+							<g:link action="details" id="${partyInstance.id}" class="button">
 								Details
 							</g:link>
 						</td>

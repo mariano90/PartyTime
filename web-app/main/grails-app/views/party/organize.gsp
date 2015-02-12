@@ -53,7 +53,8 @@
           name="partyPlace"
           from="${com.partytime.Bar.list()}"
           value="${bar?.name}"
-          optionKey="id"/>
+          optionKey="id"
+          style="width: 350px;"/>
         <br/>
       
         <label>Starts at:</label>

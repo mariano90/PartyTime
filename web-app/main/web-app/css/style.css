@@ -310,7 +310,6 @@
 			}
 		
 			form input.text,
-			form select,
 			form textarea
 			{
 				position: relative;
@@ -320,6 +319,24 @@
 				background: #fff;
 				background: rgba(255,255,255,0.75);
 				width: 100%;
+				border-radius: 0.35em;
+				padding: 0.75em 1em 0.75em 1em;
+				box-shadow: inset 0 0.1em 0.1em 0 rgba(0,0,0,0.05);
+				border: solid 1px rgba(0,0,0,0.15);
+				-moz-transition: all 0.35s ease-in-out;
+				-webkit-transition: all 0.35s ease-in-out;
+				-o-transition: all 0.35s ease-in-out;
+				-ms-transition: all 0.35s ease-in-out;
+				transition: all 0.35s ease-in-out;
+			}
+
+			form select
+			{
+				position: relative;
+				-webkit-appearance: none;
+				border: 0;
+				background: #fff;
+				background: rgba(255,255,255,0.75);
 				border-radius: 0.35em;
 				padding: 0.75em 1em 0.75em 1em;
 				box-shadow: inset 0 0.1em 0.1em 0 rgba(0,0,0,0.05);
@@ -427,6 +444,37 @@
 				}
 
 	/* Buttons */
+	.buttondelete {
+        background-image: -webkit-linear-gradient(top, #f00000, #f00000);
+        background-image: -moz-linear-gradient(top, #f00000, #f00000);
+        background-image: -ms-linear-gradient(top, #f00000, #f00000);
+        background-image: -o-linear-gradient(top, #f00000, #f00000);
+        background-image: linear-gradient(to bottom, #f00000, #f00000);
+        -webkit-border-radius: 12;
+		-moz-border-radius: 12;
+		border-radius: 12px;
+		font-family: Arial;
+		color: #ffffff;
+		font-size: 20px;
+		padding: 5px 20px 5px 20px;
+		text-decoration: none;
+    }
+    
+    .buttonadd {
+        background-image: -webkit-linear-gradient(top, #00e000, #00e000);
+        background-image: -moz-linear-gradient(top, #00e000, #00e000);
+        background-image: -ms-linear-gradient(top, #00e000, #00e000);
+        background-image: -o-linear-gradient(top, #00e000, #00e000);
+        background-image: linear-gradient(to bottom, #00e000, #00e000);
+        -webkit-border-radius: 12;
+		-moz-border-radius: 12;
+		border-radius: 12px;
+		font-family: Arial;
+		color: #ffffff;
+		font-size: 20px;
+		padding: 5px 20px 5px 20px;
+		text-decoration: none;
+    }
 	
 	.buttonsmall {
         background: #3498db;

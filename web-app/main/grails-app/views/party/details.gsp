@@ -101,7 +101,7 @@
 
           <g:message code="party.guestsInvited.label" default="Guests" />
           <g:if test="${hostingThisParty}">
-          [<g:link action="invite" id="${partyInstance.id}">Invite people</g:link>]
+          <g:link action="invite" id="${partyInstance.id}" class="button">Invite people</g:link>
           </g:if>
           <g:if test="${partyInstance?.guestsInvited}">
             <table>

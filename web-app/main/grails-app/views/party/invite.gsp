@@ -34,7 +34,7 @@
 				  continue
 			  }%>
               <tr>
-                <td>
+                <td width="315">
                   <g:link controller="user" action="details" id="${guest.id}">
                     <img src="${resource(dir: 'images/profile', file: guest?.getProfilePicture())}"
                       alt="Profile" />
@@ -44,8 +44,8 @@
                 <td>
                   <g:link controller="party" action="doInvite"
                       params="${[party:partyInstance.id,user:guest.id]}"
-                      class="button">
-                    add
+                      class="buttonadd">
+                    Add
                   </g:link>
                 </td>
               </tr>
@@ -59,7 +59,7 @@
               <tbody>
                 <g:each in="${partyInstance.guestsInvited.sort{it.name} }" var="guest">
                   <tr>
-                    <td>
+                    <td width="300">
                       <g:link controller="user" action="details" id="${guest.id}">
                         <img src="${resource(dir: 'images/profile', file: guest?.getProfilePicture())}"
                           alt="Profile" />
@@ -69,8 +69,8 @@
                     <td>
                     <g:link controller="party" action="doRemove"
                         params="${[party:partyInstance.id,user:guest.id]}"
-                        class="button">
-                      remove
+                        class="buttondelete">
+                      Remove
                     </g:link>
                     </td>
                   </tr>

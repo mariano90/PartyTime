@@ -35,7 +35,7 @@
       <table>
         <thead>
           <tr>
-            <td><font color="black">Name</font></td>
+            <td style="max-width: 300px;"><font color="black">Name</font></td>
             <td><font color="black">Address</font></td>
             <td><font color="black">Score</font></td>
           </tr>

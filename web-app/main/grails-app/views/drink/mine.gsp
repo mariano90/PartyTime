@@ -18,7 +18,6 @@
             optionKey="id"/>
           <g:submitButton name="AddDrink"
             class="button"
-            style="margin-left: 400px;" 
             value="${message(code: 'drink.button.add', default: 'Add Drink')}"/>
         </g:form>
       </div>
@@ -33,9 +32,9 @@
                 ${fieldValue(bean: drinkInstance, field: "name")}
               </g:link>
               &nbsp;&nbsp;
-              [<g:link controller="drink" action="remove" id="${drinkInstance?.id}">
+              <g:link controller="drink" action="remove" id="${drinkInstance?.id}" class="buttondelete">
                 X
-              </g:link>]
+              </g:link>
             </td>
           </tr>
         </g:each>
