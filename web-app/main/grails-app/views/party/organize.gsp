@@ -40,36 +40,36 @@
         <table>
           <tr>
             <td style="width: 60px;">Title:</td>
-            <td><g:textField name="partyTitle" /></td>
+            <td><g:textField name="partyTitle" style="width:300px;"/></td>
           </tr>
           <tr>
             <td style="width: 60px;">Description:</td>
-            <td><g:textField name="partyDescription" /></td>
+            <td><g:textField name="partyDescription" style="width:300px;"/></td>
+          </tr>
+          <tr>
+            <td>Place:</td>
+            <td><g:select
+                name="partyPlace"
+                from="${com.partytime.Bar.list()}"
+                value="${bar?.name}"
+                optionKey="id"
+                style="width: 350px;"/></td>
+          </tr>
+          <tr>
+            <td>Starts at:</td>
+            <td><g:datePicker name="partyStart" value="${new Date()}"
+                precision="day" years="[2015, 2016, 2017, 2018]" /></td>
+          </tr>
+          <tr>
+            <td>Until:</td>
+            <td><g:datePicker name="partyEnd" value="${new Date()}"
+                precision="day" years="[2015, 2016, 2017, 2018]" /></td>
           </tr>
         </table>
-
-        Place:
-        <g:select
-          name="partyPlace"
-          from="${com.partytime.Bar.list()}"
-          value="${bar?.name}"
-          optionKey="id"
-          style="width: 350px;"/>
-        <br/>
-      
-        <label>Starts at:</label>
-        <g:datePicker name="partyStart" value="${new Date()}"
-          precision="day" years="[2015, 2016, 2017, 2018]" />
-        <br />
-      
-        <label>Until:</label>
-        <g:datePicker name="partyEnd" value="${new Date()}"
-          precision="day" years="[2015, 2016, 2017, 2018]" />
-        <br/>
       </fieldset>
 
       <fieldset class="buttons">
-        <g:submitButton name="create" class="save button"
+        <g:submitButton name="create" class="save buttonadd"
           value="${message(code: 'default.button.create.label', default: 'Create')}" />
       </fieldset>
       </g:form>

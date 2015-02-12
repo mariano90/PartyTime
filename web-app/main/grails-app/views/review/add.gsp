@@ -25,7 +25,7 @@
 				<fieldset class="buttons">
 					<g:submitButton
 					    name="create"
-					    class="button"
+					    class="buttonadd"
 					    style="margin-left: 220px;"
 					    value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
