@@ -8,7 +8,7 @@ class DrinkController {
 
 	def authenticationService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-	
+
 	/**
 	 * Shows the list of favorite drinks of the current logged in user.
 	 */
@@ -22,7 +22,7 @@ class DrinkController {
 		def myDrinks = User.getMyUser().getPreferedDrinks().sort{it.getName()}
 		[myDrinks: myDrinks]
 	}
-	
+
 	/**
 	 * Removes a drink from the favorites of the user.
 	 */
@@ -38,7 +38,7 @@ class DrinkController {
 		myself.save flush:true
 		redirect controller: "drink", action: "mine"
 	}
-	
+
 	/**
 	 * Shows the details of a drink, in order for users to learn how to prepare it.
 	 */

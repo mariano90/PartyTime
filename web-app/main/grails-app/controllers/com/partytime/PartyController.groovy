@@ -90,7 +90,7 @@ class PartyController {
 				partiesImInvitedTo.add(p)
 			}
 		} 
-		respond partiesImInvitedTo
+		respond partiesImInvitedTo //.take(max)
 	}
 
 	/**
@@ -143,6 +143,9 @@ class PartyController {
 		redirect(controller:"party",action:"mine")
 	}
 
+	/**
+	 * Shows the user list to invite people to a party.
+	 */
 	def invite(Party partyInstance) {
 		if (!authenticationService.isLoggedIn(request)) {
 			redirect controller:"home", action:"login"
@@ -153,6 +156,11 @@ class PartyController {
 		respond partyInstance
 	}
 
+	/**
+	 * Executed when the user press the button to invite a user.
+	 * @return
+	 */
+	@Transactional // TODO esto deberia ahorrarme los save.
 	def doInvite() {
 		Party partyInstance = Party.get(params.party)
 		User guest = User.get(params.user)
@@ -164,7 +172,10 @@ class PartyController {
 		// TODO: send notification to Google App Engine
 		redirect(controller:"party", action:"invite", id:partyInstance.id)
 	}
-	
+
+	/**
+	 * Executed when the user press the button to remove a user from the guest list.
+	 */
 	def doRemove() {
 		Party partyInstance = Party.get(params.party)
 		User guest = User.get(params.user)
@@ -212,7 +223,7 @@ class PartyController {
 		partyInstance.save(flush:true, failOnError: true)
 		redirect controller:"party", action:"details", id: partyInstance.id
 	}
-	
+
 	/**
 	 * Action of a user saying that is not going to the party.
 	 */

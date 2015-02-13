@@ -20,15 +20,16 @@ class Ad {
 	 */
 	static getSuitableAd() {
 		User myself = User.getMyUser()
-		Ad maxAd = Ad.get(1)
-		int maxScore = maxAd.calcScore(myself)
-		for (Ad ad : Ad.list()) {
-			if (ad.calcScore(myself) > maxScore) {
-				maxScore = ad.calcScore(myself)
-				maxAd = ad
-			}
-		}
-		return maxAd
+		return Ad.list().max { it.calcScore(myself) }
+//		Ad maxAd = Ad.get(1)
+//		int maxScore = maxAd.calcScore(myself)
+//		for (Ad ad : Ad.list()) {
+//			if (ad.calcScore(myself) > maxScore) {
+//				maxScore = ad.calcScore(myself)
+//				maxAd = ad
+//			}
+//		}
+//		return maxAd
 	}
 	
 	/**

@@ -13,7 +13,6 @@ class BarController {
 
 	/**
 	 * Shows the whole list of bars.
-	 * @return
 	 */
 	def byName() {
 		if (!authenticationService.isLoggedIn(request)) {
@@ -24,10 +23,9 @@ class BarController {
 
 		respond Bar.list(), model:[barInstanceCount: Bar.count()]
 	}
-	
+
 	/**
 	 * Feature for searching bars by music styles.
-	 * @return
 	 */
 	def byMusicStyles() {
 		if (!authenticationService.isLoggedIn(request)) {
@@ -36,10 +34,9 @@ class BarController {
 		}
 		User.sync(authenticationService.getUserPrincipal())
 	}
-	
+
 	/**
 	 * Feature for searching bars by ranking.
-	 * @return
 	 */
 	def byRanking() {
 		if (!authenticationService.isLoggedIn(request)) {
@@ -60,7 +57,7 @@ class BarController {
 		}
 		respond Bar.list()
 	}
-	
+
 	/**
 	 * Shows details about a Bar.
 	 */
@@ -73,7 +70,7 @@ class BarController {
 
 		respond barInstance
 	}
-	
+
 	/**
 	 * Shows the bars related to a music style.
 	 */
@@ -96,7 +93,7 @@ class BarController {
 	}
 
 	/**
-	 * Removes the bar from the list of favorites of the currenct logged user.
+	 * Removes the bar from the list of favorites of the current logged user.
 	 */
 	def removeFromFavorites(Bar barInstance) {
 		User myself = User.getMyUser()

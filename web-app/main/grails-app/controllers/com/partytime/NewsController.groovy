@@ -1,7 +1,5 @@
 package com.partytime
 
-
-
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -13,7 +11,6 @@ class NewsController {
 	
 	/**
 	 * Shows the list of whole news.
-	 * @return
 	 */
 	def all() {
 		if (!authenticationService.isLoggedIn(request)) {

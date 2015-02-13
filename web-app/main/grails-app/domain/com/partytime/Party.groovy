@@ -30,11 +30,17 @@ class Party {
 	String toString(){
 		return "${title} @ ${place} el ${startDateTime} por ${host}"
 	}
-	
+
+	/**
+	 * Returns if the user is invited to this party.
+	 */
 	boolean isInvited(User user) {
 		return this.guestsInvited.contains(user)
 	}
-	
+
+	/**
+	 * Returns the status of the user to this party.
+	 */
 	String getStatus(User user) {
 		if (this.guestsConfirmed.contains(user)) {
 			return "Going"
@@ -44,15 +50,24 @@ class Party {
 			return "Pending reply"
 		}
 	}
-	
+
+	/**
+	 * Returns if the user has accepted the invitation to this party.
+	 */
 	boolean isAccepted(User user) {
 		return this.guestsConfirmed.contains(user)
 	}
-	
+
+	/**
+	 * Returns if the user has rejected the invitation to this party.
+	 */
 	boolean isRejected(User user) {
 		return this.guestsNotGoing.contains(user)
 	}
-	
+
+	/**
+	 * Updates the status of the user as accepted to this party as going.
+	 */
 	void markAccepted(User user) {
 		if (this.guestsConfirmed.contains(user)) {
 			return
@@ -61,7 +76,10 @@ class Party {
 		}
 		this.guestsConfirmed.add(user)
 	}
-	
+
+	/**
+	 * Updates the status of the user as accepted to this party as not going.
+	 */
 	void markRejected(User user) {
 		if (this.guestsNotGoing.contains(user)) {
 			return
@@ -143,7 +161,7 @@ class Party {
 		return groceryList
 	}
 
-	def getPriceForDelivery() {
+	def getPriceForDelivery() {  // the logic might be elsewhere.
 		double total = 0
 		def groceryMap = groupComponents()
 		for (Component component in groceryMap.keySet()) {

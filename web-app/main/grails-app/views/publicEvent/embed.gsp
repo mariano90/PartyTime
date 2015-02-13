@@ -21,7 +21,7 @@
           var="publicEventInstance">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
               <td>
-                <g:link action="details" absolute="true"
+                <g:link action="details" absolute="true" target="_top"
                 id="${publicEventInstance.id}">
                   ${fieldValue(bean: publicEventInstance, field: "title")}
                 </g:link>
