@@ -9,9 +9,6 @@
 	  type="text/css" />
     <g:set var="entityName"
 	value="${message(code: 'bar.label', default: 'Bar')}" />
-  <title>
-    <g:message code="default.list.label" args="[entityName]" />
-  </title>
   <style>
     table, th, td {
       border: 1px solid black;
@@ -21,9 +18,9 @@
 
   <body>
 	<div id="list-bar" class="content scaffold-list" role="main">
-      <h1>
-        <g:message code="default.barsearch.label" default="Bar search" />
-      </h1>
+      <h2>
+        <strong>Bar Search</strong>
+      </h2>
       <g:link action="byName" class="tab-selected">Name</g:link>
       <g:link action="byMusicStyles" class="tab">Music styles</g:link>
       <g:link action="byRanking" class="tab">Ranking</g:link>
@@ -32,18 +29,20 @@
           ${flash.message}
         </div>
       </g:if>
-      <table>
+      <table  cellspacing='0'>
         <thead>
           <tr>
-            <td style="max-width: 300px;"><font color="black">Name</font></td>
-            <td><font color="black">Address</font></td>
-            <td><font color="black">Score</font></td>
+            <td style="max-width: 300px;font-weight: bold;color:black;font-size: 16pt; "><font color="black">Name</font></td>
+            <td style="font-weight: bold;color:black;font-size: 16pt; "><font color="black">Address</font></td>
+            <td style="font-weight: bold;color:black;font-size: 16pt; "><font color="black">Score</font></td>
           </tr>
         </thead>
         <tbody>
           <g:each in="${barInstanceList}" status="i" var="barInstance">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
               <td>
+              	<img src="${resource(dir: 'images/bar', file: barInstance?.getProfilePicture())}"
+				                          alt="Profile" />
                 <g:link action="details" id="${barInstance.id}">
                   ${fieldValue(bean: barInstance, field: "name")}
                 </g:link>

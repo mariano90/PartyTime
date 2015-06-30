@@ -8,9 +8,9 @@
     </title>
   </head>
   <body>
-    <h1>
-      Signup
-    </h1>
+    <h2>
+      <strong>Signup</strong>
+    </h2>
     <g:if test="${flash.authenticationFailure}">
       Login failed: ${message(code:"authentication.failure."+flash.authenticationFailure.result).encodeAsHTML()}
     </g:if>
@@ -83,7 +83,7 @@
     <input
       type="submit"
       value="Create account"
-      class="buttonadd" style="margin-left: 200px;"/>
+      class="button" style="margin-left: 5%;"/>
   </auth:form>
   <br/>
   </body>

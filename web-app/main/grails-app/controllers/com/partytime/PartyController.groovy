@@ -27,19 +27,14 @@ class PartyController {
 
 		User myself = User.getMyUser()
 		Date today = new Date();
-		// TODO: there is a functional programming way to do this.
-		def allParties = Party.list()
 		def partiesImInvitedTo = []
-		for (Party p in allParties) {
-			if (p.getStartDateTime().getTime() < today.getTime()){
-				continue
-			}
-			def guests = p.getGuestsInvited()
-			if (guests.contains(myself)) {
-				partiesImInvitedTo.add(p)
-			}
+		
+		partiesImInvitedTo = Party.findAllByStartDateTimeGreaterThanEquals(today).findAll{
+			party -> myself in party.guestsInvited
 		}
-		respond partiesImInvitedTo
+		
+	
+		respond partiesImInvitedTo.take(max)
 	}
 
 	/**
@@ -55,14 +50,8 @@ class PartyController {
 		params.max = Math.min(max ?: 10, 100)
 		User myself = User.getMyUser()
 		Date today = new Date();
-		def allParties = Party.findAllByHost(myself)
 		def upcomingParties = []
-		for (Party p in allParties) {
-			if (p.getStartDateTime().getTime() < today.getTime()){
-				continue
-			}
-			upcomingParties.add(p)
-		}
+		upcomingParties = Party.findAllByStartDateTimeGreaterThanEqualsAndHost(today, myself)
 		respond upcomingParties
 	}
 	
@@ -78,19 +67,14 @@ class PartyController {
 
 		User myself = User.getMyUser()
 		Date today = new Date();
-		// TODO: there is a functional programming way to do this.
-		def allParties = Party.list()
 		def partiesImInvitedTo = []
-		for (Party p in allParties) {
-			if (p.getStartDateTime().getTime() < today.getTime()){
-				continue
-			}
-			def guests = p.getGuestsInvited()
-			if (guests.contains(myself)) {
-				partiesImInvitedTo.add(p)
-			}
-		} 
-		respond partiesImInvitedTo //.take(max)
+		
+		partiesImInvitedTo = Party.findAllByStartDateTimeGreaterThanEquals(today).findAll{
+			party -> myself in party.guestsInvited
+		}
+		
+	
+		respond partiesImInvitedTo
 	}
 
 	/**
@@ -114,22 +98,14 @@ class PartyController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
-		// TODO not empty
 		String title = params.partyTitle
 		String description = params.partyDescription
 		Bar bar = Bar.get(params.partyPlace)
 
-		def startDate = new GregorianCalendar(params.partyStart_year.toInteger(),
-			params.partyStart_month.toInteger() - 1,
-			params.partyStart_day.toInteger(),
-			0, 0, 0).time
-		Date finishDate = new GregorianCalendar(params.partyEnd_year.toInteger(),
-			params.partyEnd_month.toInteger() - 1,
-			params.partyEnd_day.toInteger(),
-			0, 0, 0).time
-
+		def startDate = new Date().parse("yyyy/MM/dd HH:mm:ss", params.partyStart + ":00")
+		def finishDate = new Date().parse("yyyy/MM/dd HH:mm:ss", params.partyEnd + ":00")
+		
 		User host = User.getMyUser()
-		// TODO check errors
 
 		Party newParty = new Party()
 		newParty.setTitle(title)
@@ -276,7 +252,8 @@ class PartyController {
 	}
 
 	def create() {
-		respond new Party(params)
+		new Party(params)
+		redirect controller:"home", action:"index"
 	}
 
 	@Transactional

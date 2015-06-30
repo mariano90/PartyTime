@@ -5,27 +5,30 @@
 <meta name="layout" content="home">
 <g:set var="entityName"
 	value="${message(code: 'news.label', default: 'News')}" />
-<title><g:message value="News" /></title>
 </head>
 <body>
 	<div id="list-news" class="content scaffold-list" role="main">
-		<h1>
-			<g:message code="default.news.label" default="News" />
-		</h1>
-		<table>
+		<h2>
+			<strong><g:message code="default.news.label" default="News" /></strong>
+		</h2>
+		<table  cellspacing='0'>
 			<tbody>
 				<g:each in="${newsInstanceList}" status="i" var="newsInstance">
 					<td>
 						<h1>
-							${fieldValue(bean: newsInstance, field: "date")}
+							${fieldValue(bean: newsInstance, field: "date").toString().substring(0,10)}
 						</h1>
 						<h2>
 							${fieldValue(bean: newsInstance, field: "title")}
 						</h2>
-						${fieldValue(bean: newsInstance, field: "description")}
-						<!-- TODO: render image if it's present -->
-						${fieldValue(bean: newsInstance, field: "imageUrl")}
+						<div>
+							${fieldValue(bean: newsInstance, field: "description")}
+						</div>
+						<div style="text-align:center">
+							<img src="${resource(dir: 'images', file: fieldValue(bean: newsInstance, field: "imageUrl"))}"/>
+						</div>
 					</td>
+					<tr>
 					</tr>
 				</g:each>
 			</tbody>

@@ -12,31 +12,23 @@
     <meta name="keywords" content="" />
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600"
         rel="stylesheet" type="text/css" />
-
-    <%--	
-    <script type="text/javascript" src="${resource(dir:'js', file:'jquery.min.js')}" >
-    </script>
-    <script type="text/javascript" src="${resource(dir:'js', file:'skel.min.js')}" >
-    </script>	
-    <script type="text/javascript" src="${resource(dir:'js', file:'skel-panels.min.js')}" >
-    </script>
-    <script type="text/javascript" src="${resource(dir:'js', file:'init.js')}" >
-    </script>
-    --%>
-  
-    <%-- CSS DE GRAILS
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'mobile.css')}" type="text/css">
-    --%>
-
-    <link rel="stylesheet"
-        href="${resource(dir: 'css', file: 'skel-noscript.css')}"
-        type="text/css" />
-    <link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}"
-        type="text/css" />
-    <link rel="stylesheet"
-        href="${resource(dir: 'css', file: 'style-wide.css')}" type="text/css" />
-
+    	
+    <script type="text/javascript" src="${resource(dir:'js', file:'jquery-1.11.0.js')}" ></script>
+    <script type="text/javascript" src="${resource(dir:'js', file:'jquery-ui-1.10.4.custom.js')}" ></script>
+    <script type="text/javascript" src="${resource(dir:'js', file:'jquery.datetimepicker.js')}" ></script>
+    <script type="text/javascript" src="${resource(dir:'js', file:'skel.min.js')}" ></script>	
+    <script type="text/javascript" src="${resource(dir:'js', file:'skel-panels.min.js')}" ></script>
+	<script type="text/javascript" src="${resource(dir:'js', file:'init.js')}" ></script>
+	<script type="text/javascript" src="${resource(dir:'js', file:'bootstrap.js')}" ></script>
+    <noscript>
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'skel-noscript.css')}" type="text/css"/>
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css"/>
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'style-wide.css')}" type="text/css"/>
+		
+	</noscript>
+	<link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery-ui-1.10.4.custom.css')}" type="text/css"/>
+	<link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.datetimepicker.css')}" type="text/css"/>
+<%--	<link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.css')}" type="text/css"/>--%>
     <g:layoutHead />
     </head>
     <body>
@@ -49,13 +41,10 @@
                 alt="Profile" />
             </span>
             <h1 id="title">
-              <g:link controller="user" action="details" id="${myself.id}">
+              <g:link style="padding-left:50px" controller="user" action="details" id="${myself.id}">
                 ${myself.toString()}
               </g:link>
             </h1>
-            <g:if test="${myself?.displayName}">
-              ${myself.displayName}
-            </g:if>
             <form action="/main/authentication/logout" method="post">
               <input type="hidden" name="success_controller"
                 value="home" id="success_controller">
@@ -82,7 +71,7 @@
                 <li>
                   <a href="http://localhost:8080/main/party/organize"
                       id="my-parties-link" class="skel-panels-ignoreHref">
-                    <span class="fa fa-create">
+                    <span class="fa fa-music">
                       New party
                     </span>
                   </a>
@@ -90,7 +79,7 @@
                 <li>
                   <a href="http://localhost:8080/main/party/mine"
                   id="my-parties-link" class="skel-panels-ignoreHref">
-                    <span class="fa fa-music">
+                    <span class="fa fa-user">
                       My parties
                     </span>
                   </a>
@@ -99,7 +88,7 @@
                   <a href="http://localhost:8080/main/party/invited"
                   id="my-parties-link" class="skel-panels-ignoreHref">
                     <span
-                    class="fa fa-music">
+                    class="fa fa-bookmark">
                       My invitations
                     </span>
                   </a>
@@ -140,20 +129,15 @@
                     </span>
                   </a>
                 </li>
-                <li>
-                  <a href="http://localhost:8080/main/" class="skel-panels-ignoreHref">
-                    <span class="fa fa-gear">
-                      Debug
-                    </span>
-                  </a>
-                </li>
               </ul>
             </nav>
           </div>
         </div>
         
         <div id="main" style="background-color: #f7f7f7; min-height: 450px;">
-          <g:layoutBody />
+        	
+        	<g:layoutBody />
+        	
         </div>
         
         <div id="footer">

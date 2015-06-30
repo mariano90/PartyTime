@@ -7,16 +7,13 @@
   <head>
     <meta name="layout" content="home">
     <g:set var="entityName" value="${message(code: 'bar.label', default: 'Bar')}" />
-    <title>
-      <g:message code="default.show.label" args="[entityName]" />
-    </title>
   </head>
     <body>
       <div id="show-bar" class="content scaffold-show" role="main">
       <% User user = User.getMyUser() %>
-        <h1>
+        <h2><strong>
           <g:if test="${barInstance?.name}">
-            <g:fieldValue bean="${barInstance}" field="name"/>
+            <g:fieldValue bean="${barInstance}" field="name"/></strong>
             &nbsp;
             <g:if test="${user.hasFavoritedBar(barInstance)}">
               <g:link action="removeFromFavorites" id="${barInstance.id}">
@@ -31,21 +28,17 @@
               </g:link>
             </g:else>
           </g:if>
-          &nbsp;
-          <g:link
-              class="buttonadd"
-              controller="review"
-              action="add"
-              params="[bar: barInstance.id]">
-              Add review
-          </g:link>
-        </h1>
+        </h2>
+        <h1>
+	        <img src="${resource(dir: 'images/bar/big', file: barInstance?.getProfilePicture())}"
+	          alt="Profile" />
+	      	</h1>
         <g:if test="${flash.message}">
           <div class="message" role="status">
             ${flash.message}
           </div>
         </g:if>
-        <ol class="property-list bar">
+        <ol class="property-list bar" style="font-weight: bold;color:black;">
           <g:if test="${barInstance?.openHours}">
             <li class="fieldcontain">
               <span id="openHours-label" class="property-label">
@@ -166,7 +159,7 @@
               </g:each>
             </li>
           </g:if>
-          
+          <p>&nbsp;</p>
           <g:if test="${barInstance?.reviews}">
             <li class="fieldcontain">
               <span id="reviews-label" class="property-label">
@@ -197,6 +190,15 @@
             </li>
           </g:if>
         </ol>
+        
+        <g:link
+              class="button scrolly"
+              controller="review"
+              action="add"
+              params="[bar: barInstance.id]">
+              Add review
+          </g:link>
+          
       </div>
     </body>
 </html>

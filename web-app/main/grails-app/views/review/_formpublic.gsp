@@ -2,20 +2,16 @@
 <%@ page import="com.partytime.User" %>
 
 <div class="fieldcontain ${hasErrors(bean: reviewInstance, field: 'title', 'error')} required">
-  <g:message code="review.title.label" default="Title" />
-  <span class="required-indicator">*</span>
-  <g:textField name="title" required=""
+  <g:textField class="textField" style="margin-top:5px" placeholder="Title" name="title" required=""
       value="${reviewInstance?.title}"
-      style="margin-left: 50px; width: 400px;"/>
+      />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: reviewInstance, field: 'body', 'error')} required">
-  <g:message code="review.body.label" default="Body" />
-  <span class="required-indicator">*</span>
-  <g:textField
+  <g:textField class="textField" style="margin-top:5px" placeholder="Description"
       name="body"
       required="" value="${reviewInstance?.body}"
-      style="margin-left: 43px; width: 400px;"/>
+      />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: reviewInstance, field: 'score', 'error')} required">
@@ -24,7 +20,7 @@
   <g:select
       name="score" from="${5..1}" class="range"
       required="" value="${fieldValue(bean: reviewInstance, field: 'score')}"
-      style="margin-left: 37px;"/>
+      style="margin-left: 37px;margin-top:5px"/>
 </div>
 
 <g:hiddenField id="author" name="author.id" value="${User.getMyUser().id}"/>

@@ -43,6 +43,7 @@
 		<g:message code="party.finsishDateTime.label" default="Finsish Date Time" />
 		
 	</label>
+     
 	<g:datePicker name="finsishDateTime" precision="day"  value="${partyInstance?.finsishDateTime}" default="none" noSelection="['': '']" />
 
 </div>

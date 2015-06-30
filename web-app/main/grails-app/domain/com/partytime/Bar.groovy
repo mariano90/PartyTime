@@ -15,6 +15,8 @@ class Bar {
 	String city
 	String province
 	String country
+	
+	int score
 
 	static constraints = {
 		name blank: false, nullable: false, unique: true
@@ -38,9 +40,12 @@ class Bar {
 			return 0
 		}
 		int sum = 0;
-		for (Review r in this.reviews) {
-			sum += r.getScore();
-		}
+		
+		sum = this.reviews.score.sum()
+		
+//		for (Review r in this.reviews) {
+//			sum += r.getScore();
+//		}
 		int score = sum * 10 / this.reviews.size();
 		int units = score / 10
 		return units
@@ -54,9 +59,10 @@ class Bar {
 			return "undefined-stars.png"
 		}
 		int sum = 0;
-		for (Review r in this.reviews) {
-			sum += r.getScore();
-		} 
+		sum = this.reviews.score.sum()
+//		for (Review r in this.reviews) {
+//			sum += r.getScore();
+//		} 
 		int score = sum * 10 / this.reviews.size();
 		int units = score / 10
 		int decimal = score % 10
@@ -65,5 +71,9 @@ class Bar {
 
 	String toString(){
 		return "${name}"
+	}
+	
+	String getProfilePicture() {
+		return this.name + ".jpg"
 	}
 }

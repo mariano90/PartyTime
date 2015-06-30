@@ -9,15 +9,12 @@
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'tabs.css')}"
 	  type="text/css" />
     <g:set var="entityName" value="${message(code: 'musicStyle.label', default: 'MusicStyle')}" />
-    <title>
-      <g:fieldValue bean="${musicStyleInstance}" field="name"/>
-    </title>
   </head>
     <body>
       <div id="show-musicStyle" class="content scaffold-show" role="main">
-        <h1>
-          <g:fieldValue bean="${musicStyleInstance}" field="name"/>
-        </h1>
+        <h2>
+          <strong><g:fieldValue bean="${musicStyleInstance}" field="name"/></strong>
+        </h2>
         <g:link action="byName" class="tab">Name</g:link>
         <g:link action="byMusicStyles" class="tab-selected">Music styles</g:link>
         <g:link action="byRanking" class="tab">Ranking</g:link>
@@ -41,13 +38,17 @@
         <table>
         <thead>
           <tr>
+          	<div style="font-weight: bold;color:black;font-size: 16pt; ">
             Bars:
+            </div>
           </tr>
         </thead>
         <tbody>
           <g:each in="${allBarsOfThisMusicStyle}" status="i" var="barInstance">
             <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
               <td>
+              <img src="${resource(dir: 'images/bar', file: barInstance?.getProfilePicture())}"
+				                          alt="Profile" />
                 <g:link controller="bar" action="details" id="${barInstance.id}">
                   ${fieldValue(bean: barInstance, field: "name")}
                 </g:link>

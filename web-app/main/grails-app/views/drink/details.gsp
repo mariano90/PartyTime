@@ -7,11 +7,6 @@
     <meta name="layout" content="home">
     <g:set var="entityName"
 	  value="${message(code: 'drink.label', default: 'Drink')}" />
-  <title>
-    <g:if test="${drinkInstance?.name}">
-      <g:fieldValue bean="${drinkInstance}" field="name" />
-    </g:if>
-  </title>
   
   <style type="text/css" media="screen">
     .gsc-control {
@@ -60,11 +55,11 @@
   </head>
   <body>
   <div id="show-drink" class="content scaffold-show" role="main">
-    <h1>
-      <g:if test="${drinkInstance?.name}">
+    <h2>
+      <strong><g:if test="${drinkInstance?.name}">
         <g:fieldValue bean="${drinkInstance}" field="name" />
-      </g:if>
-    </h1>
+      </g:if></strong>
+    </h2>
     <g:if test="${flash.message}">
       <div class="message" role="status">
         ${flash.message}
@@ -74,7 +69,7 @@
 
       <g:if test="${drinkInstance?.components}">
           <span id="components-label"
-            class="property-label">
+            class="property-label" style="font-weight: bold;color:black">
           <g:message code="drink.listelements.label" default="You need:" />
           <ul>
           <g:each in="${drinkInstance.components}" var="c">

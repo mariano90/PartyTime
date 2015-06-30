@@ -8,26 +8,25 @@
 <meta name="layout" content="home">
 <g:set var="entityName"
 	value="${message(code: 'party.label', default: 'Party')}" />
-<title><g:message code="default.list.label" args="[entityName]" /></title>
 </head>
 <body>
 	<div class="nav" role="navigation"></div>
 	<div id="list-party" class="content scaffold-list" role="main">
-		<h1>
-			<g:message code="default.myparties.label" default="Invitations" />
-		</h1>
+		<h2>
+			<strong>My Invitations</strong>
+		</h2>
 		<g:if test="${flash.message}">
 			<div class="message" role="status">
 				${flash.message}
 			</div>
 		</g:if>
-		<table>
+		<table  cellspacing='0'>
 			<thead>
 				<tr>
-					<g:sortableColumn property="title" title="${message(code: 'party.title.label', default: 'Title')}" />
-					<th><g:message code="party.place.label" default="Place"/></th>
-					<g:sortableColumn property="startDateTime" title="${message(code: 'party.startDateTime.label', default: 'When')}" />
-					<th><g:message code="party.status.label" default="Status"/></th>
+					<g:sortableColumn style="font-weight: bold;color:black;font-size: 16pt; " property="title" title="${message(code: 'party.title.label', default: 'Title')}" />
+					<th style="font-weight: bold;color:black;font-size: 16pt; "><g:message code="party.place.label" default="Place"/></th>
+					<g:sortableColumn style="font-weight: bold;color:black;font-size: 16pt; " property="startDateTime" title="${message(code: 'party.startDateTime.label', default: 'When')}" />
+					<th style="font-weight: bold;color:black;font-size: 16pt; "><g:message code="party.status.label" default="Status"/></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -38,6 +37,8 @@
 							${fieldValue(bean: partyInstance, field: "title")}
 						</td>
 						<td>
+						<img src="${resource(dir: 'images/bar', file: partyInstance?.place?.getProfilePicture())}"
+				                          alt="Profile" />
 							<g:link controller="bar" action="details" id="${partyInstance?.place?.id}">
                               ${partyInstance?.place?.encodeAsHTML()}
                             </g:link>

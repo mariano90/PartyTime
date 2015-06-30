@@ -47,11 +47,7 @@ class BarController {
 
 		if (params.stars) {
 			def selectedBars = []
-			for (Bar bar : Bar.list()) {
-				if (bar.getScore() == params.stars.toInteger()) {
-					selectedBars.add(bar)
-				}
-			}
+			selectedBars = Bar.findAllByScore(params.stars.toInteger())
 			respond selectedBars
 			return
 		}

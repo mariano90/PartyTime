@@ -2,7 +2,6 @@ package com.partytime
 
 
 
-import grails.test.mixin.*
 import spock.lang.*
 
 @TestFor(MusicStyleController)

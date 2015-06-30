@@ -5,15 +5,12 @@
   <head>
     <meta name="layout" content="home">
     <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-    <title>
-      <g:fieldValue bean="${userInstance}" field="name"/>
-    </title>
   </head>
   <body>
     <div id="show-user" class="content scaffold-show" role="main">
-      <h1>
-        ${userInstance?.encodeAsHTML()}
-      </h1>
+      <h2>
+        <strong>${userInstance?.encodeAsHTML()}</strong>
+      </h2>
       <h1>
         <img src="${resource(dir: 'images/profile/big', file: userInstance?.getProfilePicture())}"
           alt="Profile" />
@@ -23,61 +20,95 @@
           ${flash.message}
         </div>
       </g:if>
-      <ol class="property-list user">
+
         <g:if test="${userInstance?.bornDate}">
           <li class="fieldcontain">
-            <span id="bornDate-label" class="property-label">
-              <g:message code="user.bornDate.label" default="Birth date:" />
+            <span id="bornDate-label" style="font-weight: bold;color:black">
+              <g:message  code="user.bornDate.label" default="Birth date:" />
             </span>
-            <span class="property-value" aria-labelledby="bornDate-label">
+            <span style="color:black" aria-labelledby="bornDate-label">
               <g:formatDate format="yyyy-MM-dd" date="${userInstance?.bornDate}" />
             </span>
           </li>
         </g:if>
-        <g:if test="${userInstance?.preferedDrinks}">
+        <g:if test="${userInstance?.getAge()}">
           <li class="fieldcontain">
-            <span id="preferedDrinks-label" class="property-label">
-              <g:message code="user.preferedDrinks.label" default="Prefered Drinks:" />
+            <span id="age-label" style="font-weight: bold;color:black">
+              Age: 
             </span>
-            <g:each in="${userInstance.preferedDrinks.sort {it.name} }" var="d">
-              <span class="property-value" aria-labelledby="preferedDrinks-label">
-                <g:link controller="drink" action="details" id="${d.id}">
-                  ${d?.encodeAsHTML()}
-                </g:link>
-                &nbsp;
-              </span>
-            </g:each>
-          </li>
-        </g:if>
-        <g:if test="${userInstance?.preferedMusicStyles}">
-          <li class="fieldcontain">
-            <span id="preferedMusicStyles-label" class="property-label">
-              <g:message code="user.preferedMusicStyles.label" default="Prefered Music Styles:" />
+            <span style="color:black" aria-labelledby="age-label">
+            	${userInstance?.getAge()}
             </span>
-            <g:each in="${userInstance.preferedMusicStyles.sort {it.name} }" var="ms">
-              <span class="property-value" aria-labelledby="preferedMusicStyles-label">
-                <g:link controller="bar" action="musicStyle" id="${ms.id}">
-                  ${ms.encodeAsHTML()}
-                </g:link>
-                &nbsp;
-              </span>
-            </g:each>
           </li>
         </g:if>
-        <g:if test="${userInstance?.favoriteBars.sort {it.name} }">
-          <li class="fieldcontain">
-            Favorite bars:
-            <g:each in="${userInstance.favoriteBars}" var="b">
-              <span class="property-value">
-                <g:link controller="bar" action="details" id="${b.id}">
-                  ${b.encodeAsHTML()}
-                </g:link>
-                &nbsp;
-              </span>
-            </g:each>
-          </li>
-        </g:if>
-      </ol>
+&nbsp;&nbsp;
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
+        	<g:if test="${userInstance?.preferedDrinks}">
+	  			<div class="panel panel-default">
+	    			<div class="panel-heading" role="tab" id="headingOne">
+	     				<h4 class="panel-title" style="font-weight: bold;color:black">
+	        				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+	          					Favorite Drinks
+	        				</a>
+	     				</h4>
+   					</div>
+					<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+				      <div class="panel-body" style="font-weight: bold;color:black">
+
+			            <g:each in="${userInstance.preferedDrinks.sort {it.name} }" var="d" >
+			                <g:link controller="drink" action="details" id="${d.id}">
+				                  ${d?.encodeAsHTML()}
+			                </g:link>
+				                &nbsp;
+			            </g:each>
+			           </div>
+				    </div>
+				  </div>
+        	</g:if>
+        	<g:if test="${userInstance?.preferedMusicStyles}">
+	  			<div class="panel panel-default">
+	    			<div class="panel-heading" role="tab" id="headingTwo">
+	     				<h4 class="panel-title" style="font-weight: bold;color:black">
+	        				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+	          					Favorite Music Styles
+	        				</a>
+	     				</h4>
+   					</div>
+					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+				      <div class="panel-body" style="font-weight: bold;color:black">
+				        <g:each in="${userInstance.preferedMusicStyles.sort {it.name} }" var="ms" >
+			                <g:link controller="bar" action="musicStyle" id="${ms.id}">
+			                  ${ms.encodeAsHTML()}
+			                </g:link>
+			                &nbsp;
+			            </g:each>     
+			           </div>
+				    </div>
+				  </div> 	
+	        </g:if>
+        	<g:if test="${userInstance?.favoriteBars.sort {it.name} }">
+	  			<div class="panel panel-default">
+	    			<div class="panel-heading" role="tab" id="headingThree">
+	     				<h4 class="panel-title" style="font-weight: bold;color:black">
+	        				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+	          					Favorite Bars
+	        				</a>
+	     				</h4>
+   					</div>
+					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+				      <div class="panel-body" style="font-weight: bold;color:black">         
+			             <g:each in="${userInstance.favoriteBars}" var="b">
+			                <g:link controller="bar" action="details" id="${b.id}">
+			                  ${b.encodeAsHTML()}
+			                </g:link>
+			                &nbsp;
+			            </g:each>         
+  			           </div>
+				    </div>
+				  </div> 	
+	        </g:if>        
+		</div>
+
     </div>
   </body>
 </html>

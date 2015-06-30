@@ -4,16 +4,19 @@
     <meta name="layout" content="home">
     <g:set var="entityName"
 	value="${message(code: 'party.label', default: 'Party')}" />
-  <title>
-    <g:message code="default.create.label"
-    args="[entityName]" />
-  </title>
+	<script type="text/javascript">
+        $(document).ready(function()
+        {
+          $("#datepicker1").datetimepicker();
+          $("#datepicker2").datetimepicker();
+        })
+	</script>
   </head>
   <body>
 	<div id="create-party" class="content scaffold-create" role="main">
-      <h1>
-        <g:message code="default.create.label" args="[entityName]" />
-      </h1>
+      <h2>
+        <strong>New Party =)</strong>
+      </h2>
       <g:if test="${flash.message}">
         <div class="message" role="status">
           ${flash.message}
@@ -34,42 +37,30 @@
         </ul>
       </g:hasErrors>
 
-      <g:form controller="party" action="organizeNew">
-
-      <fieldset class="form">
-        <table>
-          <tr>
-            <td style="width: 60px;">Title:</td>
-            <td><g:textField name="partyTitle" style="width:300px;"/></td>
-          </tr>
-          <tr>
-            <td style="width: 60px;">Description:</td>
-            <td><g:textField name="partyDescription" style="width:300px;"/></td>
-          </tr>
-          <tr>
-            <td>Place:</td>
-            <td><g:select
+      <g:form controller="party" action="organizeNew" style="margin-top:5%">
+      	<div class="row 50%">
+      		<div class="6u"><g:textField class="textField" placeholder="Title" name="partyTitle"/></div>
+      		<div class="6u"><g:select
+      			placeholder="Place"
                 name="partyPlace"
                 from="${com.partytime.Bar.list()}"
                 value="${bar?.name}"
                 optionKey="id"
-                style="width: 350px;"/></td>
-          </tr>
-          <tr>
-            <td>Starts at:</td>
-            <td><g:datePicker name="partyStart" value="${new Date()}"
-                precision="day" years="[2015, 2016, 2017, 2018]" /></td>
-          </tr>
-          <tr>
-            <td>Until:</td>
-            <td><g:datePicker name="partyEnd" value="${new Date()}"
-                precision="day" years="[2015, 2016, 2017, 2018]" /></td>
-          </tr>
-        </table>
-      </fieldset>
-
+                style="width: 350px;"/></div>
+      	</div>
+      	<g:textField class="textField" style="margin-top:2%" placeholder="Description" name="partyDescription"/>
+		<div class="row 50%" style="margin-top:2%">
+			<div class="6u">
+	            Starts at:
+	            <input type="text" id="datepicker1" name="partyStart">
+			</div>
+			<div class="6u">
+            	Until:
+            	<input type="text" id="datepicker2" name="partyEnd">
+			</div>
+		</div>
       <fieldset class="buttons">
-        <g:submitButton name="create" class="save buttonadd"
+        <g:submitButton id="create_party_button" name="create" class="button scrolly" style="margin-top:2%; margin-left: 90%"
           value="${message(code: 'default.button.create.label', default: 'Create')}" />
       </fieldset>
       </g:form>

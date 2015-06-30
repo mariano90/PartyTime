@@ -7,30 +7,27 @@
     <meta name="layout" content="home">
     <g:set var="entityName"
     value="${message(code: 'party.label', default: 'Party')}" />
-    <title>
-      <g:message code="default.list.label" args="[entityName]" />
-    </title>
   </head>
   <body>
     <div class="nav" role="navigation">
     </div>
     <div id="list-party" class="content scaffold-list" role="main">
-      <h1>
-        <g:message code="default.myparties.label" default="My parties" />
-      </h1>
+      <h2>
+        <strong>My Parties</strong>
+      </h2>
         <g:if test="${flash.message}">
           <div class="message" role="status">
             ${flash.message}
           </div>
         </g:if>
-        <table>
+        <table cellspacing='0'>
           <thead>
             <tr>
-              <th>
+              <th  style="font-weight: bold;color:black;font-size: 16pt; ">
                 <g:message code="party.place.label" default="Place" />
               </th>
-              <g:sortableColumn property="title" title="${message(code: 'party.title.label', default: 'Title')}" />
-              <g:sortableColumn property="startDateTime" title="${message(code: 'party.startDateTime.label', default: 'Starting at')}" />
+              <g:sortableColumn  style="font-weight: bold;color:black;font-size: 16pt; " property="title" title="${message(code: 'party.title.label', default: 'Title')}" />
+              <g:sortableColumn  style="font-weight: bold;color:black;font-size: 16pt; " property="startDateTime" title="${message(code: 'party.startDateTime.label', default: 'Starting at')}" />
               <th>
               </th>
             </tr>
@@ -39,6 +36,8 @@
             <g:each in="${partyInstanceList}" status="i" var="partyInstance">
               <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                 <td>
+                <img src="${resource(dir: 'images/bar', file: partyInstance?.place?.getProfilePicture())}"
+				                          alt="Profile" />
                   <g:link controller="bar" action="details" id="${partyInstance?.place?.id}">
                     ${partyInstance?.place?.encodeAsHTML()}
                   </g:link>
@@ -58,7 +57,7 @@
             </g:each>
           </tbody>
         </table>
-        <div class="pagination">
+        <div class="pagination" style="background-color: #f7f7f7;">
           <g:paginate total="${partyInstanceCount ?: 0}" />
         </div>
       </div>

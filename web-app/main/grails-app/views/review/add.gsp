@@ -3,11 +3,10 @@
 	<head>
 		<meta name="layout" content="home">
 		<g:set var="entityName" value="${message(code: 'review.label', default: 'Review')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div id="create-review" class="content scaffold-create" role="main">
-			<h1><g:message code="default.create.label" args="[entityName]" /></h1>
+			<h2><strong>Create Review</strong></h2>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
@@ -25,8 +24,8 @@
 				<fieldset class="buttons">
 					<g:submitButton
 					    name="create"
-					    class="buttonadd"
-					    style="margin-left: 220px;"
+					    class="button scrolly"
+					    style="margin-left: 80%;"
 					    value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
 			</g:form>

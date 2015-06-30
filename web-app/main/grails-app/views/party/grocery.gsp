@@ -5,11 +5,10 @@
 <html>
   <head>
     <meta name="layout" content="home">
-    <title>Suggested grocery list</title>
   </head>
   <body>
     <div id="show-party" class="content scaffold-show" role="main">
-      <h1>Suggested grocery list</h1>
+      <h2><strong>Suggested grocery list</strong></h2>
       <g:if test="${flash.message}">
         <div class="message" role="status">
           ${flash.message}

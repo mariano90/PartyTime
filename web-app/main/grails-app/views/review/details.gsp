@@ -6,26 +6,15 @@
   <head>
     <meta name="layout" content="home">
     <g:set var="entityName" value="${message(code: 'review.label', default: 'Review')}" />
-    <title>
-      ${entityName}
-    </title>
   </head>
     <body>
-      <div id="show-review" class="content scaffold-show" role="main">
-        <h1>
+      <div id="show-review" class="content scaffold-show" role="main"  style="font-weight: bold;color:black;">
+        <h2><strong>
           <g:if test="${reviewInstance?.title}">
             <g:fieldValue bean="${reviewInstance}" field="title"/>
           </g:if>
-          <g:if test="${params.bar}">
-            &nbsp;
-            [<g:link
-              controller="bar"
-              action="details"
-              id="${params.bar.toInteger()}">
-              << back to Bar
-            </g:link>]
-          </g:if>
-        </h1>
+          </strong>
+        </h2>
 
         <h1>
           <g:if test="${reviewInstance?.score}">
@@ -44,7 +33,7 @@
               </span>
             </li>
           </g:if>
-
+		&nbsp;
           <g:if test="${reviewInstance?.author}">
             <li class="fieldcontain">
               <span id="author-label" class="property-label">
@@ -57,6 +46,18 @@
               </span>
             </li>
           </g:if>
+          <p>&nbsp;</p><p>&nbsp;</p>
+          <div style="margin-top:20px;">
+          <g:if test="${params.bar}">
+            &nbsp;
+            <g:link 
+              controller="bar"
+              action="details"
+              id="${params.bar.toInteger()}">
+              Back to Bar
+            </g:link>
+          </g:if>
+          </div>
         </ol>
       </div>
     </body>

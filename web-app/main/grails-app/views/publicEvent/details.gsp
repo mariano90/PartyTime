@@ -6,27 +6,18 @@
 <meta name="layout" content="home">
 <g:set var="entityName"
 	value="${message(code: 'publicEvent.label', default: 'Public Events')}" />
-<title>
-<g:message code="default.publicEvent.label" default="Public Event" />
-<g:if test="${publicEventInstance?.title}">
-	- <g:fieldValue bean="${publicEventInstance}" field="title" />
-</g:if>
-</title>
 </head>
 <body>
 	<div id="show-publicEvent" class="content scaffold-show" role="main">
-		<h1>
-			<g:message code="default.publicEvent.details" default="Public Event" />
-		</h1>
+		<h2>
+			<strong><g:message code="default.publicEvent.details" default="Public Event" /></strong>
+		</h2>
 		<ol class="property-list publicEvent">
 			<g:if test="${publicEventInstance?.title}">
 				<li class="fieldcontain">
 					<h2>
 						<span class="property-value" aria-labelledby="title-label">
 							<g:fieldValue bean="${publicEventInstance}" field="title" />
-							<g:if test="${publicEventInstance?.externalUrl}">
-								<a href="${publicEventInstance.externalUrl}" target="_blank">[link]</a>
-							</g:if>
 						</span>
 					</h2>
 				</li>
@@ -78,6 +69,11 @@
 							code="publicEvent.minimumAge.label" default="Minimum Age" /></span> <span
 					class="property-value" aria-labelledby="minimumAge-label"><g:fieldValue
 							bean="${publicEventInstance}" field="minimumAge" /></span></li>
+			</g:if>
+
+			
+			<g:if test="${publicEventInstance?.externalUrl}">
+				<a href="${publicEventInstance.externalUrl}" style="color: #ffffff;padding-top:30px;" target="_blank">Vos también podes ser parte!</a>
 			</g:if>
 
 		</ol>

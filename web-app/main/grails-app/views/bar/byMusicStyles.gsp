@@ -7,15 +7,12 @@
     <meta name="layout" content="home">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'tabs.css')}"
 	  type="text/css" />
-  <title>
-    Music styles
-  </title>
   </head>
   <body>
 	<div id="list-bar" class="content scaffold-list" role="main">
-      <h1>
-        Music styles
-      </h1>
+      <h2>
+        <strong>Music styles</strong>
+      </h2>
       <g:link action="byName" class="tab">Name</g:link>
       <g:link action="byMusicStyles" class="tab-selected">Music styles</g:link>
       <g:link action="byRanking" class="tab">Ranking</g:link>

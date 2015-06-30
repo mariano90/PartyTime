@@ -7,9 +7,9 @@
 <title>Login</title>
 </head>
 <body>
-	<h1>
-		Login
-	</h1>
+	<h2>
+		<strong>Login</strong>
+	</h2>
 	<g:if test="${flash.authenticationFailure}">
 	Login failed: ${message(code:"authentication.failure."+flash.authenticationFailure.result).encodeAsHTML()}
 	</g:if>
@@ -37,7 +37,7 @@
 		</g:hasErrors></td>
 	      </tr>
 	    </table>
-		<input type="submit" value="Log in" class="button" style="margin-left: 200px;"/>
+		<input type="submit" value="Log in" class="button" style="margin-left: 80%;"/>
 	</auth:form>
 	<br/>
 	<br/>

@@ -1,6 +1,7 @@
 package main
 
 import com.partytime.User
+import com.partytime.PublicEvent
 
 class HomeController {
 
@@ -15,6 +16,10 @@ class HomeController {
 			return
 		}
 		User.sync(authenticationService.getUserPrincipal())
+		Date today = new Date();
+		def upcomingPublicEvents = []
+		upcomingPublicEvents = PublicEvent.findAllByStartDateTimeGreaterThanEquals(today)
+		respond upcomingPublicEvents
 	}
 	
 	def login() {

@@ -37,7 +37,7 @@
             </li>
             <li>
               <a href="http://localhost:8080/main/home/signup" class="skel-panels-ignoreHref">
-                <span class="">
+                <span class="fa fa-user">
                   Signup
                 </span>
               </a>
@@ -46,20 +46,6 @@
               <a href="http://localhost:8080/main/home/about" class="">
                 <span class="fa fa-music">
                   About
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="http://localhost:8080/main/" class="skel-panels-ignoreHref">
-                <span class="fa fa-gear">
-                  Debug
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="http://localhost:8080/main/authentication/index" class="">
-                <span class="">
-                  Old login
                 </span>
               </a>
             </li>

@@ -50,6 +50,19 @@ class Party {
 			return "Pending reply"
 		}
 	}
+	
+	/**
+	 * Returns the status of the user to this party.
+	 */
+	String getStatusImage(User user) {
+		if (this.guestsConfirmed.contains(user)) {
+			return "like.png"
+		} else if (this.guestsNotGoing.contains(user)) {
+			return "dislike.png"
+		} else {
+			return "likedislike.png"
+		}
+	}
 
 	/**
 	 * Returns if the user has accepted the invitation to this party.

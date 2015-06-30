@@ -24,15 +24,8 @@ class PublicEventController {
 
 		params.max = Math.min(max ?: 10, 100)
 		Date today = new Date();
-		def allPublicEvents = PublicEvent.list(params)
 		def upcomingPublicEvents = []
-		for (PublicEvent e in allPublicEvents) {
-			if (e.getStartDateTime().getTime() < today.getTime()){
-				continue
-			}
-			// TODO show more events of the preference of the user.
-			upcomingPublicEvents.add(e)
-		}
+		upcomingPublicEvents = PublicEvent.findAllByStartDateTimeGreaterThanEquals(today)
 		respond upcomingPublicEvents
 	}
 	
@@ -48,14 +41,8 @@ class PublicEventController {
 
 		params.max = Math.min(max ?: 10, 100)
 		Date today = new Date();
-		def allPublicEvents = PublicEvent.list(params)
 		def upcomingPublicEvents = []
-		for (PublicEvent e in allPublicEvents) {
-			if (e.getStartDateTime().getTime() < today.getTime()){
-				continue
-			}
-			upcomingPublicEvents.add(e)
-		}
+		upcomingPublicEvents = PublicEvent.findAllByStartDateTimeGreaterThanEquals(today)
 		respond upcomingPublicEvents
 	}
 	

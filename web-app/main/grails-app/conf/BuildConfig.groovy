@@ -63,8 +63,8 @@ grails.project.dependency.resolution = {
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.13" // or ":hibernate4:4.3.5.1"
         runtime ":database-migration:1.4.0"
-        runtime ":jquery:1.11.0.2"
-        runtime ":resources:1.2.7"
+//        runtime ":jquery:1.11.0.2"
+        runtime ":resources:1.2.14"
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"
@@ -78,7 +78,14 @@ grails.project.dependency.resolution = {
         //compile ":less-asset-pipeline:1.5.3"
         //compile ":coffee-asset-pipeline:1.5.0"
         //compile ":handlebars-asset-pipeline:1.3.0.1"
-		
+
 		compile ":authentication:2.0.1"
+		
+//		compile ":twitter-bootstrap:2.3.0"
+//		compile ":lesscss-resources:1.3.3"
+//		compile ":calendar:1.2.1"
+//		compile ":jquery-ui:1.10.4"
+//		compile ':jquery-date-time-picker:0.2.0'
+	
     }
 }

@@ -8,26 +8,14 @@
     <meta name="layout" content="home">
     <g:set var="entityName"
     value="${message(code: 'party.label', default: 'Party')}" />
-    <title>
-      <g:message code="default.show.label" args="[entityName]" />
-      - 
-      <g:if test="${partyInstance?.title}">
-        <g:fieldValue bean="${partyInstance}" field="title" />
-      </g:if>
-    </title>
   </head>
     <body>
-      <div id="show-party" class="content scaffold-show" role="main">
-        <h1>
+      <div id="show-party" style="margin-left:2%">
+        <h2><strong>
           <g:if test="${partyInstance?.title}">
             <g:fieldValue bean="${partyInstance}" field="title" />
-          </g:if>
-        </h1>
-        <g:if test="${flash.message}">
-          <div class="message" role="status">
-            ${flash.message}
-          </div>
-        </g:if>
+          </g:if></strong>
+        </h2>
 
         <%
 		  User host = partyInstance.getHost()
@@ -36,109 +24,102 @@
 		%>
 		
 		<g:if test="${!hostingThisParty}">
-		Mark as: 
+		<div style="font-weight: bold;color:black;">Go to this party? </div>
 			<g:if test="${!partyInstance.isAccepted(myself)}">
 				<g:link controller="party" action="accept" id="${partyInstance?.id}">
-					Going
+					<img src="${resource(dir: 'images', file: "like.png")}"/>
 				</g:link>
 			</g:if>
 			<g:if test="${!partyInstance.isRejected(myself)}">
-				<g:link controller="party" action="reject" id="${partyInstance?.id}">
-					Not going
+				<g:link style="padding-left:30px" controller="party" action="reject" id="${partyInstance?.id}">
+					<img src="${resource(dir: 'images', file: "dislike.png")}"/>
 				</g:link>
 			</g:if>
 		</g:if>
 
-        <ol class="property-list party">
-          <g:if test="${partyInstance?.host}">
-            <li class="fieldcontain">
-              <span id="host-label" class="property-label">
-                <g:message code="party.host.label"
-                default="Host" />
-              </span>
-              <span class="property-value" aria-labelledby="host-label">
-                <g:link controller="user" action="details" id="${partyInstance?.host?.id}">
-                  <img src="${resource(dir: 'images/profile', file: partyInstance?.host?.getProfilePicture())}"
-                    alt="Profile" />
-                  ${partyInstance?.host?.encodeAsHTML()}
-                </g:link>
-              </span>
-            </li>
-          </g:if>
-          
-          <g:if test="${partyInstance?.place}">
-            <li class="fieldcontain">
-              <span id="place-label" class="property-label">
-                <g:message code="party.place.label" default="Place" />
-              </span>
-              <span class="property-value" aria-labelledby="place-label">
-                <g:link controller="bar" action="details" id="${partyInstance?.place?.id}">
-                  ${partyInstance?.place?.encodeAsHTML()}
-                </g:link>
-              </span>
-            </li>
-          </g:if>
-          
-          <g:if test="${partyInstance?.startDateTime}">
-            <g:message code="party.startDateTime.label" default="Starts" />
-            <g:formatDate format="yyyy-MM-dd" date="${partyInstance?.startDateTime}" />
-          </g:if>
-          <g:if test="${partyInstance?.finsishDateTime}">
-            until
-            <g:formatDate format="yyyy-MM-dd" date="${partyInstance?.finsishDateTime}" />
-          </g:if>
+	        <table  cellspacing='0'>
+		        <tbody>
+			        <td>
+			        	<span class="property-value" aria-labelledby="host-label">
+			                <g:link controller="user" action="details" id="${partyInstance?.host?.id}">
+			                  <img src="${resource(dir: 'images/profile', file: partyInstance?.host?.getProfilePicture())}"
+			                    alt="Profile" />
+			                  ${partyInstance?.host?.encodeAsHTML()}
+			                </g:link>
+			              </span>
+				        <h1>
+							${fieldValue(bean: partyInstance, field: "startDateTime").toString().substring(0,16)} - ${fieldValue(bean: partyInstance, field: "finsishDateTime").toString().substring(0,16)}
+						</h1>
+						<h2>
+							${fieldValue(bean: partyInstance, field: "place")}
+						</h2>
+						<div style="text-align:center">
+							<img src="${resource(dir: 'images/bar', file: partyInstance?.place?.getProfilePicture())}"
+					                          alt="Profile" />
+                         </div>
+						${fieldValue(bean: partyInstance, field: "description")}
+					</td>
+				</tbody>
+			</table>
 
-          <g:if test="${partyInstance?.description}">
-            <li class="fieldcontain">
-              <span id="description-label" class="property-label">
-                <g:message code="party.description.label" default="Description" />
-              </span>
-              <span class="property-value" aria-labelledby="description-label">
-                <g:fieldValue bean="${partyInstance}" field="description" />
-              </span>
-            </li>
-          </g:if>
-
-          <g:message code="party.guestsInvited.label" default="Guests" />
-          <g:if test="${hostingThisParty}">
-          <g:link action="invite" id="${partyInstance.id}" class="button">Invite people</g:link>
-          </g:if>
-          <g:if test="${partyInstance?.guestsInvited}">
-            <table>
-              <tbody>
-                <g:each in="${partyInstance.guestsInvited.sort {it.name} }" var="guest">
-                  <tr>
-                    <td>
-                      <g:link controller="user" action="details" id="${guest.id}">
-                        <img src="${resource(dir: 'images/profile', file: guest?.getProfilePicture())}"
-                          alt="Profile" />
-                        ${guest?.encodeAsHTML()}
-                      </g:link>
-                    </td>
-                    <td>
-                      ${partyInstance.getStatus(guest)}
-                    </td>
-                  </tr>
-                </g:each>
-              </tbody>
-            </table>
-          </g:if>
-
-          <g:if test="${hostingThisParty}">
-          <h1>Suggested drinks 
-            [<g:link action="grocery" id="${partyInstance.id}">
-              grocery list
-            </g:link>]
-          </h1>
-          <ul style="list-style-type:disc">
-            <g:each in="${partyInstance.getSuggestedDrinks()}" var="drink">
-            <li>
-              ${drink.toString()}
-            </li>
-            </g:each>
-          </ul>
-          </g:if>
-        </ol>
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" >
+	  			<div class="panel panel-default">
+	    			<div class="panel-heading" role="tab" id="headingOne">
+	     				<h4 class="panel-title" style="font-weight: bold;color:black">
+	        				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+	          					Guests
+	        				</a>
+	     				</h4>
+   					</div>
+					<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+				      <div class="panel-body" style="font-weight: bold;color:black">
+						<g:if test="${partyInstance?.guestsInvited}">
+				            <table>
+				              <tbody>
+				                <g:each in="${partyInstance.guestsInvited.sort {it.name} }" var="guest">
+				                  <tr>
+				                    <td>
+				                      <g:link controller="user" action="details" id="${guest.id}">
+				                        <img src="${resource(dir: 'images/profile', file: guest?.getProfilePicture())}"
+				                          alt="Profile" />
+				                        ${guest?.encodeAsHTML()}
+				                      </g:link>
+				                    </td>
+				                    <td>
+				                    	<img src="${resource(dir: 'images', file: partyInstance.getStatusImage(guest))}">
+				                    </td>
+				                  </tr>
+				                </g:each>
+				              </tbody>
+				            </table>
+				          </g:if>
+	                      <g:if test="${hostingThisParty}">
+				          	<g:link  action="invite" id="${partyInstance.id}" class="button">Invite people</g:link>
+				          </g:if>
+			           </div>
+				    </div>
+				  </div>
+				  <g:if test="${hostingThisParty}">
+					  <div class="panel panel-default">
+		    			<div class="panel-heading" role="tab" id="headingTwo">
+		     				<h4 class="panel-title" style="font-weight: bold;color:black">
+		        				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		          					Suggested drinks
+		        				</a>
+		     				</h4>
+	   					</div>
+						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					      <div class="panel-body" style="font-weight: bold;color:black">
+					        <g:each in="${partyInstance.getSuggestedDrinks()}" var="drink">
+					            <li>
+					              ${drink.toString()}
+					            </li>
+				            </g:each>    
+				           </div>
+					    </div>
+					  </div>
+				  </g:if>
+        	</div>
       </div>
     </body>
 </html>
